@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B331595D-2D63-4B30-A916-0C7367D8BC07}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lw.Content</RootNamespace>
+    <AssemblyName>Content</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Debug\Content.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\AutoContent.cs" />
+    <Compile Include="Controls\Content.cs" />
+    <Compile Include="Controls\DisplayContainer.cs" />
+    <Compile Include="Controls\EmptyData.cs" />
+    <Compile Include="Controls\Error.cs" />
+    <Compile Include="Controls\Message.cs" />
+    <Compile Include="Controls\Success.cs" />
+    <Compile Include="Controls\Warning.cs" />
+    <Compile Include="cte.cs" />
+    <Compile Include="ContentManager.cs" />
+    <Compile Include="enum.cs" />
+    <Compile Include="PagesDS.cs">
+      <DependentUpon>PagesDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PagesDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PagesDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\CTE\CTE.csproj">
+      <Project>{C18BDCE6-053C-4CE6-B92D-0A32916D1514}</Project>
+      <Name>CTE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core-web\WebTools\WebTools.csproj">
+      <Project>{57723841-0A84-441C-8D5A-EDD8AA56E4DE}</Project>
+      <Name>WebTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\Data\Data.csproj">
+      <Project>{F6134610-83DD-4E30-A447-1F91AC00A84D}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\Utils\Utils.csproj">
+      <Project>{4805E87E-9CD7-4F8B-A401-62B4CD7864CF}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Base\Base.csproj">
+      <Project>{05A98EA8-78D1-4A23-8F7C-1C11D82C02B5}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataControls\DataControls.csproj">
+      <Project>{FA0AB953-7FB1-46B0-A4BF-FECC08CCEF09}</Project>
+      <Name>DataControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PagesDS.xsc">
+      <DependentUpon>PagesDS.xsd</DependentUpon>
+    </None>
+    <None Include="PagesDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PagesDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PagesDS.xss">
+      <DependentUpon>PagesDS.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="html\test.htm">
+      <CustomToolNamespace>lw.Content</CustomToolNamespace>
+    </EmbeddedResource>
+    <Content Include="_notes.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

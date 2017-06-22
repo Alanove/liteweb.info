@@ -1,0 +1,160 @@
+using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Collections.Specialized;
+
+namespace lw.GraphicUtils.Filters
+{
+  /// <summary>
+  /// Summary description for Class1.
+  /// </summary>
+  public class SinoFiler : BasicFilter
+  {
+    #region Basic Members
+    public const string RIGHT_SHIFT_TOKEN_NAME = "RightShift";
+    public const string UP_SHIFT_TOKEN_NAME = "UpShift";
+
+    private int _waves = 3; //Defualts
+    private int _shift = 10;
+
+
+    public int Waves
+    {
+		get
+		{
+			return _waves;
+		}
+		set
+		{
+			_waves = value;
+		}
+	}
+
+    public int Shift
+    {
+		get
+		{
+			return _shift;
+		}
+		set
+		{
+			_shift = value;
+		}
+	}
+
+    /// <summary>
+    /// Executes this filter on the input image and returns the result
+    /// </summary>
+    /// <param name="inputImage">input image</param>
+    /// <returns>transformed image</returns>
+    /// <example>
+    /// <code>
+	/// WaveFilter waveFilter = new WaveFilter();
+	/// waveFilter.Shift = 10;
+	/// waveFilter.Waves = 3;
+	/// transformed = waveFilter.ExecuteFilter(myImg);
+    /// </code>
+    /// </example>
+    public override Image ExecuteFilter(Image rawImage)
+    {
+		/*
+		Bitmap result = new Bitmap(rawImage.Width + Shift, rawImage.Height);
+		Graphics g = Graphics.FromImage(result);
+
+		int iImageHeight = result.Height;
+		int iImageWidth = result.Width;
+		int iImageLength = iImageHeight * iImageWidth; // Assume 32bpp
+		int iTargetLine = 0;
+
+		double m_nRippleGranularity = 30;
+		double nRipples = iImageHeight / m_nRippleGranularity;
+		double m_nDamping = 1;
+		double nFrameAsRadians = 2 * Math.PI * (double)1/Waves;
+		double m_nWaveHeight = 100f;
+
+		BitmapData _pImageData = result.LockBits(
+			new Rectangle(0, 0, iImageWidth, iImageHeight), 
+			ImageLockMode.WriteOnly, 
+			PixelFormat.Format32bppRgb);
+		Bitmap im = new Bitmap(rawImage);
+		BitmapData _pFlipImageData = im.LockBits(new Rectangle(0, 0, im.Width, im.Height), 
+			ImageLockMode.ReadOnly,
+			PixelFormat.Format32bppRgb);
+
+		IntPtr pImageData = _pImageData.Scan0;
+		IntPtr pFlipImageData = _pFlipImageData.Scan0;
+
+		for (int iCtr = 0; iCtr < iImageHeight; iCtr++)
+		{
+
+			// This function is borrowed from the Lake java example by David Griffifths and modified
+			// to suit this purpose.  The result of the function is a value indicating howd to displace
+			// lines in each frame. The size of the displacement varies with respect to the y position
+			// of the line.  Lines closer to the top of the image vary less than lines closer to the
+			// bottom.  This helps to offer some apparent perspective.  The structure of the function
+			// is as follows:
+			//
+			//          #Ripples            #Ripples   ImageHeight - Line#     Radians     Line# + WaveHeight
+			//         ---------- * Sine( ( -------- * ------------------- ) + ------- ) * ------------------
+			//         m_nDamping               1           Line#-1               1           ImageHeight
+			//
+			//  Terms:     A          B        B1            B2                  B3                C
+			//
+			// The two key terms are B and C.  B provides the oscillation to generate the wave effect while
+			// term C provides damping that is progressively less the further down the image to aid the 
+			// persepctive illusion.
+			//
+			// The sub-components in term B work as follows:
+			//
+			// B1 - Determines the number of ripples that will appear in the animation
+			// B2 - Determines the size of the ripples which grow progressively larger towards the
+			//      bottom of the image (perspective)
+			// B3 - Provides the oscillation offset for this frame
+			//
+			// Term A affects the damping and gives an opportunity to provide external influence on the
+			// damping.  Note that the damping effect is proportional to the inverse of the 
+
+			int iDisplacement = (int)(nRipples / m_nDamping *							/* A  */
+				Math.Sin											/* B  */
+				((double)((nRipples) *							/* B1 */
+				(iImageHeight - iCtr) / (double)(iCtr + 1)) +  /* B2 */
+				nFrameAsRadians								/* B3 */
+				) *
+				(iCtr + m_nWaveHeight) /							/* C  */
+				(double)iImageHeight
+				);
+
+			// System.Diagnostics.Debug.WriteLine(dispy.ToString());
+
+			// Pick a scanline, using a sinewave...
+			int iSourceLine = (iCtr < iDisplacement) ? iCtr : iCtr - iDisplacement;
+
+			// Calculate the offset of that scanline in the pixelarray
+			iSourceLine *= iImageWidth;
+
+			// Clip the value to avoid OutOfBounds
+			iSourceLine = (iSourceLine >= 0) ? iSourceLine : iCtr;
+
+			// Compute offset of target row of pixels
+			iTargetLine = iCtr * iImageWidth;
+
+			// Draw 1 scanline
+			for (int iPixelCtr = 0; iPixelCtr < iImageWidth; iPixelCtr++)
+			{
+				System.Runtime.InteropServices.Marshal.Copy(
+				pImageData[iTargetLine + iPixelCtr] =
+					(iSourceLine > iImageLength - iImageWidth) ? (int)0xFFFFFF : pFlipImageData[iSourceLine + iPixelCtr];
+
+			}
+		}
+		im.UnlockBits(pFlipImageData);
+		result.UnlockBits(pImageData);
+	  */
+
+    }
+
+    #endregion
+
+  }
+}

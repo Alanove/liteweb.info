@@ -1,0 +1,7 @@
+﻿**	4.1.0.0 (Alain)
+**	6/27/2012
+--	Added Routing
+
+**	4.1.0.1 (Alain)
+**	11/06/2013
+--	Routing	-->	InitRouting	-->	Added Fixed route Path for inline cms

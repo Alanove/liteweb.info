@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="saga" Class="SearcherDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=saga;Integrated Security=True" SettingsObjectName="lw.Searcher.Properties.Settings" SettingsPropertyName="sagaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.SearchSite" Method="SearchSite">
+    <Parameter Name="KeyWord" Parameter="keyWord" Type="System.String" DbType="VarChar(250)" />
+  </Function>
+</Database>

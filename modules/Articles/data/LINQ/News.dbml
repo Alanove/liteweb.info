@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IAS" Class="NewsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=dssrv.interedlb.sabis.net;Initial Catalog=IAS;Persist Security Info=True;User ID=sa" SettingsObjectName="lw.Articles.Properties.Settings" SettingsPropertyName="IASConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.NewsDateView" Member="NewsDateViews">
+    <Type Name="NewsDateView">
+      <Column Name="NewsMonthName" Type="System.String" DbType="VarChar(61)" CanBeNull="true" />
+      <Column Name="NewsMonth" Type="System.String" DbType="VarChar(63)" CanBeNull="true" />
+      <Column Name="Month" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NewsType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TypeUniqueName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NewsLanguage" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.News" Member="NewsDetails">
+    <Type Name="NewsDetail">
+      <Column Name="NewsId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Header" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="NewsText" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NewsType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NewsLanguage" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="NewsFile" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="UniqueName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ThumbImage" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="LargeImage" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MediumImage" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="CreatorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifierId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ranking" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PublishDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsView" Member="NewsDetailViews">
+    <Type Name="NewsDetailView">
+      <Column Name="NewsId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Header" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="NewsText" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NewsType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NewsLanguage" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="TypeName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="NewsFile" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="TypeUniqueName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="UniqueName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ThumbImage" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="LargeImage" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="CreatorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifierId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Creator" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Modifier" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="MediumImage" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Ranking" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PublishDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TypePath" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Path" Type="System.String" DbType="NVarChar(357)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.News" Member="News">
+    <Type Name="New">
+      <Column Name="NewsId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Header" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="NewsText" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NewsType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NewsLanguage" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="NewsFile" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="UniqueName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ThumbImage" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="LargeImage" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MediumImage" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="CreatorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifierId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ranking" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PublishDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

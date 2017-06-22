@@ -1,0 +1,14 @@
+﻿**	4.0.1.0 (Alain)
+**	12/13/2012
+--	CMS2Page	Created
+
+
+**	4.1.1.0 (Myriam)
+**	3/21/2016
+--	CMSTools	Created
+
+
+**	4.2.1.0 (Nazir)
+**	7/18/2016
+--	CMS3Page	Created
+--	PageProperties	Created

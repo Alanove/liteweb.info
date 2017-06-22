@@ -1,0 +1,124 @@
+﻿** 4.0.1.0 (Alain)
+** 6/22/2011
+--	Removed DownloadTagStatus
+--	Added All to DownloadStatus
+--	Added DownloadCategoriesDataSrc
+
+
+** 4.0.1.1 (Alain)
+** 6/22/2011
+--	DownladDataSrc	Changed Type now it takes type from querystring
+
+
+** 4.0.1.2 (Alain)
+** 7/25/2011
+--	lw.Downloads.Handler.DownloadFile	Changed WebContext.Root to WebContext.StartDir.
+
+
+** 4.0.1.3 (Naz)
+** 9/8/2011
+--	public enum DownloadLinktype	Download to Downloads
+--	DownloadLink	Changed DownloadItem["UniqueName"], to Type.ToString(),
+
+
+
+** 4.0.1.3 (Naz)
+** 9/8/2011
+--	public enum DownloadLinktype	Download to Downloads
+--	DownloadLink	Changed DownloadItem["UniqueName"], to Type.ToString(),
+
+
+
+** 4.0.3.4 (Naz)
+** 5/04/2012
+--	public void UpdateDownload		Added title to the function parameters so it can be modified
+--	DownloadDataSrc					Added DisplaySinceLastLogin
+--									Added GetDownloadsByNetwork
+
+
+** 4.0.4.4 (Naz)
+**	6/12/2012 
+--			Added: Thread WeeklyDownloadsActivity
+--			Added: Function AddDownloadActivity
+
+
+** 4.1.4.4 (Charbel)
+**	1/08/2012 
+--			Added: New file "DownloadNetworks" responsible to get/set the downloads in relation with the network
+--			Added: transfrom the network related functions in the "Downloads.cs" to be redirected to "DownloadNetworks.cs"
+					functions so that all the network related download functions are together.
+
+** 4.2.4.4 (Charbel)
+**	5/16/2013 
+--			Added: DownloadDataProvider file
+
+** 4.2.5.4 (Charbel)
+**	5/17/2013 
+--	Downloads	Added: UpdateDowloadFile function to update/change the download file
+
+
+** 4.2.5.5 (Alain)
+**	6/13/2013 
+--	DownloadDataSrc		Added: ability to search in manager
+
+** 4.2.5.6 (Charbel)
+**	6/17/2013 
+--	DownloadDataSrc		fixed select command, added "Top" to it.
+
+
+** 4.2.5.7 (Charbel)
+**	6/21/2013
+--	DownloadDataSrc		added foltering by network
+--	Dowloads			fixed AddDowload (used to add the status as Enabled directly, needed to be Disable as default)
+
+
+
+**	4.2.5.8 (Alain)
+**	6/24/2013
+--	DownloadCategoriesDataSrc	Changed inner join to outer join, because the source wasen't showing categories with 0 downloads in them.
+
+
+**	4.2.5.9 (Charbel)
+**	8/13/2013
+--	UpdateDownload		added "Sort" to be able to to sort the results
+
+**	4.2.5.10 (Charbel)
+**	9/17/2013
+--	DownloadDataSrc		added ability to get the type from the parent container
+
+**	4.2.5.11 (Myriam)
+**	10/16/2014
+--	DownloadCategoriesDataSrc		added "Condition"
+
+**	4.2.6.12 (Myriam)
+**	9/2/2015
+--	DownloadLink		added "TitleFormat" which will be the title for the link in case the "Format" is not needed 
+
+
+**	4.2.6.13 (Myriam)
+**	10/28/2015
+--	DownloadDataSrc		added Get Type from parent container in cms mode
+
+
+**	4.2.6.14 (Charbel)
+**	2/25/2016
+--	DownloadLink		added new attributes "MaxCharacters", "ClosingSentence" to limit the length of the string
+
+
+**	4.2.6.15 (Charbel)
+**	6/22/2016
+--	DownloadDataSrc		added OrderBy attribute, so we can set the order from the tag, it was automatically ordered by DownloadId before
+
+
+**	4.2.6.16 (Charbel)
+**	6/24/2016
+--	DownloadDataSrc		fixed functionality of order by added in the previous sync
+
+**	4.2.6.17 (Nazir)
+**	7/18/2016
+--	Override		UpdateDowloadFile to UpdateDownloadFile
+--	UpdateDownloadFile		added file size to the function
+
+**	4.2.6.18 (Nazir)
+**	7/18/2016
+--	DownloadDataSrc		Removed OrderBy Attribute

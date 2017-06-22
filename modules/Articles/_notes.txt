@@ -1,0 +1,171 @@
+﻿** 4.0.0.1 (Naz)
+** 4/13/2011
+--	NewsManager.UpdateDefaultImage
+		
+		Changed:	if (mediumHeight > 0 || mediumHeight > 0)
+						ImageUtils.Crop(largePath, mediumPath, mediumWidth, mediumHeight, ImageUtils.AnchorPosition.Default);
+
+		To:			if (mediumHeight > 0 || mediumHeight > 0)
+						ImageUtils.Resize(largePath, mediumPath, mediumWidth, mediumHeight);
+
+** 4.0.1.1 (Alain)
+** 4/19/2011
+--	News.LINQ.NewsManager
+		Added: GetNews with different parameters
+--	Moved NewsStatus and NewsTagStatus to lw.CTE.Enum
+
+** 4.0.1.2 (Naz)
+** 5/03/2011
+--	Changed in the function UpdateDefaultImage
+
+
+** 4.0.1.3 (Naz)
+** 5/25/2011
+--	Updated NEWSDS News:	Title from nvarchar(100) to nvarchar(200)
+							Uniquename from nvarchar(100) to nvarchar(200)
+
+
+** 4.0.1.4 (Alain)
+** 8/08/2011
+--	NewsManager.UpdateDefaultImage	MediumImage is now cropped
+									TODO: Add behavior in database for each image
+
+**	4.0.1.5 (Alain)
+**	8/17/2011
+--	lw.Articles.Controls.NewsDataItem	Added	404 Code when the news item is not found or its status is set to NoDisplay
+
+(Alain)
+status
+sort
+most read articles
+IncrementArticleViews
+NewsLink LinkExtension
+changed newslink and newsdatasrc databindings
+added publish date
+added MostRatedArticles
+
+**	4.0.1.6 (Charbel)
+**	6/28/2012
+--	added a CustomCondition for the NewsDataSrc so we can add/modify the selectCommand query.
+
+
+**	4.0.2.7 (Charbel)
+**	8/31/2012
+--	added a new funcion "GetRelatedNetworks" that takes only the newsId as argument.
+--	added a check for the "GetNewsByNetwork" function that check's if the user in the CMS is an admin or just another member,
+	since admins have different privilages.
+
+
+**	4.0.3.7 (Charbel)
+**	8/31/2012
+--	Added the "networkName" so that we can get the data based on a specific network name.
+
+
+**	4.0.3.8 (Nazir)
+**	10/10/2012
+--	Updated NewsDataSrc public string Type to get Priority: Tag Value, Route, QueryString
+
+
+**	4.0.3.9 (Nazir)
+**	10/11/2012
+--	Changed News Default Image from Guid() to UniqueName
+--	Updated NewsTypeDS public string Category to get Priority: Tag Value, Route, QueryString
+-- Added GetNewsTypeView to LinQ.NewsTypesManager
+
+**	4.0.4.9 (Alain)
+**	1/15/2013
+--	NewsImage Added LazyLoad
+
+
+**	4.0.4.10  (Nazir)
+**	1/29/2013
+--	lw.Articles.Controls.NewsTypeDataItem	TypeDetails get news from GetNewsTypeView instead of GetNewsType
+
+**	4.0.4.11  (Alain)
+**	4/4/2013
+--	lw.Articles.NewsManager.AddNewsType		added return category id.
+
+**	4.0.4.12  (Alain)
+**	4/4/2013
+--	lw.Articles.NewsTypeDS.BuildQuery		added CMSMode to check whether or not we're in the CMS.
+
+**	4.0.4.13  (Samer)
+**	4/9/2013
+--	lw.Articles.data.NewsManager		added check if picture is not available to skip updating it: if ((DefaultImage!= null && DefaultImage.ContentLength > 0) || deleteOldPicture)
+
+**	4.0.4.14  (Samer)
+**	4/10/2013
+--	lw.Articles.data.NewsDataSrc.BuildQuery		added CMSMode on status of news to show all news in CMS not just enabled ones
+
+**	4.0.4.15  (Samer)
+**	4/10/2013
+--	lw.Articles.Controls.NewsDataProvider		added NewsDataProvider file for news
+
+**	4.0.4.16  (Samer)
+**	4/15/2013
+--	lw.Articles.dataGetImagesPath		added GetImagesPath to get path of image
+
+**	4.0.4.17  (Alain)
+**	5/15/2013
+--	NewsManager	All resizing now uses the Dimensions function
+
+**	4.0.4.18  (Charbel)
+**	5/27/2013
+--	NewsDataSrc		changed the parameter _typeId to be publick (int? TypeId => public int? TypeId) so it can be given as a parameter
+					from "Menu.cs"
+
+**	4.0.4.19  (Alain)
+**	6/5/2013
+--	NewsDataSrc		fixed a bug preventing news datasource to take typeid from query string
+
+**	4.0.4.20  (Alain)
+**	6/12/2013
+--	NewsPictures	added cssClass so it will be added to the image's anchor.
+
+**	4.0.4.21  (Charbel)
+**	6/13/2013
+--	NewsDataSrc		added ability to filter the news by their related networks
+
+
+**	4.0.4.22  (Alain)
+**	6/20/2013
+--	NewsLink		if news.UniqueName starts with "http://" make it as an absolute link.
+
+
+**	4.0.5.23  (Charbel)
+**	6/21/2013
+--	NewsTypeDS		fixed the select command and added ability to filter the types by search query/typeid
+					bug fixes in DS
+--	NewsManager		added AddNews(title, newsType) to add the news and their types directly.
+--	AddNewsType		add newstype using Name and ParentId
+
+
+**	4.0.5.24  (Charbel)
+**	7/22/2013
+--	NewsTypeDS		Added UniqueName attribute to the search query
+					Changes "Select {0} * from NewsTypes" to "Select {0} * from NewsTypesView"
+
+
+**	4.0.5.25  (Alain)
+**	9/24/2013
+--	AddNews		added	StringUtils.ToURL(title)
+
+
+**	4.0.5.26 (Charbel)
+**	10/8/2013
+--	enum		added	TypesSort
+--	NewsTypeDS	added	Sort and CustomSort
+
+
+**	4.0.5.27 (Charbel)
+**	10/21/2013
+--	NewsManager	fixed UpdateNews (related file path creation)
+
+
+
+**	4.0.6.27 (Alain)
+**	11/26/2013
+--	Added	SaveDraft
+			DiscardDraft, 
+			draft field to the news database
+			Check NewsManager.SaveDraft,... for documentation.

@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D47D1EE8-BA1A-434F-A9EC-AC5DA019A2A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lw.Install</RootNamespace>
+    <AssemblyName>Install</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Debug\Install.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InstallDB.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="4.5.0.5 - Full Script SQL 2005\sql-script-July-2014.sql" />
+    <Content Include="4.5.0.6\1 - sql-PageDataProperty_create.sql" />
+    <Content Include="4.5.0.6\2 - pages-secure.sql" />
+    <Content Include="4.5.0.6\3 - tags.sql" />
+    <Content Include="4.5.1.6 - Full Script SQL 2012\script-march-30-2015.sql" />
+    <Content Include="4.5.1.7\5 - SearchSite Stored Procedure.sql" />
+    <Content Include="4.5.1.7\1 - PageProperties.sql" />
+    <Content Include="4.5.1.7\4 - MemberRoles.sql" />
+    <Content Include="4.5.1.7\6 - Tags.sql" />
+    <Content Include="4.5.1.7\5 - DataForms.sql" />
+    <Content Include="4.5.1.7\2 - Calendar.sql" />
+    <Content Include="4.5.1.7\7 - RelatedPages.sql" />
+    <Content Include="4.5.1.9\1 - Triggers.sql" />
+    <Content Include="4.5.1.9\2 - SocialMedia.sql" />
+    <Content Include="4.5.1.8 - Full Script\script-4.5.1.8.sql" />
+    <Content Include="4.5.2.0\2 - Keywords.sql" />
+    <Content Include="4.5.2.0\1 - Pages_View.sql" />
+    <Content Include="4.5.2.0\3 - MemberView.sql" />
+    <Content Include="4.5.2.0\4 - VideosView.sql" />
+    <Content Include="4.5.3.0 - Full Script\script-4.5.3.0.sql" />
+    <Content Include="4.5.3.1\Cached_Queries.sql" />
+    <Content Include="4.5.3.1\Page Likes.sql" />
+    <Content Include="Bugs\cms.txt" />
+    <Content Include="Framework\ChangeLog.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Framework\ChangeLog.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TODO\articles.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\core-web\CleanUp\CleanUp.csproj">
+      <Project>{754398bf-73f3-4c9a-bb5a-5348064fe5b0}</Project>
+      <Name>CleanUp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core-web\lw.JS\lw.js.csproj">
+      <Project>{fb4e8b39-b3a9-4b12-81c0-dc69c56eab95}</Project>
+      <Name>lw.js</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core-web\Searcher\Searcher.csproj">
+      <Project>{d487cf32-6e28-4c31-9e1f-5928f26522dc}</Project>
+      <Name>Searcher</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core-web\WebTools\WebTools.csproj">
+      <Project>{57723841-0a84-441c-8d5a-edd8aa56e4de}</Project>
+      <Name>WebTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\Collections\Collections.csproj">
+      <Project>{63b04925-d3fa-428a-953b-041eebf5cfaf}</Project>
+      <Name>Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\CTE\CTE.csproj">
+      <Project>{c18bdce6-053c-4ce6-b92d-0a32916d1514}</Project>
+      <Name>CTE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\Data\Data.csproj">
+      <Project>{f6134610-83dd-4e30-a447-1f91ac00a84d}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\ErrorHandler\Error.csproj">
+      <Project>{9d234644-d58e-4407-9eb2-5400a1e54e44}</Project>
+      <Name>Error</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\Graphics\Graphics.csproj">
+      <Project>{02d95412-57ec-44f5-8f92-30893e9d61cd}</Project>
+      <Name>Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\Network\Network.csproj">
+      <Project>{e228f4e5-a60b-437a-810f-13e171b1c9d4}</Project>
+      <Name>Network</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\Utils\Utils.csproj">
+      <Project>{4805e87e-9cd7-4f8b-a401-62b4cd7864cf}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Global\Global.csproj">
+      <Project>{7365290a-825e-44ba-becf-4221cfb932fa}</Project>
+      <Name>Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HashTagControls\HashTagControls.csproj">
+      <Project>{706b0b52-e1a7-4e97-8a52-7b4a606ce385}</Project>
+      <Name>HashTagControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\Ads\Ads.csproj">
+      <Project>{fd2c3234-3311-4ffc-bc3c-cc53dbdc873d}</Project>
+      <Name>Ads</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\Base\Base.csproj">
+      <Project>{05a98ea8-78d1-4a23-8f7c-1c11d82c02b5}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\cms\cms.csproj">
+      <Project>{c0fececa-40f3-4ea4-b8d4-2fafc9e96a58}</Project>
+      <Name>cms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\Comments\Comments.csproj">
+      <Project>{9473cfd9-77e6-4120-a137-1ce9b3ca21f7}</Project>
+      <Name>Comments</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\Countries\Countries.csproj">
+      <Project>{ca6ebc76-2d6f-4e55-98b1-02fed8b0c035}</Project>
+      <Name>Countries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\DataControls\DataControls.csproj">
+      <Project>{fa0ab953-7fb1-46b0-a4bf-fecc08ccef09}</Project>
+      <Name>DataControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\Downloads\Downloads.csproj">
+      <Project>{9fdc32e6-3e63-43d7-bbe7-40e9c614ea20}</Project>
+      <Name>Downloads</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\Events\Events.csproj">
+      <Project>{716aa5a5-2109-4bde-aafd-7780d1261221}</Project>
+      <Name>Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\Form\Forms.csproj">
+      <Project>{9f6da45f-62ce-45c0-b4b2-be26d24ea086}</Project>
+      <Name>Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\HashTags\HashTags.csproj">
+      <Project>{52b8f88e-2d1d-473e-9468-5a59fad54080}</Project>
+      <Name>HashTags</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\ImageControls\ImageControls.csproj">
+      <Project>{1fe43609-9a18-441d-9d84-d4056f00339b}</Project>
+      <Name>ImageControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\Login\Login.csproj">
+      <Project>{321a4b68-da40-4615-a93e-388db6ce8eb0}</Project>
+      <Name>Login</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\Members\Members.csproj">
+      <Project>{f7d7ecfe-0e8b-4081-829e-71a898bb235a}</Project>
+      <Name>Members</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\Menus\Menus.csproj">
+      <Project>{d25d2393-4497-48db-bd30-fe16cb1f9437}</Project>
+      <Name>Menus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\PhotoAlbums\PhotoAlbums.csproj">
+      <Project>{813956b6-c82a-439c-8e1f-838ec8ad002c}</Project>
+      <Name>PhotoAlbums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\SecurityControls\SecurityControls.csproj">
+      <Project>{b6ce6de2-d762-4196-aef3-41ff289afdb8}</Project>
+      <Name>SecurityControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\SocialNetworks\Networking.csproj">
+      <Project>{a2ce000f-4c6b-4e69-a4d8-218c352ef6ff}</Project>
+      <Name>Networking</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\Utilities\Utilities.csproj">
+      <Project>{2dac54c2-b963-4478-babe-e79d36e94f61}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\VideoGallery\VideoGallery.csproj">
+      <Project>{fcab5a67-7494-4807-91d4-955c039fc639}</Project>
+      <Name>VideoGallery</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\other\Tools\Tools.csproj">
+      <Project>{904ffb74-1fd0-4932-8030-802de91e237e}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pages\Pages.csproj">
+      <Project>{57492bad-b199-4b82-8b09-9ee7451045a5}</Project>
+      <Name>Pages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Slider\Slider.csproj">
+      <Project>{10288827-4496-470a-a3ef-340816cb4244}</Project>
+      <Name>Slider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Threading\Threading.csproj">
+      <Project>{c9240bc1-2f7b-4125-a2a2-e0749d9a1350}</Project>
+      <Name>Threading</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\URLShortener\URLShortener.csproj">
+      <Project>{14dc2884-d4ef-4aa4-957a-9b04e4ddd740}</Project>
+      <Name>URLShortener</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

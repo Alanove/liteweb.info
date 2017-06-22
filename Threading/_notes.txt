@@ -1,0 +1,13 @@
+﻿**	4.0.1.0	(Naz)
+**	6/12/2012 
+--			Read Threads From XML config and insert them into a ThreadPool
+--			Added: Empty ThreadingBase Constructor
+
+
+**	4.0.2.1	(Alain)
+**	10/30/2014
+--	ThreadingBase	Changed		static members are it was failing when more than one thread was added
+					Added		ThreadingTimersMap, RunningTimers, AddToGlobalThreads	(Check documentations for more info)
+					Added		Key
+	ThreadPool		Changed		_initThreads, it now adds the Key and it calls AddToGlobalThreads
+					

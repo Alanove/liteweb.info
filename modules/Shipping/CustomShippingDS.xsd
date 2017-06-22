@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CustomShippingDS" targetNamespace="http://tempuri.org/CustomShippingDS.xsd" xmlns:mstns="http://tempuri.org/CustomShippingDS.xsd" xmlns="http://tempuri.org/CustomShippingDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CustomShippingDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="CustomShippingDS" msprop:Generator_UserDSName="CustomShippingDS" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ShippingCalculationWay" msprop:Generator_UserTableName="ShippingCalculationWay" msprop:Generator_RowDeletedName="ShippingCalculationWayRowDeleted" msprop:Generator_TableClassName="ShippingCalculationWayDataTable" msprop:Generator_RowChangedName="ShippingCalculationWayRowChanged" msprop:Generator_RowClassName="ShippingCalculationWayRow" msprop:Generator_RowChangingName="ShippingCalculationWayRowChanging" msprop:Generator_RowEvArgName="ShippingCalculationWayRowChangeEvent" msprop:Generator_RowEvHandlerName="ShippingCalculationWayRowChangeEventHandler" msprop:Generator_TablePropName="ShippingCalculationWay" msprop:Generator_TableVarName="tableShippingCalculationWay" msprop:Generator_RowDeletingName="ShippingCalculationWayRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInTable="IdColumn" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Default" msprop:Generator_UserColumnName="Default" msprop:Generator_ColumnPropNameInRow="Default" msprop:Generator_ColumnVarNameInTable="columnDefault" msprop:Generator_ColumnPropNameInTable="DefaultColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ShippingWeight" msprop:Generator_UserTableName="ShippingWeight" msprop:Generator_RowDeletedName="ShippingWeightRowDeleted" msprop:Generator_TableClassName="ShippingWeightDataTable" msprop:Generator_RowChangedName="ShippingWeightRowChanged" msprop:Generator_RowClassName="ShippingWeightRow" msprop:Generator_RowChangingName="ShippingWeightRowChanging" msprop:Generator_RowEvArgName="ShippingWeightRowChangeEvent" msprop:Generator_RowEvHandlerName="ShippingWeightRowChangeEventHandler" msprop:Generator_TablePropName="ShippingWeight" msprop:Generator_TableVarName="tableShippingWeight" msprop:Generator_RowDeletingName="ShippingWeightRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UpTo" msprop:Generator_UserColumnName="UpTo" msprop:Generator_ColumnPropNameInRow="UpTo" msprop:Generator_ColumnVarNameInTable="columnUpTo" msprop:Generator_ColumnPropNameInTable="UpToColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Value" msprop:Generator_UserColumnName="Value" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInTable="ValueColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="GroupId" msprop:Generator_UserColumnName="GroupId" msprop:Generator_ColumnPropNameInRow="GroupId" msprop:Generator_ColumnVarNameInTable="columnGroupId" msprop:Generator_ColumnPropNameInTable="GroupIdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="GroupType" msprop:Generator_UserColumnName="GroupType" msprop:Generator_ColumnPropNameInRow="GroupType" msprop:Generator_ColumnVarNameInTable="columnGroupType" msprop:Generator_ColumnPropNameInTable="GroupTypeColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ShippingOrderCost" msprop:Generator_UserTableName="ShippingOrderCost" msprop:Generator_RowDeletedName="ShippingOrderCostRowDeleted" msprop:Generator_TableClassName="ShippingOrderCostDataTable" msprop:Generator_RowChangedName="ShippingOrderCostRowChanged" msprop:Generator_RowClassName="ShippingOrderCostRow" msprop:Generator_RowChangingName="ShippingOrderCostRowChanging" msprop:Generator_RowEvArgName="ShippingOrderCostRowChangeEvent" msprop:Generator_RowEvHandlerName="ShippingOrderCostRowChangeEventHandler" msprop:Generator_TablePropName="ShippingOrderCost" msprop:Generator_TableVarName="tableShippingOrderCost" msprop:Generator_RowDeletingName="ShippingOrderCostRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UpTo" msprop:Generator_UserColumnName="UpTo" msprop:Generator_ColumnPropNameInRow="UpTo" msprop:Generator_ColumnVarNameInTable="columnUpTo" msprop:Generator_ColumnPropNameInTable="UpToColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Value" msprop:Generator_UserColumnName="Value" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInTable="ValueColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="GroupId" msprop:Generator_UserColumnName="GroupId" msprop:Generator_ColumnPropNameInRow="GroupId" msprop:Generator_ColumnVarNameInTable="columnGroupId" msprop:Generator_ColumnPropNameInTable="GroupIdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="GroupType" msprop:Generator_UserColumnName="GroupType" msprop:Generator_ColumnPropNameInRow="GroupType" msprop:Generator_ColumnVarNameInTable="columnGroupType" msprop:Generator_ColumnPropNameInTable="GroupTypeColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Data" msprop:Generator_UserTableName="Data" msprop:Generator_RowDeletedName="DataRowDeleted" msprop:Generator_TableClassName="DataDataTable" msprop:Generator_RowChangedName="DataRowChanged" msprop:Generator_RowClassName="DataRow" msprop:Generator_RowChangingName="DataRowChanging" msprop:Generator_RowEvArgName="DataRowChangeEvent" msprop:Generator_RowEvHandlerName="DataRowChangeEventHandler" msprop:Generator_TablePropName="Data" msprop:Generator_TableVarName="tableData" msprop:Generator_RowDeletingName="DataRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Value" msprop:Generator_UserColumnName="Value" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInTable="ValueColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="eCountries" msprop:Generator_UserTableName="eCountries" msprop:Generator_RowDeletedName="eCountriesRowDeleted" msprop:Generator_TableClassName="eCountriesDataTable" msprop:Generator_RowChangedName="eCountriesRowChanged" msprop:Generator_RowClassName="eCountriesRow" msprop:Generator_RowChangingName="eCountriesRowChanging" msprop:Generator_RowEvArgName="eCountriesRowChangeEvent" msprop:Generator_RowEvHandlerName="eCountriesRowChangeEventHandler" msprop:Generator_TablePropName="eCountries" msprop:Generator_TableVarName="tableeCountries" msprop:Generator_RowDeletingName="eCountriesRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DisplayName" msprop:Generator_UserColumnName="DisplayName" msprop:Generator_ColumnPropNameInRow="DisplayName" msprop:Generator_ColumnVarNameInTable="columnDisplayName" msprop:Generator_ColumnPropNameInTable="DisplayNameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="GroupId" msprop:Generator_UserColumnName="GroupId" msprop:Generator_ColumnPropNameInRow="GroupId" msprop:Generator_ColumnVarNameInTable="columnGroupId" msprop:Generator_ColumnPropNameInTable="GroupIdColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="eRegions" msprop:Generator_UserTableName="eRegions" msprop:Generator_RowDeletedName="eRegionsRowDeleted" msprop:Generator_TableClassName="eRegionsDataTable" msprop:Generator_RowChangedName="eRegionsRowChanged" msprop:Generator_RowClassName="eRegionsRow" msprop:Generator_RowChangingName="eRegionsRowChanging" msprop:Generator_RowEvArgName="eRegionsRowChangeEvent" msprop:Generator_RowEvHandlerName="eRegionsRowChangeEventHandler" msprop:Generator_TablePropName="eRegions" msprop:Generator_TableVarName="tableeRegions" msprop:Generator_RowDeletingName="eRegionsRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DisplayName" msprop:Generator_UserColumnName="DisplayName" msprop:Generator_ColumnPropNameInRow="DisplayName" msprop:Generator_ColumnVarNameInTable="columnDisplayName" msprop:Generator_ColumnPropNameInTable="DisplayNameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="GroupId" msprop:Generator_UserColumnName="GroupId" msprop:Generator_ColumnPropNameInRow="GroupId" msprop:Generator_ColumnVarNameInTable="columnGroupId" msprop:Generator_ColumnPropNameInTable="GroupIdColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CountryGroups" msprop:Generator_UserTableName="CountryGroups" msprop:Generator_RowDeletedName="CountryGroupsRowDeleted" msprop:Generator_TableClassName="CountryGroupsDataTable" msprop:Generator_RowChangedName="CountryGroupsRowChanged" msprop:Generator_RowClassName="CountryGroupsRow" msprop:Generator_RowChangingName="CountryGroupsRowChanging" msprop:Generator_RowEvArgName="CountryGroupsRowChangeEvent" msprop:Generator_RowEvHandlerName="CountryGroupsRowChangeEventHandler" msprop:Generator_TablePropName="CountryGroups" msprop:Generator_TableVarName="tableCountryGroups" msprop:Generator_RowDeletingName="CountryGroupsRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GroupId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_UserColumnName="GroupId" msprop:Generator_ColumnPropNameInRow="GroupId" msprop:Generator_ColumnVarNameInTable="columnGroupId" msprop:Generator_ColumnPropNameInTable="GroupIdColumn" type="xs:int" />
+              <xs:element name="GroupName" msprop:Generator_UserColumnName="GroupName" msprop:Generator_ColumnPropNameInRow="GroupName" msprop:Generator_ColumnVarNameInTable="columnGroupName" msprop:Generator_ColumnPropNameInTable="GroupNameColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RegionGroups" msprop:Generator_UserTableName="RegionGroups" msprop:Generator_RowDeletedName="RegionGroupsRowDeleted" msprop:Generator_TableClassName="RegionGroupsDataTable" msprop:Generator_RowChangedName="RegionGroupsRowChanged" msprop:Generator_RowClassName="RegionGroupsRow" msprop:Generator_RowChangingName="RegionGroupsRowChanging" msprop:Generator_RowEvArgName="RegionGroupsRowChangeEvent" msprop:Generator_RowEvHandlerName="RegionGroupsRowChangeEventHandler" msprop:Generator_TablePropName="RegionGroups" msprop:Generator_TableVarName="tableRegionGroups" msprop:Generator_RowDeletingName="RegionGroupsRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GroupId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_UserColumnName="GroupId" msprop:Generator_ColumnPropNameInRow="GroupId" msprop:Generator_ColumnVarNameInTable="columnGroupId" msprop:Generator_ColumnPropNameInTable="GroupIdColumn" type="xs:int" />
+              <xs:element name="GroupName" msprop:Generator_UserColumnName="GroupName" msprop:Generator_ColumnPropNameInRow="GroupName" msprop:Generator_ColumnVarNameInTable="columnGroupName" msprop:Generator_ColumnPropNameInTable="GroupNameColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ShippingBasedOn" msprop:Generator_UserTableName="ShippingBasedOn" msprop:Generator_RowDeletedName="ShippingBasedOnRowDeleted" msprop:Generator_TableClassName="ShippingBasedOnDataTable" msprop:Generator_RowChangedName="ShippingBasedOnRowChanged" msprop:Generator_RowClassName="ShippingBasedOnRow" msprop:Generator_RowChangingName="ShippingBasedOnRowChanging" msprop:Generator_RowEvArgName="ShippingBasedOnRowChangeEvent" msprop:Generator_RowEvHandlerName="ShippingBasedOnRowChangeEventHandler" msprop:Generator_TablePropName="ShippingBasedOn" msprop:Generator_TableVarName="tableShippingBasedOn" msprop:Generator_RowDeletingName="ShippingBasedOnRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInTable="IdColumn" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:ShippingCalculationWay" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="CountryGroups_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:CountryGroups" />
+      <xs:field xpath="mstns:GroupId" />
+    </xs:unique>
+    <xs:unique name="RegionGroups_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:RegionGroups" />
+      <xs:field xpath="mstns:GroupId" />
+    </xs:unique>
+    <xs:unique name="ShippingBasedOn_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:ShippingBasedOn" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

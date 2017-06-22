@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="News">
+  <DataContextMoniker Name="/NewsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="afd7fe3f-bea0-4e06-9be9-c835980d736e" absoluteBounds="0.75, 0.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/NewsDataContext/NewsDateView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="41221d29-c5cd-4213-8fdf-939d06d459b6" absoluteBounds="0.76500000000000057, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7bd771e2-b456-4168-bd4f-5b0a8c7cc4c2" absoluteBounds="0.625, 2.75, 2, 4.8477197265625">
+      <DataClassMoniker Name="/NewsDataContext/NewsDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5f8818f-0aa7-4541-b0c9-5965972e9efa" absoluteBounds="0.64000000000000012, 3.21, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed4a178b-e841-4ca8-ac5e-fbc93ba216d2" absoluteBounds="3.875, 2, 2, 6.0015283203125005">
+      <DataClassMoniker Name="/NewsDataContext/NewsDetailView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b531c4a7-dfa7-4520-ad4b-ddae77b9e99c" absoluteBounds="3.89, 2.46, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0a262600-2be9-4eba-ad32-18bdbccbfaa6" absoluteBounds="6.625, 2.25, 2, 4.8477197265625">
+      <DataClassMoniker Name="/NewsDataContext/New" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5207b80b-0cbc-4b93-a222-afdacd853173" absoluteBounds="6.6400000000000006, 2.71, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

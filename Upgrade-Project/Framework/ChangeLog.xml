@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="ChangeLog.xsl"?>
+<ChangeLog>
+	<Change>
+		<FrameworkVersion>4527</FrameworkVersion>
+		<Changes>
+			<Assembly>Pages</Assembly>
+			<AssemblyVersion>1.0.5.1</AssemblyVersion>
+			<Details>
+				--	PageRelatedAlbum	added condition for the databind so it binds only if the row is not null
+			</Details>
+		</Changes>
+		<Developer>Charbel</Developer>
+		<Date>7/22/2016</Date>
+		<ReviewedBy></ReviewedBy>
+	</Change>
+	<Change>
+		<FrameworkVersion>4526</FrameworkVersion>
+		<Changes>
+			<Assembly>Forms</Assembly>
+			<AssemblyVersion>4.5.6.7</AssemblyVersion>
+			<Details>
+				--	Validator			fixed a bug about Date Validation
+				--	BoundedSelectList	added .Trim() to select values
+			</Details>
+		</Changes>
+		<Changes>
+			<Assembly>HashTags</Assembly>
+			<AssemblyVersion>4.0.0.2</AssemblyVersion>
+			<Details>
+				--	HashTagsManager		added SQLEncode to string input to avoid potential sql injection
+			</Details>
+		</Changes>
+		<Changes>
+			<Assembly>DataControls</Assembly>
+			<AssemblyVersion>4.3.3.8</AssemblyVersion>
+			<Details>
+				--	CustomDataSource	string values added dash seperator "-"
+			</Details>
+		</Changes>
+		<Developer>Alain</Developer>
+		<Date>7/20/2016</Date>
+		<ReviewedBy></ReviewedBy>
+	</Change>
+	<Change>
+		<FrameworkVersion>4525</FrameworkVersion>
+		<Changes>
+			<Assembly>Downloads</Assembly>
+			<AssemblyVersion>4.2.6.18</AssemblyVersion>
+			<Details>
+				--	DownloadDataSrc		Removed OrderBy Attribute
+			</Details>
+		</Changes>
+		<Developer>Nazir</Developer>
+		<Date>7/19/2016</Date>
+		<ReviewedBy></ReviewedBy>
+	</Change>
+	<Change>
+		<FrameworkVersion>4524</FrameworkVersion>
+		<Changes>
+			<Assembly>CMS</Assembly>
+			<AssemblyVersion>4.2.1.0</AssemblyVersion>
+			<Details>
+				--	CMS3Page	Created
+				--	PageProperties	Created
+			</Details>
+		</Changes>
+		<Changes>
+			<Assembly>Base</Assembly>
+			<AssemblyVersion>4.4.11.10</AssemblyVersion>
+			<Details>
+				--	CustomPage		Added		 bool PageProperties (To check id the cms page is the page properties)
+			</Details>
+		</Changes>
+		<Changes>
+			<Assembly>Downloads</Assembly>
+			<AssemblyVersion>4.2.6.17</AssemblyVersion>
+			<Details>
+				--	Override		UpdateDowloadFile to UpdateDownloadFile
+				--	UpdateDownloadFile		added file size to the function
+			</Details>
+		</Changes>
+		<Changes>
+			<Assembly>PhotoAlbums</Assembly>
+			<AssemblyVersion>4.3.6.14</AssemblyVersion>
+			<Details>
+				--	PhotoAlbumsManager	Changed:	if(!DeleteImage &amp;&amp; Image != null &amp;&amp; Image.ContentLength > 0) to if (Image != null &amp;&amp; Image.ContentLength > 0)
+				-- PhotoAlbumsLink		Added:		this.Attributes.Add("title", string.Format(Format, text));
+			</Details>
+		</Changes>
+		<Changes>
+			<Assembly>VideoGallery</Assembly>
+			<AssemblyVersion>4.0.2.2</AssemblyVersion>
+			<Details>
+				-- MediaGalleryManager		Added		UpdateVideoWithImage that takes (bool? crop) option top crop or resize the thumb image
+			</Details>
+		</Changes>
+		<Changes>
+			<Assembly>Pages</Assembly>
+			<AssemblyVersion>1.0.5.0</AssemblyVersion>
+			<Details>
+				--	PageLink	Added		this.Attributes.Add("title", string.Format(Format, Title));
+				--	PagesManager, Added UpdateProperties with Header parameter
+			</Details>
+		</Changes>
+		<Changes>
+			<Assembly>Install</Assembly>
+			<AssemblyVersion>4.5.1.9</AssemblyVersion>
+			<Details>
+				Added SQL script for Triggers
+			</Details>
+		</Changes>
+		<Developer>Nazir</Developer>
+		<Date>7/18/2016</Date>
+		<ReviewedBy></ReviewedBy>
+	</Change>
+	<Change>
+		<FrameworkVersion>4523</FrameworkVersion>
+		<Changes>
+			<Assembly>DataControls</Assembly>
+			<AssemblyVersion>4.3.3.8</AssemblyVersion>
+			<Details>
+				--	CustomDataSource	removed "-" from the list of DataString seperators and replaced it by "|" since some words may contain the "-" in them
+				--  Examples and Documentations, fixed example of customdatasource, replaced "-" by "|"
+			</Details>
+		</Changes>
+		<Developer>Charbel</Developer>
+		<Date>6/22/2016</Date>
+		<ReviewedBy></ReviewedBy>
+	</Change>
+	<Change>
+		<FrameworkVersion>4522</FrameworkVersion>
+		<Changes>
+			<Assembly>Downloads</Assembly>
+			<AssemblyVersion>4.2.6.16</AssemblyVersion>
+			<Details>
+				--	DownloadDataSrc		fixed functionality of order by added in the previous sync
+			</Details>
+		</Changes>
+		<Developer>Charbel</Developer>
+		<Date>6/22/2016</Date>
+		<ReviewedBy></ReviewedBy>
+	</Change>
+	<Change>
+		<FrameworkVersion>4521</FrameworkVersion>
+		<Changes>
+			<Assembly>Downloads</Assembly>
+			<AssemblyVersion>4.2.6.15</AssemblyVersion>
+			<Details>
+				--	DownloadDataSrc		added OrderBy attribute, so we can set the order from the tag, it was automatically ordered by DownloadId before
+			</Details>
+		</Changes>
+		<Developer>Charbel</Developer>
+		<Date>6/22/2016</Date>
+		<ReviewedBy></ReviewedBy>
+	</Change>
+	<Change>
+		<FrameworkVersion>4520</FrameworkVersion>
+		<Changes>
+			<Assembly>Install</Assembly>
+			<AssemblyVersion>4.5.1.8</AssemblyVersion>
+			<Details>
+				Added SQL script for Pages_View
+			</Details>
+		</Changes>
+		<Developer>Alain</Developer>
+		<Date>6/16/2016</Date>
+		<ReviewedBy></ReviewedBy>
+	</Change>
+	<Change>
+		<FrameworkVersion>4519</FrameworkVersion>
+		<Changes>
+			<Assembly>Install</Assembly>
+			<AssemblyVersion>4.5.1.8</AssemblyVersion>
+			<Details>
+				Added SQL Script for DataForms.SQL in 4.5.1.7 for Status and History
+			</Details>
+		</Changes>
+		<Developer>Alain</Developer>
+		<Date>6/7/2016</Date>
+		<ReviewedBy></ReviewedBy>
+	</Change>
+	<Change>
+		<FrameworkVersion>4518</FrameworkVersion>
+		<Changes>
+			<Assembly>Install</Assembly>
+			<AssemblyVersion>4.5.1.8</AssemblyVersion>
+			<Details>Added: 4.5.1.8 Full Database script</Details>
+		</Changes>
+		<Changes>
+			<Assembly>lw.js</Assembly>
+			<AssemblyVersion>1.0.1.1</AssemblyVersion>
+			<Details>
+				--	lw.js					fixed synchronization between showOverlay, hideOverlay<Br/>
+			</Details>
+		</Changes>
+		<Changes>
+			<Assembly>lw.js</Assembly>
+			<AssemblyVersion>1.0.1.1</AssemblyVersion>
+			<Details>
+				--	lw-forms.js		hideLoader was being called 2 times after form submission, now it's called only on "complete" event.
+			</Details>
+		</Changes>
+		<Changes>
+			<Assembly>FAQ, Testimonials, Articles, Dummy</Assembly>
+			<AssemblyVersion>0</AssemblyVersion>
+			<Details>
+				Removed from lw solution
+			</Details>
+		</Changes>
+		<Developer>Alain</Developer>
+		<Date>6/7/2016</Date>
+		<ReviewedBy></ReviewedBy>
+	</Change>
+</ChangeLog>

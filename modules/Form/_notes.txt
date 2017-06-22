@@ -1,0 +1,110 @@
+﻿**	4.0.0.1 (Alain)
+**	7/29/2011
+--	lw.Forms.Controls	RenderBeginTag	Changed to clientId
+
+
+**	4.0.0.2 (Alain)
+**	8/19/2011
+--	lw.Forms.Controls	GetValue Changed to UniqueID 
+						values coming from ClientID are null (investigate it further in the future)
+
+**	4.0.0.3 (Alain)
+**	9/8/2011
+--	lw.Form.Controls changed action building
+
+**	4.1.0.3 (Alain)
+**	6/28/2012
+--	Added Controls.ValidationGroup
+
+
+**	4.2.0.3 (Alain)
+**	6/28/2012
+--	Added Controls.Validator
+
+**	4.2.2.3 (Alain)
+**	6/28/2012
+--	Controls.Forms		Added:	Interraction with validation
+								AjaxSubmit
+
+**	4.2.2.4 (Alain)
+**	8/31/2012
+--	ValidationGroup		init is now called from C# individualy for each Group.
+
+
+**	4.2.3.4 (Naz)
+**	1/16/2013
+--	Added DataType "Phone" with Validation Function and RegEx.
+
+				
+**	4.3.3.4 (Alain)
+**	1/30/2013
+--	Added:
+	BoundedCheckbox
+	BoundedCheckboxList
+	BoundedHiddenElement
+	BoundedRichTextEditor
+	BoundedSelectList
+	BoundedTextArea
+	BoundedTextField
+
+**	4.3.3.5 (Alain)
+**	4/17/2013
+--	Validators	EmptyText now adds a placeholder to the input.
+
+
+**	4.3.3.6 (Alain)
+**	5/15/2013
+--	BoundedCheckboxList		Added	GetSelectedValues() //Check docs.
+
+
+**	4.3.3.7 (Charbel)
+**	7/3/2013
+--	BoundedTextField		Added	readonly attribute to make the input field as read only if necessairy
+
+**	4.3.4.6 (Alain)
+**	8/20/2014
+--	Added multilanguage support for validation by using resource files.
+--	To use any multi language resource the following lines must be added to web.config in the corresponding directory:
+<configuration>
+	<system.web>
+		<globalization culture="auto:en-US" uiCulture="ar" /> <!-- ar for arabic -->
+	</system.web>
+</configuration>
+
+
+
+**	4.4.5.7 (Alain)
+**	1/20/2015
+--	Controls.Form		Added		Save
+									LoadSavedData
+									GetSavedFormData
+									DeleteSavedData
+
+--	Controls.Validator	Added		ValidateWith
+									ValidateWithControl
+									ValidateWithCondition
+									ValidateWithValue
+						Changed		Validate				Now supports ValidateWith
+									DataBind				Now supports ValidateWith
+						
+--	CompareCondition	Added		Different
+									HaveValue
+									Descriptions on fields
+
+--	Added				Class		FormRequest	
+
+--	Removed reference for NewsoftJson from the project, Json is now loaded using Nuget and pachages.config
+
+
+**	4.5.6.8 (Myriam)
+**	12/8/2015
+--	Added				DataForms.dbml
+						DataFormsManager
+						cte.cs  
+
+--  Controls.Form       Added       bool DataForm
+									string FormType
+									DataFormsManager _formsMgr
+
+--   Added				Function  GetAllValuesInDictionnary(Dictionary<string, string> dic)
+						Function  SaveDataForm(string dataFormType)

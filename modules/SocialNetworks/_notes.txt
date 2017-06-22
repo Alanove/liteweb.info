@@ -1,0 +1,61 @@
+﻿**	4.0.1.0 (Alain)
+**	2/6/2013
+--	Added	Controls	NetworksDataSource
+
+**	4.0.2.0 (Charbel)
+**	2/20/2013
+--	Added	function	RemoveNetwork that will delete the network
+
+
+**	4.0.2.1 (Naz)
+**	3/27/2013
+--	Added	Properties	NetworkBound to NetworksDataSource
+
+**	4.0.2.0 (Charbel)
+**	2/28/2013
+--	Removed the images attributes from Networks table (Picture, ThumbImage, LargeImage, MediumImage)
+
+**	4.0.3.0 (Alain)
+**	4/3/2013
+--	NetworksDataSource	added TableName
+
+**	4.0.4.0 (Samer)
+**	4/29/2013
+--	NetworksManager	added GetNetworkAncestors function to get network's ancestors
+
+**	4.0.5.0 (Charbel)
+**	5/14/2013
+--	NetworksManager	added GetNetworkByStatus function to get the last entered network with selected status
+
+**	4.0.5.1 (Charbel)
+**	5/15/2013
+--	NetworksManager		added Thumb and Medium resize options to UpdateNetwork
+--	NetworkImage		added a link for the Medium sized images
+--	NetworkImage		fixed the Thumb path, it was still showing Album instead of Network
+--	NetworkImageLink	fixed the link path to include the large folder
+--	NetworksDataSource	added OrderBy argument
+--	NetworksDataSource	added Status argument
+--	NetworksManager		added status to "Add and Update" functions
+
+**	4.0.5.2 (Charbel)
+**	5/16/2013
+--	NetworksManager		fixed the updateImage function (now the original image stays and three images are added under their specified folders)
+--	NetworkImage		fixed the path and added original image path
+--	SocialNetworksDataContext	removed (LargeImage, ThumbImage, MediumImage) from the table
+--	NetworkImageLink	added Thumb, Medium, Large and Original image links
+--	NetworkImage		added Thumb, Medium, Large and Original image links
+
+**	4.0.5.3 (Charbel)
+**	6/13/2013
+--	NetworksDataSource	added ParentUniqueName attribute so we can call the network
+							based on it's parent's name/uniqueName if we don't know the parent id
+
+**	4.0.5.4 (Charbel)
+**	6/17/2013
+--	NetworksManager		-- added Delete directory in RemoveNetwork so the related images will be deleted automatically when the network is deleted
+						-- fixed the path in the UpdateImage function
+						-- added ability to search by date from the cms
+
+**	4.0.5.5 (Charbel)
+**	2/17/2015
+--	NetworksManager		-- UpdateNetwork removed deleteimage check from if statement on line 375 because it was preventing the function from saving the image

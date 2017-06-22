@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SliderDS" targetNamespace="http://tempuri.org/SliderDS.xsd" xmlns:mstns="http://tempuri.org/SliderDS.xsd" xmlns="http://tempuri.org/SliderDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SliderDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SliderDS" msprop:Generator_UserDSName="SliderDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Slides" msprop:Generator_TableClassName="SlidesDataTable" msprop:Generator_TableVarName="tableSlides" msprop:Generator_RowChangedName="SlidesRowChanged" msprop:Generator_TablePropName="Slides" msprop:Generator_RowDeletingName="SlidesRowDeleting" msprop:Generator_RowChangingName="SlidesRowChanging" msprop:Generator_RowEvHandlerName="SlidesRowChangeEventHandler" msprop:Generator_RowDeletedName="SlidesRowDeleted" msprop:Generator_RowClassName="SlidesRow" msprop:Generator_UserTableName="Slides" msprop:Generator_RowEvArgName="SlidesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" minOccurs="0" />
+              <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="OrderNbr" msprop:Generator_ColumnVarNameInTable="columnOrderNbr" msprop:Generator_ColumnPropNameInRow="OrderNbr" msprop:Generator_ColumnPropNameInTable="OrderNbrColumn" msprop:Generator_UserColumnName="OrderNbr" type="xs:int" minOccurs="0" />
+              <xs:element name="ImageUrl" msprop:Generator_ColumnVarNameInTable="columnImageUrl" msprop:Generator_ColumnPropNameInRow="ImageUrl" msprop:Generator_ColumnPropNameInTable="ImageUrlColumn" msprop:Generator_UserColumnName="ImageUrl" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="SlidesKey11">
+      <xs:selector xpath=".//mstns:Slides" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Comments">
+  <DataContextMoniker Name="/CommentsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="256313ae-c666-4330-8ea2-37bcac771614" absoluteBounds="2.75, 1.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/CommentsDataContext/Comments_Table" />
+      <nestedChildShapes>
+        <elementListCompartment Id="09377469-a208-40d4-be01-63758e41a954" absoluteBounds="2.7649999999999997, 2.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fd1aa0d0-5e72-4165-b077-45a700214cd0" absoluteBounds="5.75, 1.5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/CommentsDataContext/Comments_Tables_View" />
+      <nestedChildShapes>
+        <elementListCompartment Id="20aa2c31-951e-4b67-a4d0-c160830b7aec" absoluteBounds="5.765, 1.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LAMYO" Class="HashTagsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=dssrv.interedlb.sabis.net;Initial Catalog=LAMYO;User ID=sa" SettingsObjectName="lw.HashTags.Properties.Settings" SettingsPropertyName="LAMYOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.HashTags" Member="HashTags">
+    <Type Name="HashTag">
+      <Column Name="TagId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tag" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HashTags_Relations" Member="HashTags_Relations">
+    <Type Name="HashTags_Relation">
+      <Column Name="TagId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RelateTo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RelationType" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.HashTags_Update" Method="HashTags_Update">
+    <Parameter Name="tags" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="RelationId" Parameter="relationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RelationType" Parameter="relationType" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

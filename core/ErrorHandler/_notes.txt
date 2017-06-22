@@ -1,0 +1,4 @@
+﻿** 4.0.0.1 (Alain)
+** 7/20/2011
+--	GetErrorDetails Added URL Referrer
+--	Log Changing the logic, now all files will be unlocked even if we have an error within the Log function

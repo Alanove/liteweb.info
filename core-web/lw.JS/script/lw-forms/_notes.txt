@@ -1,0 +1,9 @@
+﻿**	1.004 (Alain)
+**	4/17/2013
+Removed EmptyText Trace, we can now use placeholder.
+If EmptyText was added to the validator it will automatically be converted to placeholder.
+
+**	1.007 (Alain)
+**	4/12/2016
+fixed loader issue, added functionality to define the loading area.
+removing hideloader from complete in ajaxforms submit

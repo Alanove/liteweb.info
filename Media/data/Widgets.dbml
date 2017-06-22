@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="testingDb" Class="WidgetsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=dssrv.interedlb.sabis.net,1433;Initial Catalog=testingDb;Persist Security Info=True;User ID=sa" SettingsObjectName="lw.Widgets.Properties.Settings" SettingsPropertyName="testingDbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MediaWidgets" Member="MediaWidgets">
+    <Type Name="MediaWidget">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MediaId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WidgetId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Widget_MediaWidget" Member="Widget" ThisKey="WidgetId" OtherKey="Id" Type="Widget" IsForeignKey="true" />
+      <Association Name="Medias_MediaWidget" Member="Media" ThisKey="MediaId" OtherKey="Id" Type="Media" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Widgets" Member="Widgets">
+    <Type Name="Widget">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ExpirationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Widget_MediaWidget" Member="MediaWidgets" ThisKey="Id" OtherKey="WidgetId" Type="MediaWidget" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Media" Member="Medias">
+    <Type Name="Media">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Caption" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="MediaFile" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MediaObject" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="Sort" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ExpirationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tags" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Association Name="Medias_MediaWidget" Member="MediaWidgets" ThisKey="Id" OtherKey="MediaId" Type="MediaWidget" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MediaWidgetsView" Member="MediaWidgetsViews">
+    <Type Name="MediaWidgetsView">
+      <Column Name="MediaId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Caption" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="MediaFile" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MediaObject" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="MediaStatus" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="MediaDateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MediaDateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MediaExpiratinDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MediaCreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediaModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tags" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="PageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="WidgetStatus" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="WidgetDateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WidgetDateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WidgetExpirationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WidgetCreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WidgetModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sort" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,4 @@
+﻿** 1.0.1.1 (Charbel)
+** 5/28/2013
+--	TestimonialsManager	**	Changed AddTestimonial from "bool" to "DataRow" so it returns the added row and not only true/false
+						**	Fixed GetTestimonial(int Id) changed the string format from {0} to Id={0}

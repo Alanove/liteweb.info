@@ -1,0 +1,8 @@
+﻿**	1.0.0.1 (Charbel)
+**	9/8/2015
+--	PagesShortUrl.cs	removed the editing option, there is no need to edit the url since it's generated automatically and filled
+						in the DB as is
+
+**	1.0.0.2 (Charbel)
+**	11/11/2015
+--	PagesShortUrl.cs	adding HideFromFullUrl attribute in order to hide certain string from the get url

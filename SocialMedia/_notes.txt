@@ -1,0 +1,4 @@
+﻿**	1.2.0.0 (Nazir)
+**	8/2/2016
+--	Added SocialMedia DBML
+--	Added SocialMedia Manager

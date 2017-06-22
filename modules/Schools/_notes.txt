@@ -1,0 +1,4 @@
+﻿**	4.2.0.0 (Myriam)
+**	5/13/2011
+--	Added class SABISNewsArabicDataSource. Added FeedUrl to  SABISNewsDataSource to allow reading Sabis news in different languages. Added CTE 
+

@@ -1,0 +1,53 @@
+﻿**	4.0.1.1	(Alain)
+**	8/5/2011 
+--	lw.Events.CalendarManager	Added: Multi Language Support
+	New functions:		GetEvents(Languages lan)
+						GetEvents(Languages lan, string cond)
+	Updated functions:	AddEvent (all variations)
+						UpdateEvent (all variations)
+--	lw.Events.Controls.CalendarDataSource Added multi language support
+
+
+**	4.0.1.3	(Alain)
+**	10/05/2012
+ CalendarDate.cs	Now accepts empty values for DateTo
+ CalendarManager	Random changes to accept empty values in DateTo
+
+
+**	4.0.1.3	(Samer)
+**	4/4/2013
+ Added CMSMode to CalendarDataSource.DataBind
+
+**	4.0.1.3	(Samer)
+**	4/4/2013
+ Added "return row.Id" to CalendarManager.AddEvent for the CMS
+
+ **	4.0.1.3	(Samer)
+**	9/4/2013
+ Added constants in cte.cs
+ Added CalendarNetwork.cs
+ Added CalendarManager.GetDataEvents function to match the functions in CalendarNetwork
+
+ **	4.0.1.4	(Samer)
+**	6/5/2013
+ Added/fixed "_isPrevious" option to CalendarDataSource.DataBind to check if previous event or not
+
+
+ 
+ **	4.0.2.4	(Nazir)
+**	9/3/2015
+ Added column Image to Event - Need to add "Image" "nvarchar(150)" to the calendar table in the DB, and Add Image in the Calendar View
+
+ 
+ **	4.0.3.4	(Nazir)
+**	3/7/2015
+ Added Upcoming property to get the upcoming events
+
+ **	4.0.3.5	(Nazir)
+** August 26, 2015
+-- CalendarDS	Changed		Image Title from varchar to nvarchar
+
+
+ **	4.0.4.5	(Nazir)
+** September 17, 2015
+-- CalendarManager	Add		Function update event status

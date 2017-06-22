@@ -1,0 +1,112 @@
+﻿**	4.0.1.0 (Naz)
+**	4/18/2011
+--	PhotoAlbumsManager: Added function GetRandomPhotoAlbums(string top)
+
+**	4.0.2.1 (Alain)
+**	8/5/2011
+--	lw.PhotoAlbums.PhotoAlbumsManager: Added multi language support
+						Affected functions:		UpdateAlbum
+												AddAlbum
+						TODO:	Add language to get functions
+--	lw.PhotoAlbums.Controls.PhotoAlbumsDataSource		Added Language Parameter
+
+
+**	4.0.2.2 (Alain)
+**	8/8/2011
+--	PhotoAlbumsManager.DeleteAlbum	Changed from old DataAdapter to basic delete statement
+
+
+**	4.0.2.3 (Alain)
+**	8/8/2011
+--	PhotoAlbumsManager.UpdateAlbum	Changed from old DataAdapter to TableAdapters
+
+
+**	4.0.3.3 (Alain)
+**	8/17/2011
+--	Added			PhotoAlbumsManager.GetAlbums(status, language)
+
+
+**	4.0.3.4 (Alain)
+**	8/17/2011
+--	thumb images now use ImageUtils.CropImage instead of ImageUtils.Resize
+--	TODO: implement a special cropping method or at least let the user choose
+
+
+**	4.0.3.5 (Alain)
+**	8/28/2011
+--	PhotoAlbumManager.AddImage		now creates the album folder here if there was an error when creating the album.
+
+
+
+**	4.0.3.6 (Alain)
+**	8/28/2011
+--	Added AlbumDate to	PhotoAlbums table and all related functions (Add, Update)
+
+
+**	4.0.4.6 (Alain)
+**	6/29/2011
+--	PhotoAlbumsManager		Added	 GetPhotoAlbumsByCategory
+
+
+**	4.1.4.6 (Charbel)
+**	8/31/2012
+--	PhotoAlbumsNetwork		Created a relation between the PhotoAlbums and the network in a way to fetch
+							the albums data based on the user's network
+
+**	4.1.5.6 (Charbel)
+**	8/31/2012
+--	PhotoAlbumsDataSource	Added the network bound restriction to the DataSource so it could be set from
+							the tag to get the PhotoAlbums based on the specified network
+							Added the "networkName" so that we can get the data based on a specific network name
+
+**	4.1.5.7 (Alain)
+**	8/31/2012
+--	PhotoAlbumsLink			Case PhotoAlbumsLinkType.Photos:
+							Fixed an issue where if the website is not using networks the links were not working.
+
+**	4.2.5.7 (Alain)
+**	2/10/2012
+--	Added	PhotoAlbumImageLink
+
+**	4.2.5.8 (Samer)
+**	4/26/2013
+--	Added condition to check for uniqueName in URl => if (StringUtils.IsNullOrWhiteSpace(uniqueName))
+
+**	4.2.5.9 (Charbel)
+**	5/20/2013
+--	Added original image to the functions, this will allow us to keep the original image uploaded.
+--	PhotoAlbumImageLink		Added original image Link.
+--	PhotoAlbumImage			Added original image path.
+--	Fixed ("~/temp") since it was throwing an error if directory did not exist.
+
+**	4.2.5.9 (Charbel)
+**	6/7/2013
+--	Fixed DataItems (DisplayName/Image => Caption/FileName) in PhotoAlbumImage.cs
+
+**	4.2.5.10 (Charbel)
+**	6/7/2013
+--	PhotoAlbumsDataSource added ability to search by categories when in CMS mode
+
+**	4.3.5.10 (Charbel)
+**	6/17/2013
+--	Added PhotoAlbumsCategoriesDS
+
+**	4.3.5.11 (Charbel)
+**	1/22/2015
+--	Added PhotoAlbumsDataSource + cte adding default value for the Photo Album CategoryId "-1" could be changed if "PagesPhotoAlbumsCategoryId" is changed from the parameters file
+
+
+**	4.3.5.12 (Nazir)
+**	3/16/2015
+--	Added cfg.GetKey(cte.ImageThumbOption) to function AddImage that allows us to choose between crop or resize of the thumb
+
+
+**	4.3.6.12 (Alain)
+**	9/3/2015
+--	PhotoAlbumsDataSource	Added	RelateToSection		The photo albums can now be automatically displayed when related to section or other pages.
+
+
+**	4.3.6.14 (Nazir)
+**	7/18/2016
+--	PhotoAlbumsManager	Changed:	if(!DeleteImage && Image != null && Image.ContentLength > 0) to if (Image != null && Image.ContentLength > 0)
+-- PhotoAlbumsLink		Added:		this.Attributes.Add("title", string.Format(Format, text));

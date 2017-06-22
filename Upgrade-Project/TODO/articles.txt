@@ -1,0 +1,2 @@
+﻿--	Add Description to NewsType, Add it later to NewsTypeDataItem and push it to page description.
+--	If no resize is selected for article picture, allow the possibility to upload 3 images.

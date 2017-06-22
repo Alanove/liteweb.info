@@ -1,0 +1,72 @@
+﻿**	4.0.0.1 (Alain)
+**	05/25/2012
+--	CustomRepeater
+--	Added	HasData 
+
+**	4.0.0.2 (Alain)
+**	10/5/2012
+--	CustomDataSource
+		Added	Integration for DataSource that uses non traditional select statement
+				Ex: Member Education Section where it reads data from the page and uses EmptyDataSrc to pass data
+
+**	4.1.0.2 (Alain)
+**	2/7/2013
+--	Added:		DSNoData
+
+
+**	4.2.0.2 (Alain)
+**	2/8/2013
+--	Added:		ControlUtils
+
+
+
+**	4.2.1.2 (Alain)
+**	2/13/2013
+--	Added Multiple functionalities to CustomDataSource
+	It can now read from any of the below sources: (check inside in getData() for exact changes)
+	DataString
+	EnumType
+	ConfigFile
+
+**	4.3.1.2 (Alain)
+**	5/24/2013
+--	Added	DataCount
+
+**	4.3.2.3 (Charbel)
+**	6/17/2013
+--	CustomDataSource	added column "GroupName" to the list of empty values for the forms.
+
+**	4.3.2.3 (Charbel)
+**	7/4/2013
+--	DataProperty added function "ReplaceNbSup" to make the "th, st, rd" after the numbers as superscripts.
+	//TODO: Optimization
+
+
+**	4.3.2.4 (Alain)
+**	11/13/2014
+--	DataProperty ReplaceItalicSabis	Now replaces SABIS case sensitive
+
+**	4.3.2.4 (Charbel)
+**	4/10/2014
+--	DataProperty changed "span" tag to "bdi" for Sabis 
+
+
+
+**	4.3.3.4 (Alain)
+**	3/24/2015
+--	DataProperty	Added		InjectHashTagsLinks
+
+
+**	4.3.3.5 (Charbel)
+**	2/25/2016
+--	DataProperty	ReplaceItalicSabis updated the function and placed the <sup>&reg;</sup> inside the <bdi>
+
+
+**	4.3.3.6 (Charbel)
+**	3/15/2016
+--	DataProperty	moved the following functions to Utils->StringUtils (ReplaceItalicSabis, ReplaceNbSup)
+
+
+**	4.3.3.7 (Charbel)
+**	3/15/2016
+--	CustomDataSource	added DataStringValues attribute, used to set the values of the select list bounded to the DS

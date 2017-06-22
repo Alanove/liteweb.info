@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Facebook Permanent Access Token Generator</title>
+    <style>
+        table
+        {
+            width:80%;
+           
+        }
+        td,th{
+            border:solid 1px black;
+        }
+        input{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Facebook Permanent Access Token Generator</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span>Application ID</span></td>
+                <td><input type="text" name="app_id" id="app_id" value=" " /></td>
+            </tr>
+            <tr>
+                <td><span>Application Secrect Key</span></td>
+                <td><input type="text" name="app_secret" id="app_secret" value=" " /></td>
+            </tr>
+            <tr>
+                <td><span>short Lived Access Token</span></td>
+                <td><input type="text" name="access_token" id="access_token" value=" " /></td>
+                </tr>
+                </tbody>
+    </table>
+    <br />
+    <button id="next1">Get Permanent Access Token</button>
+
+    <div id="result"></div>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#next1").click(function () {
+                var url = "https://graph.facebook.com/v2.2/oauth/access_token?grant_type=fb_exchange_token&client_id=" + $('#app_id').val().trim() + "&client_secret=" + $('#app_secret').val().trim() + "&fb_exchange_token=" + $('#access_token').val().trim();
+                var res = "";
+                $.get(url, function (data) {
+                    res = data.split("access_token=");
+                        //$("#result").html(res[1]);
+                    var url_2 = "https://graph.facebook.com/v2.2/me?access_token=" + res[1];
+                    $.get(url_2, function (data) {
+                        var url3 = " https://graph.facebook.com/v2.2/" + data["id"] + "/accounts?access_token=" + res[1];
+                        window.location.href = url3;
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

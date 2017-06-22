@@ -1,0 +1,23 @@
+﻿**	4.0.0.1 (Alain)
+**	06/08/2011
+--	DBUtils	Added 2 function TableExists and ViewExists (check documentation for more info).
+
+**	4.0.2.1 (Alain)
+**	08/08/2011
+--	Added:	DBUtils.AddLanguageToTable	
+			Documentation
+
+
+**	4.0.2.2 (Alain)
+**	08/19/2011
+--	Config.GetConnectionString now throws an exception if the connection is not found in the config file.
+
+
+**	4.0.2.3 (Naz)
+**	05/10/2012
+--	Added	PageSizeParam
+
+**	4.0.3.4 (Alain)
+**	10/05/2012
+--	Cretated	EmptyDataSrc
+	Changed		IDataSrc	Added	Data

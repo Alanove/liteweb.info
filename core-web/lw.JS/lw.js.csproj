@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB4E8B39-B3A9-4B12-81C0-DC69C56EAB95}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lw.js</RootNamespace>
+    <AssemblyName>lw.js</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\lw.js.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\CombinedScripts.cs" />
+    <Compile Include="Controls\JS.cs" />
+    <Compile Include="cte.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="Handler.cs" />
+    <Compile Include="JsXML.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.4.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 4.0 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="script\cms-inside\1.0\cms-inside.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\cms-manager\1.0\cms-manager.js" />
+    <EmbeddedResource Include="script\cms-manager\1.0\manager.min.js">
+      <DependentUpon>cms-manager.js</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\cms-manager\0.9\cms-manager.js" />
+    <EmbeddedResource Include="script\cms-inside\1.0\cms-inside.min.js">
+      <DependentUpon>cms-inside.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\cms-inside\1.1\cms-inside.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\cms-inside\1.1\cms-inside.min.js">
+      <DependentUpon>cms-inside.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <Content Include="script\jquery-plugins\1.0\jquery-plugins.min.js">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+    </Content>
+    <EmbeddedResource Include="script\lw-forms\1.004\lw-forms.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-forms\1.004\lw-forms.min.js">
+      <DependentUpon>lw-forms.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-forms\1.005\lw-forms.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-forms\1.005\lw-forms.min.js">
+      <DependentUpon>lw-forms.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery-plugins\1.1\jquery-plugins.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <Content Include="script\jquery-plugins\1.1\jquery-plugins.min.js">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+    </Content>
+    <EmbeddedResource Include="script\jquery-plugins\1.2\jquery-plugins.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <Content Include="script\jquery-plugins\1.2\jquery-plugins.min.js">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+    </Content>
+    <EmbeddedResource Include="script\jquery-plugins\1.3\jquery-plugins.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <Content Include="script\jquery-plugins\1.3\jquery-plugins.min.js">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+    </Content>
+    <EmbeddedResource Include="script\jquery-plugins\1.4\jquery-plugins.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery-plugins\1.4\jquery-plugins.min.js">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery\2.1\jquery.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery\2.1\jquery.min.js">
+      <DependentUpon>jquery.js</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery-plugins\1.5\jquery-plugins.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery-plugins\1.5\jquery-plugins.min.js">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery-plugins\1.6\jquery-plugins.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery-plugins\1.6\jquery-plugins.min.js">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery\2.11\jquery.js" />
+    <EmbeddedResource Include="script\jquery\2.11\jquery.min.js">
+      <DependentUpon>jquery.js</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery-plugins\1.7\jquery-plugins.js" />
+    <EmbeddedResource Include="script\jquery-plugins\1.8\jquery-plugins.js" />
+    <EmbeddedResource Include="script\jquery-plugins\1.7\jquery-plugins.min.js">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery-plugins\1.8\jquery-plugins.min.js">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-forms\1.006\lw-forms.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-forms\1.006\lw-forms.min.js">
+      <DependentUpon>lw-forms.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <Content Include="script\jquery\2.13\jquery.js" />
+    <Content Include="script\jquery\2.13\jquery.min.js" />
+    <EmbeddedResource Include="script\lw-forms\1.008\lw-forms.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-forms\1.008\lw-forms.min.js">
+      <DependentUpon>lw-forms.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-forms\1.007\lw-forms.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-forms\1.007\lw-forms.min.js">
+      <DependentUpon>lw-forms.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-forms\1.009\lw-forms.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-forms\1.009\lw-forms.min.js">
+      <DependentUpon>lw-forms.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <Content Include="script\lw-forms\_notes.txt" />
+    <EmbeddedResource Include="script\lw-jquery-plugins\2.02\lw-jquery-plugins.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-jquery-plugins\2.02\lw-jquery-plugins.min.js">
+      <DependentUpon>lw-jquery-plugins.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-jquery-plugins\2.03\lw-jquery-plugins.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-utils\1.022\lw-utils.min.js">
+      <DependentUpon>lw-utils.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw\4.066\lw.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw\4.066\lw.min.js">
+      <DependentUpon>lw.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-jquery-plugins\2.03\lw-jquery-plugins.min.js">
+      <DependentUpon>lw-jquery-plugins.js</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-jquery-plugins\2.04\lw-jquery-plugins.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-jquery-plugins\2.04\lw-jquery-plugins.min.js">
+      <DependentUpon>lw-jquery-plugins.js</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-jquery-plugins\2.05\lw-jquery-plugins.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-jquery-plugins\2.05\lw-jquery-plugins.min.js">
+      <DependentUpon>lw-jquery-plugins.js</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw\4.067\lw.js" />
+    <EmbeddedResource Include="script\lw-utils\1.023\lw-utils.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-utils\1.023\lw-utils.min.js">
+      <DependentUpon>lw-utils.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw\4.067\lw.min.js">
+      <DependentUpon>lw.js</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-utils\1.024\lw-utils.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-utils\1.024\lw-utils.min.js">
+      <DependentUpon>lw-utils.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw\4.068\lw.js" />
+    <EmbeddedResource Include="script\lw\4.068\lw.min.js">
+      <DependentUpon>lw.js</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="_notes.txt" />
+    <EmbeddedResource Include="script\html5shiv\1.0\html5shiv.js" />
+    <EmbeddedResource Include="script\html5shiv\1.0\html5shiv.min.js">
+      <DependentUpon>html5shiv.js</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JsFiles.xml">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery-plugins\1.0\jquery-plugins.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery\1.91\jquery.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\jquery\1.91\jquery.min.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-forms\1.003\lw-forms.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-forms\1.003\lw-forms.min.js">
+      <DependentUpon>lw-forms.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-jquery-plugins\2.01\lw-jquery-plugins.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-jquery-plugins\2.01\lw-jquery-plugins.min.js">
+      <DependentUpon>lw-jquery-plugins.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw\4.065\lw.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw\4.065\lw.min.js">
+      <DependentUpon>lw.js</DependentUpon>
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw-utils\1.022\lw-utils.js">
+      <CustomToolNamespace>lw.js</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="script\cms-inside\1.1\cms-inside.min.js.map">
+      <DependentUpon>cms-inside.min.js</DependentUpon>
+    </None>
+    <None Include="script\cms-inside\1.0\cms-inside.min.js.map">
+      <DependentUpon>cms-inside.min.js</DependentUpon>
+    </None>
+    <None Include="script\cms-manager\1.0\manager.min.js.map">
+      <DependentUpon>cms-manager.js</DependentUpon>
+    </None>
+    <None Include="script\html5shiv\1.0\html5shiv.min.js.map">
+      <DependentUpon>html5shiv.js</DependentUpon>
+    </None>
+    <None Include="script\jquery-plugins\1.0\jquery-plugins.min.js.map">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+    </None>
+    <None Include="script\jquery-plugins\1.1\jquery-plugins.min.js.map">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+    </None>
+    <None Include="script\jquery-plugins\1.2\jquery-plugins.min.js.map">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+    </None>
+    <None Include="script\jquery-plugins\1.3\jquery-plugins.min.js.map">
+      <DependentUpon>jquery-plugins.js</DependentUpon>
+    </None>
+    <None Include="script\jquery-plugins\1.4\jquery-plugins.min.js.map">
+      <DependentUpon>jquery-plugins.min.js</DependentUpon>
+    </None>
+    <None Include="script\jquery-plugins\1.6\jquery-plugins.min.js.map">
+      <DependentUpon>jquery-plugins.min.js</DependentUpon>
+    </None>
+    <None Include="script\jquery-plugins\1.5\jquery-plugins.min.js.map">
+      <DependentUpon>jquery-plugins.min.js</DependentUpon>
+    </None>
+    <None Include="script\jquery-plugins\1.7\jquery-plugins.min.js.map">
+      <DependentUpon>jquery-plugins.min.js</DependentUpon>
+    </None>
+    <None Include="script\jquery-plugins\1.8\jquery-plugins.min.js.map">
+      <DependentUpon>jquery-plugins.min.js</DependentUpon>
+    </None>
+    <None Include="script\jquery\1.91\jquery.min.js.map">
+      <DependentUpon>jquery.js</DependentUpon>
+    </None>
+    <None Include="script\jquery\2.11\jquery.min.js.map">
+      <DependentUpon>jquery.min.js</DependentUpon>
+    </None>
+    <None Include="script\jquery\2.13\jquery.min.js.map" />
+    <None Include="script\jquery\2.1\jquery.min.js.map">
+      <DependentUpon>jquery.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw-forms\1.003\lw-forms.min.js.map">
+      <DependentUpon>lw-forms.js</DependentUpon>
+    </None>
+    <None Include="script\lw-forms\1.004\lw-forms.min.js.map">
+      <DependentUpon>lw-forms.js</DependentUpon>
+    </None>
+    <None Include="script\lw-forms\1.007\lw-forms.min.js.map">
+      <DependentUpon>lw-forms.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw-forms\1.009\lw-forms.min.js.map">
+      <DependentUpon>lw-forms.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw-forms\1.008\lw-forms.min.js.map">
+      <DependentUpon>lw-forms.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw-forms\1.006\lw-forms.min.js.map">
+      <DependentUpon>lw-forms.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw-forms\1.005\lw-forms.min.js.map">
+      <DependentUpon>lw-forms.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw-jquery-plugins\2.01\lw-jquery-plugins.min.js.map">
+      <DependentUpon>lw-jquery-plugins.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw-jquery-plugins\2.02\lw-jquery-plugins.min.js.map">
+      <DependentUpon>lw-jquery-plugins.js</DependentUpon>
+    </None>
+    <None Include="script\lw-jquery-plugins\2.05\lw-jquery-plugins.min.js.map">
+      <DependentUpon>lw-jquery-plugins.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw-jquery-plugins\2.04\lw-jquery-plugins.min.js.map">
+      <DependentUpon>lw-jquery-plugins.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw-jquery-plugins\2.03\lw-jquery-plugins.min.js.map">
+      <DependentUpon>lw-jquery-plugins.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw-utils\1.022\lw-utils.min.js.map">
+      <DependentUpon>lw-utils.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw-utils\1.024\lw-utils.min.js.map">
+      <DependentUpon>lw-utils.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw-utils\1.023\lw-utils.min.js.map">
+      <DependentUpon>lw-utils.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw\4.066\lw.min.js.map">
+      <DependentUpon>lw.min.js</DependentUpon>
+    </None>
+    <None Include="script\lw\4.065\lw.min.js.map">
+      <DependentUpon>lw.js</DependentUpon>
+    </None>
+    <EmbeddedResource Include="script\lw\4.067\lw.min.js.map">
+      <DependentUpon>lw.min.js</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="script\lw\4.068\lw.min.js.map">
+      <DependentUpon>lw.min.js</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\CTE\CTE.csproj">
+      <Project>{c18bdce6-053c-4ce6-b92d-0a32916d1514}</Project>
+      <Name>CTE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\Utils\Utils.csproj">
+      <Project>{4805e87e-9cd7-4f8b-a401-62b4cd7864cf}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core-web\WebTools\WebTools.csproj">
+      <Project>{57723841-0a84-441c-8d5a-edd8aa56e4de}</Project>
+      <Name>WebTools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,114 @@
+﻿**	4.1.1.1 (Alain)
+**	4/13/2011
+-- CustomPage: Added RoutingQuery Collection to retrive QueryString from Virtualpath
+
+-- lw.Routing 
+	Created
+	Added InitRouting to init the Routing Collection 
+	Added ResetRouting to rest the Routing once the file is changed
+
+-- Global: Application_BeginRequest added InitRouting
+
+**	4.1.2.1 (Alain)
+**	4/19/2011
+--	lw.Routing.InitRouting		Added .Trim() to xml values
+
+**	4.1.3.1 (Alain)
+**	6/22/2011
+--	CustomPage	Added	GetQueryValue
+
+**	4.1.3.2 (Alain)
+**	4/26/2012
+--	CustomPage	RegisterScript	Added	ResolveClientUrl now urls starting with "~" will automatically be resolved.
+
+
+**	4.1.3.3 (Alain)
+**	5/4/2012
+--	lw.init		added	(new Config()).GetKey("SiteName") this will pass site name to javascript
+
+
+
+**	4.1.3.4 (Alain)
+**	6/12/2012
+--	lw.Base.CustomPage.DataBind		File names and keys are not read from lw.CTE.Files
+
+
+**	4.2.3.4 (Alain)
+**	6/27/2012
+--	Moved Routing to Project "Global" since it's only called from there
+
+**	4.2.4.5 (Alain)
+**	8/31/2012
+--	Added cte.cs (NeutreTemplate)
+
+--	CustomPage	
+	Added CurrentTemplate (points to the current master page file)
+	Added test for NeutreTemplate (coming from ajax), 
+		now all load scripts are called by a function called SideLoad 
+		that will call the scripts even if the page is already rendered.
+
+
+**	4.2.5.5 (Alain)
+**	1/30/2013
+--	UserControl		Added	Relative (Check internal documentation for more info)
+
+
+**	4.2.6.5 (Alain)
+**	2/6/2013
+--	UserControl		Added	HTMLContent
+
+**	4.3.6.5 (Alain)
+**	2/8/2013
+--	Added	BaseControl
+
+
+**	4.4.6.5 (Alain)
+**	4/15/2013
+--	Added	Server
+
+
+**	4.4.6.6 (Alain)
+**	5/06/2013
+--	CustomPage changed RegisterScriptFile now it reads the files first from web.config.
+
+
+
+**	4.4.7.7 (Alain)
+**	11/27/2013
+--	Added		InlineEditingEnabled
+	Changed		Lost of changes in edit mode
+	Added		HasDraft
+
+**	4.4.8.7  (Alain)
+**	5/26/2014
+--	Added SVG
+
+**	4.4.9.7  (Alain)
+**	5/26/2014
+--	Added ConfigParam
+
+**	4.4.9.8  (Charbel)
+**	9/16/2014
+--	ConfigParam updated the text in order to place "<sup> whenever ® is present"
+
+**	4.4.10.8  (Alain)
+**	10/23/2014
+--	CustomPage		Added		Documentation
+								RegisterHeaderScriptFile
+					Changed		Behavior:	Now HeaderScripts are the only scripts added to the head section
+											All other scripts are appended to the body.
+
+**	4.4.11.8  (Alain)
+**	19/11/2015
+-- Custom Page		Added       CheckDomain()		
+								bool isSecure					
+
+								
+**	4.4.11.8  (Nazir)
+**	6/16/2016
+--	CustomPage		Added		 bool CMSInside (To check inside cms pages)
+
+
+**	4.4.11.10  (Nazir)
+**	7/18/2016
+--	CustomPage		Added		 bool PageProperties (To check id the cms page is the page properties)

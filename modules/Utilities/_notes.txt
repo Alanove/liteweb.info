@@ -1,0 +1,8 @@
+﻿** 4.1.1.3 (Alain)
+** 3/6/2015
+--	LocalDate	Added	CultureInfo
+
+** 4.2.1.3 (Alain)
+** 3/6/2015
+--	Added RandomNumber
+

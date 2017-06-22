@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestUtils>
+	<ToUrl>
+		<entry>abc def</entry>
+		<result>abc-def</result>
+	</ToUrl>
+	<ToUrl>
+		<entry>abc def</entry>
+		<replacement></replacement>
+		<result>abcdef</result>
+	</ToUrl>
+	<ToUrl>
+		<entry>abc def</entry>
+		<replacement>~</replacement>
+		<result>abc~def</result>
+	</ToUrl>
+	<ToUrl>
+		<entry>abc def</entry>
+		<replacement>~</replacement>
+		<result>abc~def</result>
+	</ToUrl>
+	<ToUrl>
+		<entry>àÀâÂäÄáÁéÉèÈêÊëËìÌîÎïÏòÒôÔöÖùÙûÛüÜçÇ’ñ/ó:</entry>
+		<result>aaaaaaaaeeeeeeeeiiiiiioooooouuuuuucc-n-o</result>
+	</ToUrl>
+	<StripOutHtmlTags>
+		<entry>abcdef</entry>
+		<result>abcdef</result>
+	</StripOutHtmlTags>
+	<StripOutHtmlTags>
+		<entry></entry>
+		<result></result>
+	</StripOutHtmlTags>
+	<StripOutHtmlTags>
+		<entry>
+		<![CDATA[<a href="http://wwws.sabis.net">SABIS</a>]]>
+		</entry>
+		<result>SABIS</result>
+	</StripOutHtmlTags>
+	<StripOutHtmlTags>
+		<entry>
+		<![CDATA[<a href="http://wwws.sabis.net" title="<img src='abc' />">SABIS</a>]]>
+		</entry>
+		<result>SABIS</result>
+	</StripOutHtmlTags>
+
+</TestUtils>

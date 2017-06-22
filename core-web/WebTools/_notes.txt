@@ -1,0 +1,86 @@
+﻿**	4.0.1.0 (Alain)
+**	4/13/2011
+--	XmlManager.GetDataSet: Added Cach callback parameter
+
+**	4.0.1.1 (Alain)
+**	4/14/2011
+--	WebContext.StartDir
+		Now returns "~", as it's always used in combination with Server.MapPath
+--	WebContext: Added documentation
+--	WebContext: Added ManagerDir 
+
+
+**	4.0.2.1 (Alain)
+**	4/20/2011
+--	ErrorContext:	Added Function	Add(string key, Exception ex)
+
+**	4.0.2.2 (Alain)
+**	4/20/2011
+--	WebContext.Root:	Changed how it works
+						Must be used instead of "~" in all links
+
+**	4.0.3.2 (Alain)
+**	6/15/2011
+--	WebUtils	Added IsCookiesEnabled
+
+**	4.0.3.3 (Alain)
+**	8/09/2011
+--	WebUtils	Changed	JSonSerialize now uses lw.Utils.StringUtils.JSonSerialize
+
+**	4.1.3.3 (Alain)
+**	9/28/2011
+--	Added Globalization
+
+
+**	4.1.3.4 (Naz)
+** 5/04/2012
+--	CurrentUserStatus	Changed fron type UserStatus to Int
+
+
+**	4.1.3.5 (Alain)
+** 6/12/2012
+--	AjaxResponse	Added: WriteJson(bool StopPage)
+							bool	valid
+							string	callBack
+
+**	4.1.4.5 (Alain)
+** 6/20/2012
+--	WebContext		Added		IPAddress
+
+
+
+**	4.1.5.6 (Alain)
+** 6/27/2012
+--	lw.WebTools.WebContext		Added		CreateHttpContext
+--								Changed		Cache	Added: if (HttpContext.Current == null)
+																CreateHttpContext();
+
+**	4.1.6.6 (Alain)
+**	1/8/2013
+
+--	Added:	AjaxResponse.GetJsonString()
+
+
+**	4.1.6.7 (Alain)
+**	7/8/2013
+
+--	WebContext.ServerName and WebContext.Protocol 
+	Now reads from Web.config if the application is run from a non-webproccess (ex: Threading).
+
+	
+**	4.1.7.7	(Naz)
+**	8/22/2013 
+--	Added: WebContext.Profile.UserAlternateEmail to SignOut()
+
+
+**	4.1.7.8 (Naz)
+**	11/01/2013
+--	DictionnaryEvaluator Moved from UTILS and renamed to ReplaceDataWithinFile
+
+**	4.1.8.8 (Alain)
+**	1/20/2015
+--	lwProfile	Added	FormsData
+
+**	4.1.9.8 (Alain)
+**	3/6/2015
+--	ErrorHandler	Added	Log(string message);

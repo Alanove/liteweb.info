@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="MediaGallery">
+  <DataContextMoniker Name="/MediaGalleryDataContext" />
+  <nestedChildShapes>
+    <classShape Id="cdbf70ff-9200-46a1-a8db-cdb7a644387b" absoluteBounds="1.5, 1.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/MediaGalleryDataContext/VideoCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f4a8a46e-3beb-43d6-b423-5d7f8a9532ac" absoluteBounds="1.5150000000000001, 2.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7c9ae71f-548a-411d-ae5b-25d01b9190ec" absoluteBounds="4.375, 2.75, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/MediaGalleryDataContext/Video" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7c17aec-051e-4e1a-8999-144780ceac79" absoluteBounds="4.39, 3.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.5 : 3.32774983723958); (4.375 : 3.32774983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MediaGalleryDataContext/VideoCategory/VideoCategory_Video" />
+      <nodes>
+        <classShapeMoniker Id="cdbf70ff-9200-46a1-a8db-cdb7a644387b" />
+        <classShapeMoniker Id="7c9ae71f-548a-411d-ae5b-25d01b9190ec" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4c639823-1d35-4e4c-9e38-38780ee80e48" absoluteBounds="8, 1.375, 2, 5.0400211588541657">
+      <DataClassMoniker Name="/MediaGalleryDataContext/VideosView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="95044bc0-f889-4144-b4b9-2bbedf16e51b" absoluteBounds="8.015, 1.835, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

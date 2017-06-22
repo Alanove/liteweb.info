@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="3ikar" Class="AdsDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DSGN10\SQL2005;Initial Catalog=3ikar;Persist Security Info=True;User ID=sa" SettingsObjectName="lw.Ads.Properties.Settings" SettingsPropertyName="_3ikarConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Ads" Member="Ads">
+    <Type Name="Ad">
+      <Column Name="AdId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="AdvertiserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ZoneId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PaymentType" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="UnitsPurchased" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CostPerUnit" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="HtmlCode" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="URL" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
+      <Column Name="NewWindow" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MaxImpressionPerHour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxImpressionPerDay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Ad_Ads_AdKeywordRelation" Member="Ads_AdKeywordRelations" ThisKey="AdId" OtherKey="AdId" Type="Ads_AdKeywordRelation" />
+      <Association Name="Ad_Ads_Report" Member="Ads_Reports" ThisKey="AdId" OtherKey="AdId" Type="Ads_Report" />
+      <Association Name="Ads_Zone_Ad" Member="Ads_Zone" ThisKey="ZoneId" OtherKey="ZoneId" Type="Ads_Zone" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ads_AdKeywordRelation" Member="Ads_AdKeywordRelations">
+    <Type Name="Ads_AdKeywordRelation">
+      <Column Name="AdId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="KeywordId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Ad_Ads_AdKeywordRelation" Member="Ad" ThisKey="AdId" OtherKey="AdId" Type="Ad" IsForeignKey="true" />
+      <Association Name="Ads_Keyword_Ads_AdKeywordRelation" Member="Ads_Keyword" ThisKey="KeywordId" OtherKey="KeywordId" Type="Ads_Keyword" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ads_Reports" Member="Ads_Reports">
+    <Type Name="Ads_Report">
+      <Column Name="AdId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Clicks" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Exposures" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Hour" Type="System.Int32" DbType="Int" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DayOfMonth" Type="System.Int32" DbType="Int" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Month" Type="System.Int32" DbType="Int" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Year" Type="System.Int32" DbType="Int" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Ad_Ads_Report" Member="Ad" ThisKey="AdId" OtherKey="AdId" Type="Ad" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AdsView" Member="AdsViews">
+    <Type Name="AdsView">
+      <Column Name="AdId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="AdvertiserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ZoneId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PaymentType" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="UnitsPurchased" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CostPerUnit" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="HtmlCode" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="URL" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
+      <Column Name="NewWindow" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MaxImpressionPerHour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxImpressionPerDay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ZoneName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Impressions" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Clicks" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ads_ReportsView" Member="Ads_ReportsViews">
+    <Type Name="Ads_ReportsView">
+      <Column Name="Impressions" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Clicks" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ads_Keywords" Member="Ads_Keywords">
+    <Type Name="Ads_Keyword">
+      <Column Name="KeywordId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Ads_Keyword_Ads_AdKeywordRelation" Member="Ads_AdKeywordRelations" ThisKey="KeywordId" OtherKey="KeywordId" Type="Ads_AdKeywordRelation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ads_Zones" Member="Ads_Zones">
+    <Type Name="Ads_Zone">
+      <Column Name="ZoneId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Alias" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Width" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Height" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(63)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Ads_Zone_Ad" Member="Ads" ThisKey="ZoneId" OtherKey="ZoneId" Type="Ad" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Ads_CreateAdvertiser" Method="Ads_CreateAdvertiser">
+    <Parameter Name="Advertiser" Parameter="advertiser" Type="System.String" DbType="NVarChar(256)" />
+    <Parameter Name="AdvertiserId" Parameter="advertiserId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Ads_UpdateImpressions" Method="Ads_UpdateImpressions">
+    <Parameter Name="AdId" Parameter="adId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Click" Parameter="click" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Ads_CreateKeyword" Method="Ads_CreateKeyword">
+    <Parameter Name="Keyword" Parameter="keyword" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="KeywordId" Parameter="keywordId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Menus">
+  <DataContextMoniker Name="/MenusDataContext" />
+  <nestedChildShapes>
+    <classShape Id="59d15b2c-754f-4111-bec7-cd996cf86170" absoluteBounds="0.5, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/MenusDataContext/Menu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="893cbb81-4e64-4248-b045-fd9215288419" absoluteBounds="0.51500000000000012, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="adeae542-f2ca-4692-8dec-acb5c2719bb8" absoluteBounds="5.875, 2, 2, 1.3862939453125">
+      <DataClassMoniker Name="/MenusDataContext/Menu_External" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4cdfadee-3bef-46e0-a0c8-8c7a3d2422d4" absoluteBounds="5.89, 2.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4cc5bc91-81bc-4c43-a1aa-2947f420375d" absoluteBounds="3.125, 0.875, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/MenusDataContext/Menu_Item" />
+      <nestedChildShapes>
+        <elementListCompartment Id="750fe05c-c985-467a-8808-57557459fb8c" absoluteBounds="3.14, 1.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.50564697265625); (3.125 : 1.50564697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MenusDataContext/Menu/Menu_Menu_Item" />
+      <nodes>
+        <classShapeMoniker Id="59d15b2c-754f-4111-bec7-cd996cf86170" />
+        <classShapeMoniker Id="4cc5bc91-81bc-4c43-a1aa-2947f420375d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 2.61140055338542); (5.125 : 2.61140055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MenusDataContext/Menu_External/Menu_External_Menu_Item" />
+      <nodes>
+        <classShapeMoniker Id="adeae542-f2ca-4692-8dec-acb5c2719bb8" />
+        <classShapeMoniker Id="4cc5bc91-81bc-4c43-a1aa-2947f420375d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e8cb010c-dec2-44e5-aa48-2eb218c94298" absoluteBounds="0.5, 3.625, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/MenusDataContext/Page" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c90fc88-d776-4e79-b639-d3412fb3c94b" absoluteBounds="0.51499999999999968, 4.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 5.08735270182292); (4.125 : 5.08735270182292); (4.125 : 3.22280110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MenusDataContext/Page/Page_Menu_Item" />
+      <nodes>
+        <classShapeMoniker Id="e8cb010c-dec2-44e5-aa48-2eb218c94298" />
+        <classShapeMoniker Id="4cc5bc91-81bc-4c43-a1aa-2947f420375d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,153 @@
+﻿** 4.0.1.1 (Alain)
+** 4/13/2011
+--	Content: Added UrlRouting
+
+** 4.0.2.1 (Alain)
+** 4/19/2011
+--	Added News.cs enums: NewsStatus and NewsTagStatus
+--	Added Folders.CommentsFolder
+
+** 4.0.2.2 (Alain)
+** 8/4/2011
+--	Added Parameters.MemberPasswordEncryption
+
+
+** 4.0.2.3 (Alain)
+** 8/8/2011
+--	Added	Data.LanguageDisplay
+			Data.LanguageField
+
+** 4.0.2.4 (Alain)
+** 9/28/2011
+--	Added	Parameters.DefaultDBCutureInfo
+
+** 4.0.2.4 (Alain)
+** 9/28/2011
+--	Added	Parameters.DefaultDBCutureInfo
+
+
+** 4.0.2.5 (Naz)
+** 5/03/2012
+--	Added	ChangePassword to UserStatus
+--	Added	PagingSizeParam to Data.cs
+
+
+** 4.0.2.6 (Alain)
+** 5/08/2012
+--	Removed Validation Regular expressions	Can be found under lw.Utils.RegularExpressions
+
+
+** 4.0.2.7 (Alain)
+** 6/12/2012
+--	lw.CTE.Files	Added script files here
+--	TODO: Include script files in the C# build as one minified file
+
+
+** 4.1.2.7 (Alain)
+** 2/8/2013
+--	Added	RoutingParameters	 (Works with lw.WebTools.WebUtils.GetParameter(param)).
+
+
+** 4.1.2.8 (Charbel)
+** 2/20/2013
+--RoutingParameters	 added NetworkId to the parameters.
+
+
+** 4.1.2.9 (Alain)
+** 4/4/2013
+--	Settings	Added	NewsCategories resize parameters
+
+
+
+** 4.2.2.9 (Alain)
+** 4/9/2013
+--	Added		RegularExpressions
+
+
+** 4.2.2.10 (Alain)
+** 4/9/2013
+--	Files.cs	Changed extensions to .lwjs
+
+** 4.2.2.11 (Samer)
+** 4/11/2013
+--	Added RoutingParameters NewsId for news
+
+** 4.2.2.12 (Samer)
+** 4/16/2013
+--	Added RoutingParameters NewsTypeId for NewsTypes
+
+** 4.2.2.13 (Naz)
+** 4/17/2013
+--	Changed in Folders.cs ProductsImages = "/Prv/Images/Products" to ProductsImages = "Prv/Images/Products";
+
+
+
+** 4.2.2.14 (Alain)
+** 4/18/2013
+--	parameters.cs	Added  DoNotAutoIncludeLwJsFiles
+
+
+
+** 4.2.2.15 (Naz)
+** 4/19/2013
+--	Files.cs	Added extensions to .js with .lwjs
+--	parameters.cs	Added  if DoNotAutoIncludeLwJsFiles get js files from the website js folder
+
+
+
+** 4.2.2.16 (Alain)
+** 5/01/2013
+Settings	Added	NewsCategory_ImageSize
+					News_DefaultImageSize
+					News_DefaultImageResizeType
+					News_MediumImageSize
+					MediumImageResizeType
+					News_ThumbImageSize
+					ThumbImageResizeType
+	Sizes now use the Dimension Function, defining the sizes now can be 
+	by: withxheight ex: 120x120 instead of having a variable for with and another for height.
+
+
+	
+** 4.3.2.16 (Alain)
+** 11/16/2013
+--	Added cms.cs
+
+
+	
+**	4.4.2.16 (Alain)
+**	1/20/2015
+--	Added Form.cs
+
+	
+**	4.4.2.17 (Nazir)
+**	3/09/2015
+--	Added Events Folder to folders.cs
+
+
+**	4.4.2.18 (Alain)
+**	3/24/2015
+--	parameters.cs	added	HashTagsAbsPath
+
+
+**	4.4.2.19 (Charbel)
+**	9/17/2015
+--	AppConfig.cs	added	default photo gallery url and photo gallery config variable
+
+
+**	4.4.2.20 (Charbel)
+**	11/18/2015
+--	Folders.cs	added new folder paths related to "Widgets" and "Media"
+
+
+**	4.5.2.20 (Myriam)
+**	03/21/2016
+--	CMSActions.cs	added new Enum CMSActions
+
+
+
+** 4.5.2.21  (Naz)
+** 1/15/2017
+--	RegularExpressions updated HashTagMatcher // updated the hashtag to not take words that start with (#) and ends with (;) example: (&#39;) that its the ascii code for ('), the old tag takes (#39) as hashtag
+
+

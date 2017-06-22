@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="fv" EntityNamespace="lw.Polls" ContextNamespace="lw.Polls" Class="PollsContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DSGN10\SQL2005;Initial Catalog=fv;Persist Security Info=True;User ID=sa" SettingsObjectName="lw.Polls.Properties.Settings" SettingsPropertyName="fvConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PollAnswers" Member="PollAnswers">
+    <Type Name="PollAnswer">
+      <Column Name="PollAnswerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PollID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DisplayText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Correct" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="PollAnswer_PollsUserResponse" Member="PollsUserResponses" ThisKey="PollAnswerID" OtherKey="PollAnswerID" Type="PollsUserResponse" />
+      <Association Name="Poll_PollAnswer" Member="Poll" ThisKey="PollID" OtherKey="PollID" Type="Poll" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PollResults" Member="PollResults">
+    <Type Name="PollResult">
+      <Column Name="PollAnswerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PollID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DisplayText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Votes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalVotes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Percentage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Polls" Member="Polls">
+    <Type Name="Poll">
+      <Column Name="PollID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DisplayText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="UniqueName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="IsDefault" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="Difficulty" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Reference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Day" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Week" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Year" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Picture" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="AdditionalText" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="UID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PollNbr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MemberId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Can_Have_Other" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Other_Text" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="Poll_PollAnswer" Member="PollAnswers" ThisKey="PollID" OtherKey="PollID" Type="PollAnswer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PollsUserResponses" Member="PollsUserResponses">
+    <Type Name="PollsUserResponse">
+      <Column Name="UserID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PollAnswerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AnswerText" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="PollAnswer_PollsUserResponse" Member="PollAnswer" ThisKey="PollAnswerID" OtherKey="PollAnswerID" Type="PollAnswer" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Polls_GetCurrentPoll" Method="Polls_GetCurrentPoll" IsComposable="true">
+    <Parameter Name="week" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dayOfWeek" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

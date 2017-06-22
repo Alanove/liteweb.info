@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Scorpio" Class="ShoppingDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DSGN10\SQL2005;Initial Catalog=Scorpio;Persist Security Info=True;User ID=sa" SettingsObjectName="lw.Products.Properties.Settings" SettingsPropertyName="jcproshopConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.GetShoppingData" Method="GetShoppingData">
+    <ElementType Name="GetShoppingDataResult">
+      <Column Name="ProductNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UniqueName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SalePrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ResellerPrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ThumbImage" Type="System.String" DbType="VarChar(510)" CanBeNull="true" />
+      <Column Name="StockQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Shopping_GetRelatedProducts" Method="Shopping_GetRelatedProducts">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Shopping_GetRelatedProductsResult">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UniqueName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Keywords" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="BrandId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SmallDescription" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LargeDescription" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SalePrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ResellerPrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Image1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Image2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Image3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Image4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ThumbImage" Type="System.String" DbType="VarChar(510)" CanBeNull="true" />
+      <Column Name="Specs" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="StockQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShippingVWeight" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ShippingWeight" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ShippingWidth" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ShippingHeight" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ShippingLength" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DownloadableFile" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="Warranty" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Packaging" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Ranking" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Website" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Template" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Ranking1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

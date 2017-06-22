@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7D7ECFE-0E8B-4081-829E-71A898BB235A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lw.Members</RootNamespace>
+    <AssemblyName>Members</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>http://localhost/Members/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Debug\Members.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\MemberBox.cs" />
+    <Compile Include="Controls\MemberDataProvider.cs" />
+    <Compile Include="Controls\MemberEducationList.cs" />
+    <Compile Include="Controls\MembersPrivacyLock.cs" />
+    <Compile Include="Controls\MemberDataSource.cs" />
+    <Compile Include="Controls\Page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cte.cs" />
+    <Compile Include="data\MemberLoginActivity.cs" />
+    <Compile Include="data\MemberSocials.cs" />
+    <Compile Include="data\MemberCareers.cs" />
+    <Compile Include="data\MemberEducations.cs" />
+    <Compile Include="data\MemberLocations.cs" />
+    <Compile Include="data\MemberResetPassword.cs" />
+    <Compile Include="data\extanddata.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="data\FriendsManager.cs" />
+    <Compile Include="data\MemberNetworksManager.cs" />
+    <Compile Include="data\MembersDataContext.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MembersDataContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="data\MembersDs.cs">
+      <DependentUpon>MembersDs.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="data\MembersDs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MembersDs.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="data\MembersManager.cs" />
+    <Compile Include="Controls\AddtoFriendsLink.cs" />
+    <Compile Include="Controls\MemberList.cs" />
+    <Compile Include="Controls\MemberProfileProperty.cs" />
+    <Compile Include="Controls\Login.cs" />
+    <Compile Include="Controls\PrivacyOptions.cs" />
+    <Compile Include="Controls\ProfileLink.cs" />
+    <Compile Include="Controls\ProfilePicture.cs" />
+    <Compile Include="Controls\ProfileProperty.cs" />
+    <Compile Include="data\PrivacySettingsManager.cs" />
+    <Compile Include="enum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Security\Caching.cs" />
+    <Compile Include="Security\RolesProvider.cs" />
+    <Compile Include="Security\User.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Threads\WeeklyLoginActivity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\Data\Data.csproj">
+      <Project>{F6134610-83DD-4E30-A447-1F91AC00A84D}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\Graphics\Graphics.csproj">
+      <Project>{02D95412-57EC-44F5-8F92-30893E9D61CD}</Project>
+      <Name>Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\Network\Network.csproj">
+      <Project>{E228F4E5-A60B-437A-810F-13E171B1C9D4}</Project>
+      <Name>Network</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\Utils\Utils.csproj">
+      <Project>{4805E87E-9CD7-4F8B-A401-62B4CD7864CF}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Threading\Threading.csproj">
+      <Project>{c9240bc1-2f7b-4125-a2a2-e0749d9a1350}</Project>
+      <Name>Threading</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Base\Base.csproj">
+      <Project>{05A98EA8-78D1-4A23-8F7C-1C11D82C02B5}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Content\Content.csproj">
+      <Project>{B331595D-2D63-4B30-A916-0C7367D8BC07}</Project>
+      <Name>Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\CTE\CTE.csproj">
+      <Project>{C18BDCE6-053C-4CE6-B92D-0A32916D1514}</Project>
+      <Name>CTE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core-web\WebTools\WebTools.csproj">
+      <Project>{57723841-0A84-441C-8D5A-EDD8AA56E4DE}</Project>
+      <Name>WebTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataControls\DataControls.csproj">
+      <Project>{FA0AB953-7FB1-46B0-A4BF-FECC08CCEF09}</Project>
+      <Name>DataControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageControls\ImageControls.csproj">
+      <Project>{1FE43609-9A18-441D-9D84-D4056F00339B}</Project>
+      <Name>ImageControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialNetworks\Networking.csproj">
+      <Project>{a2ce000f-4c6b-4e69-a4d8-218c352ef6ff}</Project>
+      <Name>Networking</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="data\MembersDataContext.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>MembersDataContext.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>lw.Members</CustomToolNamespace>
+    </None>
+    <None Include="data\MembersDs.xsc">
+      <DependentUpon>MembersDs.xsd</DependentUpon>
+    </None>
+    <None Include="data\MembersDs.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MembersDs.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>lw.Members</CustomToolNamespace>
+    </None>
+    <None Include="data\MembersDs.xss">
+      <DependentUpon>MembersDs.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\MembersDataContext.dbml.layout">
+      <DependentUpon>MembersDataContext.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_notes.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

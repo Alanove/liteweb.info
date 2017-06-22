@@ -1,0 +1,7 @@
+Solution Notes
+-----------------------------------------
+
+1/20/2015
+Removed project for Newtonsoft.JSon as it can be loaded using Nuget and packages.config.
+Check project Forms for example.
+

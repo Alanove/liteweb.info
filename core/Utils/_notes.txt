@@ -1,0 +1,68 @@
+﻿**	4.0.0.1 (Alain)
+**	4/21/2011
+--	StripOutHtmlTAgs	Added:	if (s == null)
+									return "";
+
+**	4.0.1.1 (Alain)
+**	8/09/2011
+--	StringUtils	Added	JSonSerialize
+
+
+**	4.0.2.1 (Alain)
+**	5/08/2012
+--	Changed  lw.Utils.Validators to RegularExpressions as it contains only regular expressions 
+--	Added Image Regular Expression
+
+**	4.0.3.1 (Alain)
+**	5/31/2012
+--	lw.Utils.StringUtils	Added	SplitSearchKeyword
+
+**	4.0.3.2 (Alain)
+**	12/13/2012
+--	lw.Utils.StringUtils.ToURL	":" is now also replaced. 
+
+**	4.0.4.1 (Alain)
+**	12/13/2012
+--	lw.Utils.StringUtils.AddSup	 Created
+
+
+**	4.0.4.2 (Alain)
+**	2/8/2013
+--	lw.Utils.StringUtils.ToURL	(Small change in replacements)
+
+
+**	4.0.5.2 (Alain)
+**	2/20/2013
+--	Utils.IO		Added		SaveStream
+
+
+
+**	4.0.6.2 (Alain)
+**	4/22/2013
+--	Dimension	Added	Valid
+
+
+
+**	4.0.7.2 (Alain)
+**	4/22/2014
+--	StringUtils		Added		ReplaceIgnoreCase
+
+
+
+**	4.0.7.3 (Alain)
+**	11/13/2014
+--	ReplaceTextOutsideHthmlTags Added a variant that takes RegExOptions as a parameter
+
+
+**	4.1.7.3 (Alain)
+**	1/20/2015
+--	Removed reference for NewsoftJson from the project, Json is now loaded using Nuget and pachages.config
+
+
+**	4.1.8.3 (Charbel)
+**	11/18/2015
+--	GetEnumTypeName<T>(int value)	added new function that Gets the name of the specific enum based on it's value (int)
+
+**	4.1.9.3 (Charbel)
+**	3/15/2016
+--	StringUtils	added ReplaceNbSup and ReplaceItalicSabis

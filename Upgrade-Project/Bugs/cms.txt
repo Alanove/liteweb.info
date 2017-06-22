@@ -1,0 +1,3 @@
+﻿**	Image Resizer
+
+--	Content > Images:	Image doesn't show up & it gives an error on delete (Error: is being used by another process).

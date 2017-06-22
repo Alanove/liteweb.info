@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="OperatorsDataSet" targetNamespace="http://www.tempuri.org/OperatorsDataSet.xsd" xmlns:mstns="http://www.tempuri.org/OperatorsDataSet.xsd" xmlns="http://www.tempuri.org/OperatorsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ghConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="ghConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.lw.Operators.Properties.Settings.GlobalReference.Default.ghConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="OperatorsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="OperatorsDataSet" msprop:Generator_UserDSName="OperatorsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OperatorGroups" msprop:Generator_UserTableName="OperatorGroups" msprop:Generator_RowEvArgName="OperatorGroupsRowChangeEvent" msprop:Generator_TableVarName="tableOperatorGroups" msprop:Generator_TablePropName="OperatorGroups" msprop:Generator_RowDeletingName="OperatorGroupsRowDeleting" msprop:Generator_RowChangingName="OperatorGroupsRowChanging" msprop:Generator_RowDeletedName="OperatorGroupsRowDeleted" msprop:Generator_RowEvHandlerName="OperatorGroupsRowChangeEventHandler" msprop:Generator_RowChangedName="OperatorGroupsRowChanged" msprop:Generator_TableClassName="OperatorGroupsDataTable" msprop:Generator_RowClassName="OperatorGroupsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GroupId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnGroupId" msprop:Generator_ColumnPropNameInRow="GroupId" msprop:Generator_ColumnPropNameInTable="GroupIdColumn" msprop:Generator_UserColumnName="GroupId" type="xs:int" />
+              <xs:element name="GroupName" msprop:Generator_ColumnVarNameInTable="columnGroupName" msprop:Generator_ColumnPropNameInRow="GroupName" msprop:Generator_ColumnPropNameInTable="GroupNameColumn" msprop:Generator_UserColumnName="GroupName" type="xs:string" minOccurs="0" />
+              <xs:element name="XmlFile" msprop:Generator_ColumnVarNameInTable="columnXmlFile" msprop:Generator_ColumnPropNameInRow="XmlFile" msprop:Generator_ColumnPropNameInTable="XmlFileColumn" msprop:Generator_UserColumnName="XmlFile" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:OperatorGroups" />
+      <xs:field xpath="mstns:GroupId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

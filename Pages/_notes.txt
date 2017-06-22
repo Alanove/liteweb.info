@@ -1,0 +1,103 @@
+﻿** 1.0.0.0 (Alain)
+** 10/25/2013
+--	Created
+
+** 1.0.1.0 (Alain)
+** 9/25/2014
+--	PageImage	==>		Fixed an error when the page has no image and the noImage parameter is not defined in _App.Config
+
+
+
+** 1.0.2.0 (Alain)
+** 10/27/2014
+--	PageLink	Added:	RemovePath	(Check docs for more info)
+
+** 1.0.1.1 (Myriam)
+** 9/25/2014
+--	PagesManager	==>	Added condition to UpdateProperties function values setting
+
+** 1.0.1.2 (Charbel)
+** 2/17/2015
+--	PagesManager	==>	Added functionality to be able to set the parentid if it was different from "Default" || "1" on line 133
+
+
+** 1.0.2.2 (Nazir)
+** 3/20/2015
+--	Added PagesCommentsDataSource, Added PagesCommentsDataItem
+--	PagesManager	==>	Added GetPageViewComment(int PageId), Added GetPageViewComment(string Keyword)
+--	PageLink	==>		Added Anchor
+--> Added CreatedBy, IsSecure to Pages_View_Comment DBML
+
+** 1.0.1.3 (Alain)
+** 3/24/2015
+--	PagesManager	AddPage				Added:	HashTags
+					UpdateProperties	Added:	HashTags
+					Publish				Added:	HashTags
+
+
+1.0.3.3 (Alain)
+** June 11, 2015
+-- PagesManager	Added		UpdateDefaultFile
+							public void UpdateProperties(int PageId, string Title, string Url, string Status, DateTime? PublishDate, string SmallDescription)
+							UpdatePageRating
+							GetPageDataProperty
+							UpdatePageProperty
+							AddPageProperties
+							DeletePageProperties
+
+--	Controls	Added		PageCommentsDataProperty
+							PageDataProperty
+
+				Changed		PageLink
+
+1.0.4.3 (Charbel)
+** June 12, 2015
+-- PagesManager	Added		UpdatePageImages
+
+1.0.4.4 (Nazir)
+** August 26, 2015
+-- PagesCommentsDataItem/PagesDataItem	Added		OverridePageTitle Image and FullURL
+
+1.0.4.5 (Myriam)
+** November 19, 2015
+-- PagesDataItem			Added		bool isSecure 
+
+1.0.4.6 (Charbel)
+** 2/22/2016
+-- PagesManager	publish	added auto add for smalldescription whenever the small description is empty
+
+**	1.0.4.7 (Charbel)
+**	3/15/2016
+--	PageCommentsDataProperty
+--	PageDataProperty
+--	PageLink
+		---	moved the following functions to Utils->StringUtils (ReplaceItalicSabis, ReplaceNbSup) from all three files above
+
+1.0.4.8 (Charbel)
+** 3/22/2016
+-- PagesManager	publish(int PageId, string Header, string Text) fixed auto-smalldescription, remove \n\t from trankated string
+
+1.0.4.9 (Charbel)
+** 4/14/2016
+--	PagesDataSource changing position of (this.SelectCommand += " Order By " + this.OrderBy;) it was conflicting with getting PageProperties
+
+1.0.4.6 (Charbel)
+** 2/22/2016
+-- PagesManager	publish	added auto add for smalldescription whenever the small description is empty
+
+
+1.0.4.7 (Alain)
+** 5/27/2016
+--	PagesDataItem, Changes og:Image to take large image instead of original large image.
+--	PagesManager, Added UpdateProperties with Tag argument
+
+
+1.0.5.0 (Nazir)
+** 7/18/2016
+--	PageLink	Added		this.Attributes.Add("title", string.Format(Format, Title));
+--	PagesManager, Added UpdateProperties with Header parameter
+
+
+1.0.5.1 (Charbel)
+**	7/22/2016
+--	PageRelatedAlbum	added condition for the databind so it binds only if the row is not null

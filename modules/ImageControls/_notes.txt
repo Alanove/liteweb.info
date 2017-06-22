@@ -1,0 +1,4 @@
+﻿**	1.0.0.1 (Charbel)
+**	5/17/2013
+
+--	enum	Added new ImageType

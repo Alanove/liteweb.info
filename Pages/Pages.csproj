@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{57492BAD-B199-4B82-8B09-9EE7451045A5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lw.Pages</RootNamespace>
+    <AssemblyName>Pages</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Pages.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\PageCommentsDataProperty.cs" />
+    <Compile Include="Controls\PageDataProperty.cs" />
+    <Compile Include="Controls\PagesCommentsDataItem.cs" />
+    <Compile Include="Controls\PagesCommentsDataSource.cs" />
+    <Compile Include="Controls\PageTemplateDataProvider.cs" />
+    <Compile Include="Controls\PageTemplateDataSource.cs" />
+    <Compile Include="Controls\PageTypeDataProvider.cs" />
+    <Compile Include="Controls\PageTypeDataSource.cs" />
+    <Compile Include="Controls\PreviousPageLink.cs" />
+    <Compile Include="Controls\NextPageLink.cs" />
+    <Compile Include="Controls\PageImageLink.cs" />
+    <Compile Include="Controls\PageImage.cs" />
+    <Compile Include="Controls\PageLink.cs" />
+    <Compile Include="Controls\PagesDataSource.cs" />
+    <Compile Include="Controls\PagesDataItem.cs" />
+    <Compile Include="Controls\PageRelatedAlbum.cs" />
+    <Compile Include="Controls\RelatedPagesDataSource.cs" />
+    <Compile Include="cte.cs" />
+    <Compile Include="data\Pages1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pages.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="data\PagesManager.cs" />
+    <Compile Include="enum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="data\Pages.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Pages1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\core-web\WebTools\WebTools.csproj">
+      <Project>{57723841-0a84-441c-8d5a-edd8aa56e4de}</Project>
+      <Name>WebTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\CTE\CTE.csproj">
+      <Project>{c18bdce6-053c-4ce6-b92d-0a32916d1514}</Project>
+      <Name>CTE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\Data\Data.csproj">
+      <Project>{f6134610-83dd-4e30-a447-1f91ac00a84d}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\Graphics\Graphics.csproj">
+      <Project>{02d95412-57ec-44f5-8f92-30893e9d61cd}</Project>
+      <Name>Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\Utils\Utils.csproj">
+      <Project>{4805e87e-9cd7-4f8b-a401-62b4cd7864cf}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HashTagControls\HashTagControls.csproj">
+      <Project>{706b0b52-e1a7-4e97-8a52-7b4a606ce385}</Project>
+      <Name>HashTagControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\Base\Base.csproj">
+      <Project>{05a98ea8-78d1-4a23-8f7c-1c11d82c02b5}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\DataControls\DataControls.csproj">
+      <Project>{fa0ab953-7fb1-46b0-a4bf-fecc08ccef09}</Project>
+      <Name>DataControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\HashTags\HashTags.csproj">
+      <Project>{52b8f88e-2d1d-473e-9468-5a59fad54080}</Project>
+      <Name>HashTags</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\ImageControls\ImageControls.csproj">
+      <Project>{1fe43609-9a18-441d-9d84-d4056f00339b}</Project>
+      <Name>ImageControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\PhotoAlbums\PhotoAlbums.csproj">
+      <Project>{813956b6-c82a-439c-8e1f-838ec8ad002c}</Project>
+      <Name>PhotoAlbums</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_notes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Pages.dbml.layout">
+      <DependentUpon>Pages.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

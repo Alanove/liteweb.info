@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FaqDS" targetNamespace="http://tempuri.org/FaqDS.xsd" xmlns:mstns="http://tempuri.org/FaqDS.xsd" xmlns="http://tempuri.org/FaqDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FaqDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="FaqDS" msprop:Generator_DataSetName="FaqDS" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Faq" msprop:Generator_UserTableName="Faq" msprop:Generator_RowDeletedName="FaqRowDeleted" msprop:Generator_RowChangedName="FaqRowChanged" msprop:Generator_RowClassName="FaqRow" msprop:Generator_RowChangingName="FaqRowChanging" msprop:Generator_RowEvArgName="FaqRowChangeEvent" msprop:Generator_RowEvHandlerName="FaqRowChangeEventHandler" msprop:Generator_TableClassName="FaqDataTable" msprop:Generator_TableVarName="tableFaq" msprop:Generator_RowDeletingName="FaqRowDeleting" msprop:Generator_TablePropName="Faq">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FaqId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_UserColumnName="FaqId" msprop:Generator_ColumnVarNameInTable="columnFaqId" msprop:Generator_ColumnPropNameInRow="FaqId" msprop:Generator_ColumnPropNameInTable="FaqIdColumn" type="xs:int" />
+              <xs:element name="Question" msprop:Generator_UserColumnName="Question" msprop:Generator_ColumnVarNameInTable="columnQuestion" msprop:Generator_ColumnPropNameInRow="Question" msprop:Generator_ColumnPropNameInTable="QuestionColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Answer" msprop:Generator_UserColumnName="Answer" msprop:Generator_ColumnVarNameInTable="columnAnswer" msprop:Generator_ColumnPropNameInRow="Answer" msprop:Generator_ColumnPropNameInTable="AnswerColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="GroupId" msprop:Generator_UserColumnName="GroupId" msprop:Generator_ColumnVarNameInTable="columnGroupId" msprop:Generator_ColumnPropNameInRow="GroupId" msprop:Generator_ColumnPropNameInTable="GroupIdColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Sort" msprop:Generator_UserColumnName="Sort" msprop:Generator_ColumnPropNameInRow="Sort" msprop:Generator_ColumnVarNameInTable="columnSort" msprop:Generator_ColumnPropNameInTable="SortColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Groups" msprop:Generator_UserTableName="Groups" msprop:Generator_RowDeletedName="GroupsRowDeleted" msprop:Generator_RowChangedName="GroupsRowChanged" msprop:Generator_RowClassName="GroupsRow" msprop:Generator_RowChangingName="GroupsRowChanging" msprop:Generator_RowEvArgName="GroupsRowChangeEvent" msprop:Generator_RowEvHandlerName="GroupsRowChangeEventHandler" msprop:Generator_TableClassName="GroupsDataTable" msprop:Generator_TableVarName="tableGroups" msprop:Generator_RowDeletingName="GroupsRowDeleting" msprop:Generator_TablePropName="Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GroupId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_UserColumnName="GroupId" msprop:Generator_ColumnVarNameInTable="columnGroupId" msprop:Generator_ColumnPropNameInRow="GroupId" msprop:Generator_ColumnPropNameInTable="GroupIdColumn" type="xs:int" />
+              <xs:element name="GroupName" msprop:Generator_UserColumnName="GroupName" msprop:Generator_ColumnVarNameInTable="columnGroupName" msprop:Generator_ColumnPropNameInRow="GroupName" msprop:Generator_ColumnPropNameInTable="GroupNameColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:Faq" />
+      <xs:field xpath="mstns:FaqId" />
+    </xs:unique>
+    <xs:unique name="Groups_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:Groups" />
+      <xs:field xpath="mstns:GroupId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

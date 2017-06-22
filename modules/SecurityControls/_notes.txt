@@ -1,0 +1,13 @@
+﻿** 4.0.0.1 (Alain)
+** 7/25/2011
+--	CaptchaImage changed the path to CaptchaImage.ashx
+
+
+** 4.0.0.2 (Alain)
+** 12/17/2014
+--	CaptchaImage	IsValid		Added is null check, before calling IsValid was everytime sending the request to the servers which resulted in getting not valid on second call.
+
+** 4.2.0.2 (Alain)
+** 3/6/2015
+--	Added NoCaptchaRecaptcha and NoCaptchaRecaptchaValidator
+

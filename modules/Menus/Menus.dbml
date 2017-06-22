@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="test" Class="MenusDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DSGN10\SQL2005;Initial Catalog=test;Persist Security Info=True;User ID=sa" SettingsObjectName="lw.Menus.Properties.Settings" SettingsPropertyName="testConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Menu" Member="Menus">
+    <Type Name="Menu">
+      <Column Name="MenuId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="Menu_Menu_Item" Member="Menu_Items" ThisKey="MenuId" OtherKey="MenuId" Type="Menu_Item" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Menu_Externals" Member="Menu_Externals">
+    <Type Name="Menu_External">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Link" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
+      <Association Name="Menu_External_Menu_Item" Member="Menu_Items" ThisKey="ItemId" OtherKey="ItemId" Type="Menu_Item" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Menu_Items" Member="Menu_Items">
+    <Type Name="Menu_Item">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MenuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SubMenuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NewWindow" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Menu_Menu_Item" Member="Menu" ThisKey="MenuId" OtherKey="MenuId" Type="Menu" IsForeignKey="true" />
+      <Association Name="Menu_External_Menu_Item" Member="Menu_External" ThisKey="ItemId" OtherKey="ItemId" Type="Menu_External" IsForeignKey="true" />
+      <Association Name="Page_Menu_Item" Member="Page" ThisKey="ItemId" OtherKey="PageId" Type="Page" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pages" Member="Pages">
+    <Type Name="Page">
+      <Column Name="PageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UniqueName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DisplayName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Keywords" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
+      <Column Name="GroupId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Virtual" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Page_Menu_Item" Member="Menu_Items" ThisKey="PageId" OtherKey="ItemId" Type="Menu_Item" />
+    </Type>
+  </Table>
+</Database>

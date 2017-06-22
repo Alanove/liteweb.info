@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="lebanoninapicture" Class="PagesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DSGN08;Initial Catalog=lebanoninapicture;User ID=sa" SettingsObjectName="lw.Pages.Properties.Settings" SettingsPropertyName="lebanoninapictureConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PageTemplates" Member="PageTemplates">
+    <Type Name="PageTemplate">
+      <Column Name="TemplateId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Filename" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PageTypes" Member="PageTypes">
+    <Type Name="PageType">
+      <Column Name="TypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ThumbSize" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MediumSize" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LargeSize" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PageDataPropertyValue" Member="PageDataPropertyValues">
+    <Type Name="PageDataPropertyValue">
+      <Column Name="PageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DataPropertyID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DataPropertyValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PageDataProperty" Member="PageDataProperties">
+    <Type Name="PageDataProperty">
+      <Column Name="DataPropertyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DataPropertyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pages_View_Comments" Member="Pages_View_Comments">
+    <Type Name="Pages_View_Comment">
+      <Column Name="PageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Header" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="SmallDescription" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="PageContent" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Language" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PageFile" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MemberId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PublishDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ranking" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="History" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PageType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PageTemplate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FullURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ParentTitle" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Template" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TemplateFileName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CommentsCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(201)" CanBeNull="true" />
+      <Column Name="Picture" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Privacy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Keywords" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pages" Member="Pages">
+    <Type Name="Page">
+      <Column Name="PageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Header" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="SmallDescription" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="PageContent" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Language" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PageFile" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PublishDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ranking" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="History" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PageType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PageTemplate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsSecure" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Tags" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="AccessRoles" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EditingRoles" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Keywords" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pages_View" Member="Pages_Views">
+    <Type Name="Pages_View">
+      <Column Name="PageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Header" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="SmallDescription" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="PageContent" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Language" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PageFile" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PublishDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ranking" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="History" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PageType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PageTemplate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FullURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ParentTitle" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Template" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TemplateFileName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IsSecure" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Tags" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="AccessRoles" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EditingRoles" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(201)" CanBeNull="true" />
+      <Column Name="Keywords" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Page_Likes" Member="Page_Likes">
+    <Type Name="Page_Like">
+      <Column Name="PageId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MemberId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Feeling" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="PageAncestors">
+    <Type Name="PageAncestors" Id="ID1">
+      <Column Name="PageId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="URL" Type="System.String" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="Level" Type="System.Int32" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Pages_GetDescendants" Method="Pages_GetDescendants" IsComposable="true">
+    <Parameter Name="PageId" Parameter="pageId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Pages_GetDescendantsResult">
+      <Column Name="PageId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Level]" Member="Level" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Pages_GetAncestors" Method="Pages_GetAncestors" IsComposable="true">
+    <Parameter Name="PageId" Parameter="pageId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
+  </Function>
+</Database>

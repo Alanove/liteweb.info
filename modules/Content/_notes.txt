@@ -1,0 +1,9 @@
+﻿**	4.0.0.1	(Alain)
+**	8/22/2011 
+--	lw.Content.Controls.Message (removed auto div tag)
+	Error, Success and Warning added div to those tags.
+
+
+**	4.0.0.2	(Alain)
+**	12/13/2011 
+--	lw.Content.Message		Added StringUtils.AddSup to the returned value.

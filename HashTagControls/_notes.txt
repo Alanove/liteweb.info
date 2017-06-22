@@ -1,0 +1,17 @@
+﻿** 4.0.0.0 (Alain)
+** 3/24/2015
+--	Created with the following Tags:
+	HashTagLink
+	HashTagsDataSource
+
+** 4.0.0.1 (Charbel)
+** 8/12/2015
+--	HashTagsDataSource	fixing query "from" was missing in "select PageId from Pages where URL"
+
+** 4.0.1.1 (Charbel)
+** 8/12/2015
+--	HashTagControls		adding "HashStart", a functionality to help up use "#" or not before the link
+
+** 4.1.1.1 (Charbel)
+** 8/12/2015
+--	MediaHashTagsDataSource		adding new HashTagsDS related to "Media" only

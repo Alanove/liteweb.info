@@ -1,0 +1,11 @@
+﻿** 4.0.0.1 (Naz)
+** 5/03/2011
+--	Changed in the resize function when the (im.Width == width && im.Height == height)
+
+** 4.0.0.2 (Charbel)
+** 21/05/2012
+--	changed the ImageCrop function, added the ability to crop an image using specific sizes and positions
+
+** 4.0.0.3 (Samer)
+** 14/03/2013
+--	changed the CropImage function, added the delete image before new image is uploaded

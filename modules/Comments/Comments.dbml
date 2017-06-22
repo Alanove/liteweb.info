@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="mar-antonios-naz" Class="CommentsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DSGN10\SQL2005;Initial Catalog=mar-antonios-naz;Persist Security Info=True;User ID=sa" SettingsObjectName="lw.Comments.Properties.Settings" SettingsPropertyName="mar_antonios_nazConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Comments_Tables" Member="Comments_Tables">
+    <Type Name="Comments_Table">
+      <Column Name="TableId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TableName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="RelationField" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Members" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CustomPermissions" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdminId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="xmlField" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comments_Tables_View" Member="Comments_Tables_Views">
+    <Type Name="Comments_Tables_View">
+      <Column Name="TableId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TableName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="RelationField" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Members" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CustomPermissions" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdminId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="xmlField" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.CreateCommentsTable_Members" Method="CreateCommentsTable_Members">
+    <Parameter Name="TableName" Parameter="tableName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RelationField" Parameter="relationField" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AdminId" Parameter="adminId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Return" Parameter="return" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreateCommentsTable_No_Members" Method="CreateCommentsTable_No_Members">
+    <Parameter Name="TableName" Parameter="tableName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RelationField" Parameter="relationField" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AdminId" Parameter="adminId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Return" Parameter="return" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

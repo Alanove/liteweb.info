@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="test2" Class="NewsTypesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DSGN10\SQL2005;Initial Catalog=test2;User ID=sa" SettingsObjectName="lw.Articles.Properties.Settings" SettingsPropertyName="test2ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.NewsTypes" Member="NewsTypes">
+    <Type Name="NewsType">
+      <Column Name="TypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="UniqueName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TemplateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ranking" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ThumbWidth" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ThumbHeight" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ThumbSize" Type="System.String" DbType="VarChar(63)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ThumbResizeOption" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="LargeWidth" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="LargeHeight" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="LargeSize" Type="System.String" DbType="VarChar(63)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LargeResizeOption" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="MediumWidth" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MediumHeight" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MediumSize" Type="System.String" DbType="VarChar(63)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MediumResizeOption" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Permission" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsTypesView" Member="NewsTypesViews">
+    <Type Name="NewsTypesView">
+      <Column Name="TypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="UniqueName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TemplateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ranking" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ThumbWidth" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ThumbHeight" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ThumbSize" Type="System.String" DbType="VarChar(63)" CanBeNull="true" />
+      <Column Name="ThumbResizeOption" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="LargeWidth" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="LargeHeight" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="LargeSize" Type="System.String" DbType="VarChar(63)" CanBeNull="true" />
+      <Column Name="LargeResizeOption" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="MediumWidth" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MediumHeight" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MediumSize" Type="System.String" DbType="VarChar(63)" CanBeNull="true" />
+      <Column Name="MediumResizeOption" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Permission" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Parent" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="ChildrenCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

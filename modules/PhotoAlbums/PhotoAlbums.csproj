@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{813956B6-C82A-439C-8E1F-838EC8AD002C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lw.PhotoAlbums</RootNamespace>
+    <AssemblyName>PhotoAlbums</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Debug\PhotoAlbums.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlbumsDS.cs">
+      <DependentUpon>AlbumsDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AlbumsDS1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AlbumsDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PhotoAlbumsCategoriesDS.cs" />
+    <Compile Include="Controls\PhotoAlbumImagesDataSource.cs" />
+    <Compile Include="Controls\PhotoAlbumHasImage.cs" />
+    <Compile Include="Controls\PhotoAlbumImageLink.cs" />
+    <Compile Include="Controls\PhotoAlbumDataProvider.cs" />
+    <Compile Include="Controls\PhotoAlbumsDataSource.cs" />
+    <Compile Include="cte.cs" />
+    <Compile Include="PhotoAlbumsData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PhotoAlbumsData.Designer.cs">
+      <DependentUpon>PhotoAlbumsData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoAlbumsManager.cs" />
+    <Compile Include="Controls\PhotoAlbumImage.cs" />
+    <Compile Include="Controls\PhotoAlbumsLink.cs" />
+    <Compile Include="PhotoAlbumsNetwork.cs" />
+    <Compile Include="PicturesData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PicturesData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="PicturesManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\CTE\CTE.csproj">
+      <Project>{C18BDCE6-053C-4CE6-B92D-0A32916D1514}</Project>
+      <Name>CTE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core-web\WebTools\WebTools.csproj">
+      <Project>{57723841-0A84-441C-8D5A-EDD8AA56E4DE}</Project>
+      <Name>WebTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\Data\Data.csproj">
+      <Project>{F6134610-83DD-4E30-A447-1F91AC00A84D}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\Graphics\Graphics.csproj">
+      <Project>{02D95412-57EC-44F5-8F92-30893E9D61CD}</Project>
+      <Name>Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\Utils\Utils.csproj">
+      <Project>{4805E87E-9CD7-4F8B-A401-62B4CD7864CF}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Base\Base.csproj">
+      <Project>{05A98EA8-78D1-4A23-8F7C-1C11D82C02B5}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Content\Content.csproj">
+      <Project>{b331595d-2d63-4b30-a916-0c7367d8bc07}</Project>
+      <Name>Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataControls\DataControls.csproj">
+      <Project>{FA0AB953-7FB1-46B0-A4BF-FECC08CCEF09}</Project>
+      <Name>DataControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageControls\ImageControls.csproj">
+      <Project>{1FE43609-9A18-441D-9D84-D4056F00339B}</Project>
+      <Name>ImageControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialNetworks\Networking.csproj">
+      <Project>{a2ce000f-4c6b-4e69-a4d8-218c352ef6ff}</Project>
+      <Name>Networking</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PhotoAlbumsData.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PhotoAlbumsData.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="AlbumsDS.xsc">
+      <DependentUpon>AlbumsDS.xsd</DependentUpon>
+    </None>
+    <None Include="AlbumsDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AlbumsDS1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AlbumsDS.xss">
+      <DependentUpon>AlbumsDS.xsd</DependentUpon>
+    </None>
+    <None Include="PicturesData.dbml.layout">
+      <DependentUpon>PicturesData.dbml</DependentUpon>
+    </None>
+    <None Include="app.config" />
+    <None Include="PicturesData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>PicturesData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_notes.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

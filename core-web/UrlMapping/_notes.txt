@@ -1,0 +1,5 @@
+﻿**	4.0.0.1 (Alain)
+**	4/14/2011
+--	UrlMappingHelper.CreateTemplatedMappingRegex
+		Changed: RegExp s = "^" + s + "$" to s = "^(/){0,1}" + s + "$";
+		Enable to match urls that start with a "/"

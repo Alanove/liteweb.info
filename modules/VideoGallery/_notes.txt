@@ -1,0 +1,15 @@
+﻿**	4.0.1.1 (Alain)
+**	8/19/2011
+--	lw.VideoGallery.Controls.VideoLink		Added Entension
+--	Added Language Support
+--	TODO:	Add Video Link
+			Include the option to upload the video
+
+**	4.0.1.2 (Charbel)
+**	8/20/2014
+--	MediaGalleryManager.cs
+--	Fixed "AddVideo" function thumbnail image was giving error
+
+**	4.0.2.2 (Nazir)
+**	7/18/2016
+-- MediaGalleryManager		Added		UpdateVideoWithImage that takes (bool? crop) option top crop or resize the thumb image

@@ -1,0 +1,10 @@
+﻿** 4.0.0.0 (Alain)
+** 3/24/2015
+--	Created with the following Classes:
+	HashTagsManager
+	cte
+	
+** 4.0.0.1 (Charbel)
+** 8/12/2015
+--	cte		adding new HashTagTypes related to "Media"
+

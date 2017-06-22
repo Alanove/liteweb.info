@@ -1,0 +1,132 @@
+﻿**	1.0.0.0 (Alain)
+**	4/9/2013
+--	Project Created
+--	Remarks:
+1 - To modify a js file, copy and paste the whole file to a new version
+2 - Very Important: Apply the changes in JsFiles.xml (filename and version and verify dependencies)
+3 - Very Important: make sure that the name of the file is the same of the folder (just change the version number)
+4 - Very Important: Make sure that the file is an "Embedded Resource" right click on file - > Properties --> Build Action --> Embedded Resource
+5 - Create a min file (Right click on file Web Essentials > Minify)
+6 - Make sure that the min file is also and Embedded Resource :)
+7 - Very Important: Make sure that the following line:
+	<add type="lw.js.Handler,lw.js" path="*.lwjs" verb="*"  name="lw.js"/>
+	Exists in web.config under system.webserver/handlers
+8 - Note every js change here.
+
+
+
+**	1.0.0.1 (Samer)
+**	6/18/2013
+--	Changes added to lw-jquery-plugins.js
+--	Remarks:
+Added "containerOverflowHidden" option to lwScroll, to enable/disable overflow hidden on popup elements, for the scrolling to work smoothly.
+
+
+**	1.0.1.1 (Charbel)
+**	1/21/2014
+--	Created new jquery-plugins.js (v 1.3)
+--	added/changed the Hammer plugin to a newer version
+
+**	1.0.1.2 (Charbel)
+**	1/22/2014
+--	lw.js (v 4.065)
+--	fixed the top in the showWindow() function, added to it a viewPort var so we can know if it's a phone or PC
+
+
+
+**	2/05/2014 (Alain)
+--	Added toastr to jquery plugins
+
+
+**	2/12/2014 (Alain)
+--	lw-jquery-plugins (2.03)	
+	lwSlideShow		Added option startPaused
+					Added methods	play, pause
+					Added triggers: start, pause, change
+
+** 6/4/2014 (Alain)
+--	Engine.cs	
+	Adding JsFiles.xml inside the website is config files (Prv/Conf) will override the exisiting JsFiles.xml in this project
+--	lw.js (4.066)
+	Major changes to popup, overlay
+	Added escapes (wish basically adds an pipe of events to the escape key)
+	The animation is now reduced to CSS adnimations so in order for the popup, overlay, slideshow to work the css must be correctly modified.
+	Latest version of css exists in ISC Amman's new website (2014)
+
+
+** 6/18/2014 (Alain)
+--	lw-jquery-plugins.js (2.05)
+	Removed:	lwScroll		(If you still want to use lwScroll it can be found in older versions)
+	Changed:	lwSlideShow		Animation is now based on CSS, so the related CSS code must be applied to the site's CSS otherwise there will be no animation.
+	Added:		lwSearchSite	An autocomplete search plugin that is used in SABIS new sites' header
+
+
+
+** 10/29/2014 (Charbel)
+--	lw.js (4.066)
+	Added:		cleartimeout in the prompt function() in order to cancel closing the overlay whenever its open already.
+
+
+** 11/6/2014 (Alain)
+--	jquery-plugins.js 1.7
+	Removed:	jQuery UI
+				customSelect
+				transit
+
+
+
+** 11/13/2014 (Alain)
+--	lw.js		4.067
+	Overlay, alert and popup now take z-index from styles
+	
+--	lw-forms	1.005	
+	Fixed a bug, when ClientSiteValidation set to false the fields were still trying to add themselves to non-existing validation groups.
+
+	
+** 12/4/2014 (Nazir)
+--	jquery-plugins.js 1.8
+	Updated:	Perfect Scroller
+
+
+
+
+
+** 12/10/2014 (Alain)
+--	jquery-plugins		1.8
+	Removed:	Brandom (Touch Plugin)
+				TimeEntry
+				Hammer
+	Added:		SmoothScroll
+				BrowserSelector
+				
+	
+--	lw-utils.005	
+	Removed:	TimeField (use moment.js instead)
+	Added:		lw.utils.enableScroll
+				lw.utils.disableScroll
+
+
+
+** 1/20/2015 (Alain)
+--	lw-forms		1.006
+	Added support for ValidateWith on the client side	
+
+
+
+** 2/10/2015 (Charbel)
+--	cms-inside		1.1
+	Added functionality to disable animation by adding "no-animation" class to field
+
+	
+** 11/4/2015 (Charbel)
+--	lw-utils	1.024
+				updating enable_scroll() and disable_scroll() in order to prevent the drag scroll of the the native browser's scrollbar
+
+	
+** 2/22/2016 (Charbel)
+--	lw	4.068	prompt: added new date type field
+
+	
+** 6/7/2016 (Alain)
+--	lw.js			fixed synchronization between showOverlay, hideOverlay
+--	lw-forms.js		hideLoader was being called 2 times after form submission, now it's called only on "complete" event.

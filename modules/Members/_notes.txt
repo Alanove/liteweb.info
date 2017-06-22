@@ -1,0 +1,99 @@
+﻿**	4.0.1.0	(Alain)
+**	6/22/2011 
+--	cte		Added: NetworkTable and NetworkRelateToField
+
+**	4.0.2.0	(Naz)
+**	7/14/2011 
+--			Added: Class MemberResetPassword
+			Added: EncryptPassword to MembersManager
+
+
+**	4.0.2.1	(Alain)
+**	8/4/2011 
+--			MembersManager.EncryptPassword	Cryptography now takes parameter from CTE.Parameters
+
+
+**	4.0.3.1	(Alain)
+**	5/2/2012 
+--	Security.User.LoggedInUser added with or without profile.
+
+
+
+**	4.0.4.1	(Naz)
+**	5/03/2012 
+--			Added: Class UpdatePasswordChangeDate
+--			Added: Class UpdateMemberStatus
+--			Added: Class GetUserStatus(int _status)
+
+--			UpdatePassword now take new parameter "bool UpdateTime"
+--			UserStatus casted to type Int
+
+
+**	4.0.5.0	(Naz)
+**	6/12/2012 
+--			Added: Thread WeeklyLoginActivity
+--			Added: Class MemberLoginActivity
+
+
+**	4.0.5.1	(Alain)
+**	6/20/2012 
+--	lw.Members.Secutiry.User.TryLogin	removed		MemberLoginActivity
+	LoginUser							added		MemberLoginActivity (because LoginUser is shared between Operators and Members)
+										Changed		Request.ServerVariables["HTTP_X_FORWARDED_FOR"] ?? Request.ServerVariables["REMOTE_ADDR"] 
+											to:		WebContext.IPAddress
+
+**	4.0.5.2	(Alain)
+**	6/27/2012 
+--	lw.Members.Controls.MemberBox		Added		VisibleWhenLoggedIn
+
+
+
+**	4.0.5.3	(Alain)
+**	7/3/2012 
+--	lw.Members.MembersManager.UpdateMemberPicture	Added test for empty picture and not delete
+
+**	4.0.5.3	(Alain)
+**	7/3/2012 
+--	MemberEducationList		fixed the dataSrc added EmptyDataSrc because it does not use traditional select command
+
+-- Alain any changes you made not mentioned here ? cause i found the assembly version is 4.0.5.4 .. but here last thing mentioned 4.0.5.3
+
+
+**	4.0.5.5	(Naz)
+**	10/17/2012 
+--	AddMember		added FullName, NativeFullName
+
+
+
+**	4.0.5.6	(Samer)
+**	03/15/2013 
+--	lw.Members.Controls.ProfilePicture.Render	Disabled casching for profile thumbnail image on this line: this._Src = image.Replace(".Jpg", "-S.Jpg?" + DateTime.Now.ToFileTime());
+
+
+
+**	4.0.5.7	(Charbel)
+**	03/15/2013 
+--	if(memberRow["Privacy"] != DBNull.Value) added this check since some members in the DB may have a NULL privacy, defaults to "0"
+--	this.Alt	changed from memberRow["Name"] to memberRow["FirstName"]+" "+memberRow["LastName"] since the members table does not contain a "Name" column
+
+
+**	4.0.5.8	(Samer)
+**	05/21/2013 
+--	lw.Members.MembersManager.UpdateMemberAboutMe	This is to update the member's contact info from saga;
+
+
+**	4.0.7.8	(Charbel)
+**	2/17/2015
+--	MembersDataSrource	-- added groupname functionality so we can pick the member related to a specific group
+
+
+**	4.0.8.8	(Charbel)
+**	3/27/2015
+--	MemberBox	-- Added VisibleWhenUserEnabled
+
+
+
+**	4.0.9.8	(Naz)
+**	26/10/2015 
+--	MemberManager	added UpdateEmailAdress
+

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SocialMedia">
+  <DataContextMoniker Name="/SocialMediaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="91b7b70d-5070-4f8b-b200-e91a39583202" absoluteBounds="6.375, 2.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/SocialMediaDataContext/SocialMediaPost" />
+      <nestedChildShapes>
+        <elementListCompartment Id="941371ae-79d8-492e-be70-2f8547781c0b" absoluteBounds="6.39, 3.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

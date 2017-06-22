@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CountriesDs" targetNamespace="http://tempuri.org/CountriesDs.xsd" xmlns:mstns="http://tempuri.org/CountriesDs.xsd" xmlns="http://tempuri.org/CountriesDs.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CountriesDs" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="CountriesDs" msprop:Generator_DataSetName="CountriesDs">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Countries" msprop:Generator_UserTableName="Countries" msprop:Generator_RowDeletedName="CountriesRowDeleted" msprop:Generator_RowChangedName="CountriesRowChanged" msprop:Generator_RowClassName="CountriesRow" msprop:Generator_RowChangingName="CountriesRowChanging" msprop:Generator_RowEvArgName="CountriesRowChangeEvent" msprop:Generator_RowEvHandlerName="CountriesRowChangeEventHandler" msprop:Generator_TableClassName="CountriesDataTable" msprop:Generator_TableVarName="tableCountries" msprop:Generator_RowDeletingName="CountriesRowDeleting" msprop:Generator_TablePropName="Countries">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CountryId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="CountryId" msprop:Generator_ColumnVarNameInTable="columnCountryId" msprop:Generator_ColumnPropNameInRow="CountryId" msprop:Generator_ColumnPropNameInTable="CountryIdColumn" type="xs:int" />
+              <xs:element name="CountryCode" msprop:Generator_UserColumnName="CountryCode" msprop:Generator_ColumnVarNameInTable="columnCountryCode" msprop:Generator_ColumnPropNameInRow="CountryCode" msprop:Generator_ColumnPropNameInTable="CountryCodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LocalName" msprop:Generator_UserColumnName="LocalName" msprop:Generator_ColumnVarNameInTable="columnLocalName" msprop:Generator_ColumnPropNameInRow="LocalName" msprop:Generator_ColumnPropNameInTable="LocalNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Regions" msprop:Generator_UserTableName="Regions" msprop:Generator_RowDeletedName="RegionsRowDeleted" msprop:Generator_TableClassName="RegionsDataTable" msprop:Generator_RowChangedName="RegionsRowChanged" msprop:Generator_RowClassName="RegionsRow" msprop:Generator_RowChangingName="RegionsRowChanging" msprop:Generator_RowEvArgName="RegionsRowChangeEvent" msprop:Generator_RowEvHandlerName="RegionsRowChangeEventHandler" msprop:Generator_TablePropName="Regions" msprop:Generator_TableVarName="tableRegions" msprop:Generator_RowDeletingName="RegionsRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegionId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="RegionId" msprop:Generator_ColumnPropNameInRow="RegionId" msprop:Generator_ColumnVarNameInTable="columnRegionId" msprop:Generator_ColumnPropNameInTable="RegionIdColumn" type="xs:int" />
+              <xs:element name="CountryId" msprop:Generator_UserColumnName="CountryId" msprop:Generator_ColumnPropNameInRow="CountryId" msprop:Generator_ColumnVarNameInTable="columnCountryId" msprop:Generator_ColumnPropNameInTable="CountryIdColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ZoneId" msprop:Generator_UserColumnName="ZoneId" msprop:Generator_ColumnPropNameInRow="ZoneId" msprop:Generator_ColumnVarNameInTable="columnZoneId" msprop:Generator_ColumnPropNameInTable="ZoneIdColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Countries" />
+      <xs:field xpath="mstns:CountryId" />
+    </xs:unique>
+    <xs:unique name="Regions_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Regions" />
+      <xs:field xpath="mstns:RegionId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

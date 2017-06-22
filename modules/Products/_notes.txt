@@ -1,0 +1,16 @@
+﻿** 4.0.0.1 (Alain)
+** 5/23/2012
+-- Created a file for each class in lw.Products.Controls
+
+** 4.0.0.2 (Alain)
+** 5/25/2012
+-- Changes in ItemsSource:
+1 - Data will now return * from ItemsView
+	Duplicates are removed internatlly
+	TODO: create a separate view for categories to avoid this problem of duplicates
+2 - Changed Request.QueryString to page.GetQueryValue
+-- Changes in CategoryLink
+	Links are now extensionless.
+-- Changes in ItemsLink
+	Links are now extensionless.
+--	Controls.Categories now extends CustomRepeater

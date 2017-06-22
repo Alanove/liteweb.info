@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B24DC015-B977-494C-A225-6F0B63294EF0}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Products</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>lw.Products</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\Products.XML</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\Data\Data.csproj">
+      <Project>{F6134610-83DD-4E30-A447-1F91AC00A84D}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\Graphics\Graphics.csproj">
+      <Project>{02D95412-57EC-44F5-8F92-30893E9D61CD}</Project>
+      <Name>Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core\Utils\Utils.csproj">
+      <Project>{4805E87E-9CD7-4F8B-A401-62B4CD7864CF}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Base\Base.csproj">
+      <Project>{05A98EA8-78D1-4A23-8F7C-1C11D82C02B5}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Content\Content.csproj">
+      <Project>{B331595D-2D63-4B30-A916-0C7367D8BC07}</Project>
+      <Name>Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataControls\DataControls.csproj">
+      <Project>{FA0AB953-7FB1-46B0-A4BF-FECC08CCEF09}</Project>
+      <Name>DataControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageControls\ImageControls.csproj">
+      <Project>{1FE43609-9A18-441D-9D84-D4056F00339B}</Project>
+      <Name>ImageControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Members\Members.csproj">
+      <Project>{F7D7ECFE-0E8B-4081-829E-71A898BB235A}</Project>
+      <Name>Members</Name>
+    </ProjectReference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\..\core\CTE\CTE.csproj">
+      <Name>CTE</Name>
+      <Project>{C18BDCE6-053C-4CE6-B92D-0A32916D1514}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\..\core-web\WebTools\WebTools.csproj">
+      <Name>WebTools</Name>
+      <Project>{57723841-0A84-441C-8D5A-EDD8AA56E4DE}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\Brands\BrandLink.cs" />
+    <Compile Include="Controls\Choices\ItemChoicesOptionsDataSource.cs" />
+    <Compile Include="Controls\Choices\ItemOptionsDataSource.cs" />
+    <Compile Include="Controls\Items\PreviousItemLink.cs" />
+    <Compile Include="Controls\Items\NextItemLink.cs" />
+    <Compile Include="Controls\Items\ItemsSource.cs" />
+    <Compile Include="Controls\Items\RelatedProductsDataSource.cs" />
+    <Compile Include="Controls\Items\ItemPricesSrc.cs" />
+    <Compile Include="Controls\Items\PartOfPackagesSource.cs" />
+    <Compile Include="Controls\Items\PackagesSource.cs" />
+    <Compile Include="Controls\Items\ItemImageLink.cs" />
+    <Compile Include="Controls\Items\OutOfStock.cs" />
+    <Compile Include="Controls\Items\ItemOptionsRadios.cs" />
+    <Compile Include="Controls\Items\ItemOptions.cs" />
+    <Compile Include="Controls\Items\ItemStatusIcon.cs" />
+    <Compile Include="Controls\Items\ItemSpecs.cs" />
+    <Compile Include="Controls\Items\ItemImage.cs" />
+    <Compile Include="Controls\Items\ItemImageResized.cs" />
+    <Compile Include="Controls\Items\ItemPrice.cs" />
+    <Compile Include="data\ShoppingManager.cs" />
+    <Compile Include="data\CategoriesMgr.cs" />
+    <Compile Include="data\Choices.cs">
+      <DependentUpon>Choices.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="data\Choices.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Choices.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="data\ChoicesMgr.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="data\BrandsMgr.cs" />
+    <Compile Include="data\ShoppingDB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingDB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="enum.cs" />
+    <Compile Include="data\ExtendProductsDS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="data\ItemsMgr.cs" />
+    <Compile Include="cte.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="data\Packages.cs">
+      <DependentUpon>Packages.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="data\Packages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Packages.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="data\PackagesManager.cs" />
+    <Compile Include="data\ProductsDS.cs">
+      <DependentUpon>ProductsDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="data\ProductsDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductsDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="data\ProductsManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\Brands\Brands.cs" />
+    <Compile Include="Controls\Categories\Categories.cs" />
+    <Compile Include="Controls\Categories\CategoryImage.cs" />
+    <Compile Include="Controls\Categories\CategoryImageLink.cs" />
+    <Compile Include="Controls\Categories\CategoryLink.cs" />
+    <Compile Include="Controls\Categories\CategoryList.cs" />
+    <Compile Include="Controls\Items\ItemLink.cs" />
+    <Compile Include="Controls\Items\Items.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Tools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="data\Choices.xsc">
+      <DependentUpon>Choices.xsd</DependentUpon>
+    </None>
+    <None Include="data\Choices.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Choices.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>lw.Products</CustomToolNamespace>
+    </None>
+    <None Include="data\Choices.xss">
+      <DependentUpon>Choices.xsd</DependentUpon>
+    </None>
+    <None Include="data\Packages.xsc">
+      <DependentUpon>Packages.xsd</DependentUpon>
+    </None>
+    <None Include="data\Packages.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Packages.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>lw.Products</CustomToolNamespace>
+    </None>
+    <None Include="data\Packages.xss">
+      <DependentUpon>Packages.xsd</DependentUpon>
+    </None>
+    <None Include="data\ProductsDS.xsc">
+      <DependentUpon>ProductsDS.xsd</DependentUpon>
+    </None>
+    <None Include="data\ProductsDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductsDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>lw.Products</CustomToolNamespace>
+    </None>
+    <None Include="data\ProductsDS.xss">
+      <DependentUpon>ProductsDS.xsd</DependentUpon>
+    </None>
+    <None Include="data\ShoppingDB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ShoppingDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>lw.Products</CustomToolNamespace>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_notes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\ShoppingDB.dbml.layout">
+      <DependentUpon>ShoppingDB.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

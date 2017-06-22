@@ -1,0 +1,19 @@
+﻿** 1.0.0.0 (Alain)
+** 7/25/2014
+--	Created
+
+** 1.0.1.0 (Alain)
+** 9/25/2014
+--	Added	SearchSummary
+
+** 1.0.1.1 (Charbel)
+** 9/17/2015
+--	Fixed	photo gallery link
+
+** 1.0.1.2 (Nazir)
+** 9/21/2015
+-- Changed cfg.GetKey(AppConfig.PhotoGalleryUrl); to WebTools.WebUtils.GetFromWebConfig(AppConfig.PhotoGalleryUrl);
+
+** 1.0.1.3 (Charbel)
+** 4/23/2016
+-- added functionality to remove all data that have status different than 1 (visible)

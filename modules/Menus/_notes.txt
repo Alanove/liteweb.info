@@ -1,0 +1,61 @@
+﻿**	4.0.0.2 (Alain)
+**	4/12/2012
+--	Added: lwMenu.AddExtension bool defaults to false
+--	Added: lwMenu.PageExtension string defaults to aspx
+--	lwMenu.GetUrl()
+		Changed the logic to use AddExtension and PageExtensions
+
+**	4.0.0.3 (Alain)
+**	4/13/2012
+--	lwMenu.Current
+		Changed: rawUrl.IndexOf(GetUrl()) >= 0 to rawUrl.Equals(GetUrl(), StringComparison.OrdinalIgnoreCase)
+		this made the url comparaision between menu and rawUrl stric instead of progressive, as the latest made the home page as always Current
+
+**	4.0.0.4 (Alain)
+**	4/29/2012
+--	lwMenu.GetUrl()	
+	Added if (!String.IsNullOrEmpty(PagesExtension) && AddExtensions)
+			{
+				ret += "/default" + PagesExtension;
+			}
+
+**	4.0.0.5 (Naz)
+**	5/03/2012
+--	lwMenu.GetHistory
+	Changed ret.Append(this.GetLink()) to ret.Append(this.DisplayName);
+	this made the current page in history not to be a link to itself
+
+
+**	4.0.1.5 (Alain)
+**	5/06/2012
+--	lwMenu.cs	Added	SetPagesExtensionRecursive
+						SetAddPageExtensionsRecursive
+	look inside the file for documentation
+
+
+**	4.0.1.6 (Alain)
+**	9/12/2012
+--	lwMenu.cs	Current fixed a glitch when menu item ends with default.aspx
+
+**	4.0.2.6 (Alain)
+**	3/17/2015
+--	lwMenu.cs	added		public lwMenu AddChild(string menuName)
+
+
+**	4.0.3.7 (Myriam)
+**	11/19/2015
+--	lwMenu.cs	Added		public lwMenu AddChild(string menuName, string url, int id, bool secure)
+							isSecure boolean
+							_secureDomain
+							_defaultDomain
+				Changed		GetUrl(), replace "~" with the appropriate domain
+
+
+**	4.0.3.8 (Charbel)
+**	2/18/2016
+--	lwMenu.cs	Changed		public current, add defaultDomain and secureDomain to rawurl
+
+
+**	4.0.4.8 (Charbel)
+**	2/19/2016
+--	lwMenu.cs	Added		DefaultSecureDomain(string PathUrl) that Changes the PathUrl to secure or default domain

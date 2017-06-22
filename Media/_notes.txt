@@ -1,0 +1,7 @@
+﻿**	1.0.0.0 (Charbel)
+**	11/2/2015
+--	Created the project
+
+**	1.0.0.1 (Charbel)
+**	5/23/2016
+--	updated WidgetsDataItem and WidgetsDataSource (general fixes)

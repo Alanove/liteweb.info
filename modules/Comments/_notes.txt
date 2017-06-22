@@ -1,0 +1,17 @@
+﻿**	4.0.1.0	(Alain)
+**	4/20/2011 
+--	CommentsManager	Added:	Documentation
+							CommentFolder
+							AddFiles
+							GetCommentFiles
+--	TODO: Add files to an xml field inside the DB so they can be used without file access
+
+**	6/26/2013 (Samer)
+--	CommentsManager.deleteComment Added
+
+
+**	4.0.1.2	(Nazir)
+**	5/02/2015 
+
+--	CommentsForm Fixed "_relationId = (int)ControlUtils.GetBoundedDataField(this.NamingContainer, "PageId");" to "_relationId = (int)ControlUtils.GetBoundedDataField(this.NamingContainer, RelateTo);"
+	
