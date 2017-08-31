@@ -157,9 +157,16 @@ namespace lw.Pages.Controls
         {
 			if (affectPageViews) 
             {
-                pagesManager.IncrementPageViews(PageId.Value);
+				try
+				{
+					pagesManager.IncrementPageViews(PageId.Value);
+				}
+				catch
+				{
+
+				}
 				PageId = null;
-            }
+			}
         }
 
         #region Properties
