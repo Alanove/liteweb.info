@@ -101,8 +101,8 @@ var lw = {
 			if ("function" === typeof lw._pageInit[i])
 				lw._pageInit[i]();
 
-		$("li:first-child").addClass("first");
-		$("li:last-child").addClass("last");
+		//$("li:first-child").addClass("first");
+		//$("li:last-child").addClass("last");
 
 		if (lw.__pageInit && typeof lw.__pageInit == "function") {
 			lw.__pageInit();
