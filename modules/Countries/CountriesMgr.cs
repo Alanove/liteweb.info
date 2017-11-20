@@ -86,7 +86,7 @@ namespace lw.Countries
 
 		public DataRow GetCountry(string Code)
 		{
-			DataView countries = GetCountries(String.Format("CountryCode='{0}'", StringUtils.SQLEncode(Code)));
+			DataView countries = GetCountries(String.Format("CountryCode='{0}' or Name='{0}'", StringUtils.SQLEncode(Code)));
 			if (countries.Count > 0)
 				return countries[0].Row;
 			return null;
