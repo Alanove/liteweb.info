@@ -155,7 +155,7 @@ namespace lw.Pages.Controls
 		/// <param name="e"></param>
         void Page_Unload(object sender, EventArgs e)
         {
-			if (affectPageViews) 
+			if (affectPageViews && PageId != null) 
             {
                 pagesManager.IncrementPageViews(PageId.Value);
 				PageId = null;
