@@ -66,6 +66,9 @@ namespace lw.Forms
 		Different,
 
 		[Description(".")]
-		HaveValue
+		HaveValue,
+
+		[Description("Unknown")]
+		Unknown
 	}
 }
