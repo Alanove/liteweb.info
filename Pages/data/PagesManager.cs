@@ -1319,14 +1319,16 @@ namespace lw.Pages
 				var propID = (from p in PagesData.PageDataProperties
 							  where p.DataPropertyName == property.Key
 							  select p).FirstOrDefault();
-				if (propID != null)
-				{
-					item.PageID = PageId;
-					item.DataPropertyID = propID.DataPropertyID;
-					item.DataPropertyValue = property.Value;
-					PagesData.PageDataPropertyValues.InsertOnSubmit(item);
-					PagesData.SubmitChanges();
-				}
+				int propertyId = -1;
+				if (propID == null)
+					propertyId = GetPageDataProperty(property.Key);
+				else
+					propertyId = propID.DataPropertyID;
+				item.PageID = PageId;
+				item.DataPropertyID = propertyId;
+				item.DataPropertyValue = property.Value;
+				PagesData.PageDataPropertyValues.InsertOnSubmit(item);
+				PagesData.SubmitChanges();
 			}
 		}
 
