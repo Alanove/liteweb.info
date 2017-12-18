@@ -22,7 +22,7 @@ namespace lw.Pages.data
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="lebanoninapicture")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="peerpack")]
 	public partial class PagesDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -51,7 +51,7 @@ namespace lw.Pages.data
     #endregion
 		
 		public PagesDataContext() : 
-				base(global::lw.Pages.Properties.Settings.Default.lebanoninapictureConnectionString, mappingSource)
+				base(global::lw.Pages.Properties.Settings.Default.peerpackConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -128,14 +128,6 @@ namespace lw.Pages.data
 			}
 		}
 		
-		public System.Data.Linq.Table<Pages_View> Pages_Views
-		{
-			get
-			{
-				return this.GetTable<Pages_View>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Page_Like> Page_Likes
 		{
 			get
@@ -149,6 +141,14 @@ namespace lw.Pages.data
 			get
 			{
 				return this.GetTable<PageAncestors>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Pages_View> Pages_Views
+		{
+			get
+			{
+				return this.GetTable<Pages_View>();
 			}
 		}
 		
@@ -1936,6 +1936,215 @@ namespace lw.Pages.data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Page_Likes")]
+	public partial class Page_Like : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PageId;
+		
+		private int _MemberId;
+		
+		private System.Nullable<int> _Feeling;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPageIdChanging(int value);
+    partial void OnPageIdChanged();
+    partial void OnMemberIdChanging(int value);
+    partial void OnMemberIdChanged();
+    partial void OnFeelingChanging(System.Nullable<int> value);
+    partial void OnFeelingChanged();
+    #endregion
+		
+		public Page_Like()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int PageId
+		{
+			get
+			{
+				return this._PageId;
+			}
+			set
+			{
+				if ((this._PageId != value))
+				{
+					this.OnPageIdChanging(value);
+					this.SendPropertyChanging();
+					this._PageId = value;
+					this.SendPropertyChanged("PageId");
+					this.OnPageIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MemberId
+		{
+			get
+			{
+				return this._MemberId;
+			}
+			set
+			{
+				if ((this._MemberId != value))
+				{
+					this.OnMemberIdChanging(value);
+					this.SendPropertyChanging();
+					this._MemberId = value;
+					this.SendPropertyChanged("MemberId");
+					this.OnMemberIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Feeling", DbType="Int")]
+		public System.Nullable<int> Feeling
+		{
+			get
+			{
+				return this._Feeling;
+			}
+			set
+			{
+				if ((this._Feeling != value))
+				{
+					this.OnFeelingChanging(value);
+					this.SendPropertyChanging();
+					this._Feeling = value;
+					this.SendPropertyChanged("Feeling");
+					this.OnFeelingChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class PageAncestors
+	{
+		
+		private int _PageId;
+		
+		private string _URL;
+		
+		private string _Title;
+		
+		private int _ParentId;
+		
+		private int _Level;
+		
+		public PageAncestors()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId")]
+		public int PageId
+		{
+			get
+			{
+				return this._PageId;
+			}
+			set
+			{
+				if ((this._PageId != value))
+				{
+					this._PageId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", CanBeNull=false)]
+		public string URL
+		{
+			get
+			{
+				return this._URL;
+			}
+			set
+			{
+				if ((this._URL != value))
+				{
+					this._URL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this._Title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentId")]
+		public int ParentId
+		{
+			get
+			{
+				return this._ParentId;
+			}
+			set
+			{
+				if ((this._ParentId != value))
+				{
+					this._ParentId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Level")]
+		public int Level
+		{
+			get
+			{
+				return this._Level;
+			}
+			set
+			{
+				if ((this._Level != value))
+				{
+					this._Level = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Pages_View")]
 	public partial class Pages_View
 	{
@@ -1976,8 +2185,6 @@ namespace lw.Pages.data
 		
 		private System.Nullable<int> _Views;
 		
-		private System.Nullable<int> _UserRating;
-		
 		private System.Xml.Linq.XElement _History;
 		
 		private System.Nullable<int> _PageType;
@@ -1994,8 +2201,6 @@ namespace lw.Pages.data
 		
 		private System.Nullable<bool> _IsSecure;
 		
-		private string _Tags;
-		
 		private System.Nullable<int> _AccessRoles;
 		
 		private System.Nullable<int> _EditingRoles;
@@ -2008,7 +2213,17 @@ namespace lw.Pages.data
 		
 		private string _Name;
 		
+		private string _Tags;
+		
+		private int _UserRating;
+		
+		private string _ParentURL;
+		
 		private string _Keywords;
+		
+		private System.Nullable<System.Guid> _Geuid;
+		
+		private string _Picture;
 		
 		public Pages_View()
 		{
@@ -2302,22 +2517,6 @@ namespace lw.Pages.data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserRating", DbType="Int")]
-		public System.Nullable<int> UserRating
-		{
-			get
-			{
-				return this._UserRating;
-			}
-			set
-			{
-				if ((this._UserRating != value))
-				{
-					this._UserRating = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_History", DbType="Xml", UpdateCheck=UpdateCheck.Never)]
 		public System.Xml.Linq.XElement History
 		{
@@ -2446,22 +2645,6 @@ namespace lw.Pages.data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tags", DbType="NVarChar(256)")]
-		public string Tags
-		{
-			get
-			{
-				return this._Tags;
-			}
-			set
-			{
-				if ((this._Tags != value))
-				{
-					this._Tags = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccessRoles", DbType="Int")]
 		public System.Nullable<int> AccessRoles
 		{
@@ -2558,6 +2741,54 @@ namespace lw.Pages.data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tags", DbType="NVarChar(256)")]
+		public string Tags
+		{
+			get
+			{
+				return this._Tags;
+			}
+			set
+			{
+				if ((this._Tags != value))
+				{
+					this._Tags = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserRating", DbType="Int NOT NULL")]
+		public int UserRating
+		{
+			get
+			{
+				return this._UserRating;
+			}
+			set
+			{
+				if ((this._UserRating != value))
+				{
+					this._UserRating = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentURL", DbType="NVarChar(100)")]
+		public string ParentURL
+		{
+			get
+			{
+				return this._ParentURL;
+			}
+			set
+			{
+				if ((this._ParentURL != value))
+				{
+					this._ParentURL = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Keywords", DbType="NVarChar(512)")]
 		public string Keywords
 		{
@@ -2573,212 +2804,35 @@ namespace lw.Pages.data
 				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Page_Likes")]
-	public partial class Page_Like : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PageId;
-		
-		private int _MemberId;
-		
-		private System.Nullable<int> _Feeling;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPageIdChanging(int value);
-    partial void OnPageIdChanged();
-    partial void OnMemberIdChanging(int value);
-    partial void OnMemberIdChanged();
-    partial void OnFeelingChanging(System.Nullable<int> value);
-    partial void OnFeelingChanged();
-    #endregion
-		
-		public Page_Like()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int PageId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Geuid", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> Geuid
 		{
 			get
 			{
-				return this._PageId;
+				return this._Geuid;
 			}
 			set
 			{
-				if ((this._PageId != value))
+				if ((this._Geuid != value))
 				{
-					this.OnPageIdChanging(value);
-					this.SendPropertyChanging();
-					this._PageId = value;
-					this.SendPropertyChanged("PageId");
-					this.OnPageIdChanged();
+					this._Geuid = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MemberId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Picture", DbType="VarChar(150)")]
+		public string Picture
 		{
 			get
 			{
-				return this._MemberId;
+				return this._Picture;
 			}
 			set
 			{
-				if ((this._MemberId != value))
+				if ((this._Picture != value))
 				{
-					this.OnMemberIdChanging(value);
-					this.SendPropertyChanging();
-					this._MemberId = value;
-					this.SendPropertyChanged("MemberId");
-					this.OnMemberIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Feeling", DbType="Int")]
-		public System.Nullable<int> Feeling
-		{
-			get
-			{
-				return this._Feeling;
-			}
-			set
-			{
-				if ((this._Feeling != value))
-				{
-					this.OnFeelingChanging(value);
-					this.SendPropertyChanging();
-					this._Feeling = value;
-					this.SendPropertyChanged("Feeling");
-					this.OnFeelingChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
-	public partial class PageAncestors
-	{
-		
-		private int _PageId;
-		
-		private string _URL;
-		
-		private string _Title;
-		
-		private int _ParentId;
-		
-		private int _Level;
-		
-		public PageAncestors()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId")]
-		public int PageId
-		{
-			get
-			{
-				return this._PageId;
-			}
-			set
-			{
-				if ((this._PageId != value))
-				{
-					this._PageId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", CanBeNull=false)]
-		public string URL
-		{
-			get
-			{
-				return this._URL;
-			}
-			set
-			{
-				if ((this._URL != value))
-				{
-					this._URL = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", CanBeNull=false)]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this._Title = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentId")]
-		public int ParentId
-		{
-			get
-			{
-				return this._ParentId;
-			}
-			set
-			{
-				if ((this._ParentId != value))
-				{
-					this._ParentId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Level")]
-		public int Level
-		{
-			get
-			{
-				return this._Level;
-			}
-			set
-			{
-				if ((this._Level != value))
-				{
-					this._Level = value;
+					this._Picture = value;
 				}
 			}
 		}

@@ -377,7 +377,7 @@ namespace lw.Members
 					string path = "";
 
 					if (useGUID)
-						path = Path.Combine(imagesPath, StringUtils.ToURL(member.Geuid).Replace("-", ""));
+						path = Path.Combine(imagesPath, StringUtils.ToURL(member.Geuid));
 					else
 						path = Path.Combine(imagesPath, StringUtils.ToURL(member.UserName));
 

@@ -121,7 +121,7 @@ namespace lw.Members.Controls
 			{
 				if (useGUID)
 					image = string.Format("{0}/{2}/{1}",
-						MembersSettings.MemberPicturesFolder, picture, StringUtils.ToURL(memberRow["Geuid"]).Replace("-", ""));
+						MembersSettings.MemberPicturesFolder, picture, StringUtils.ToURL(memberRow["Geuid"]));
 				else
 					image = string.Format("{0}/{2}/{1}",
 					MembersSettings.MemberPicturesFolder, picture, StringUtils.ToURL(memberRow["UserName"]));
