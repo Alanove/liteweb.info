@@ -73,7 +73,7 @@ namespace lw.Members
 			if (mem.Count > 0)
 			{
 				UpdateSocialOfMember((int)mem[0]["SocialId"], memberId, (UserSocial)Enum.Parse(typeof(UserSocial), mem[0]["Type"].ToString()),
-											mem[0]["Type"].ToString(), null);
+											Value, null);
 			}
 			else
 			{
