@@ -45,7 +45,8 @@ namespace lw.Forms
 		File,
 		Array,
 		BitwiseNumber,
-		HTMLSelect
+		HTMLSelect,
+		URL
 	}
 
 	/// <summary>

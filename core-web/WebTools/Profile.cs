@@ -188,6 +188,8 @@ namespace lw.WebTools
 			}
 			set
 			{
+				_isDbSave = true;
+
 				SetPropertyValue("Basket", value);
 			}
 		}
@@ -259,6 +261,7 @@ namespace lw.WebTools
 			}
 			set
 			{
+				_isDbSave = true;
 				base.SetPropertyValue("FormsData", value);
 			}
 		}
@@ -282,6 +285,35 @@ namespace lw.WebTools
 			WebContext.Profile.CurrentUserType = UserType.Guest;
 			WebContext.Profile.CurrentUserStatus = (int)lw.CTE.Enum.UserStatus.Unknown;
             WebContext.Profile.Roles = (int)lw.CTE.Enum.Roles.Visitor;
+		}
+
+		bool _isDbSave = false;
+		/// <summary>
+		/// A flag to tell the SQL provider if it should save the data in db or not.
+		/// This flag is automatically changed to true if any of the properties in set.
+		/// </summary>
+		public bool IsDBSave
+		{
+			get
+			{
+				return _isDbSave;
+			}
+			set
+			{
+				_isDbSave = value;
+			}
+		}
+
+		/// <summary>
+		/// Saves the profile in db only if needed
+		/// 1 - When logged
+		/// 2 - When Forms data or Basket data are saved
+		/// Any property that needs anonymus saving can add _isDbSave = true; in the Set function of the property
+		/// </summary>
+		public override void Save()
+		{
+			if (_isDbSave || UserLogged)
+				base.Save();
 		}
 		#endregion
 	}
