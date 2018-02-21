@@ -200,7 +200,8 @@ namespace lw.Forms.Controls
 
 			if (CompareToControl != null)
 			{
-				if (Compare(_Value, _CompareToValue, _DataType) != CompareCondition)
+				Forms.CompareCondition compareCondition = Compare(_Value, _CompareToValue, _DataType);
+				if (compareCondition != Forms.CompareCondition.Unknown && compareCondition != CompareCondition)
 				{
 					_Validated = false;
 					_Message = _CustomMessage;
@@ -663,6 +664,11 @@ namespace lw.Forms.Controls
 		/// <returns>The Condition <seealso cref="lw.Forms.CompareCondiction"/></returns>
 		public static Forms.CompareCondition Compare(string obj1, string obj2, DataType type)
 		{
+			//If any of the values is empty the compare returns true
+			//
+			if (String.IsNullOrWhiteSpace(obj1.ToString()) || String.IsNullOrWhiteSpace(obj2.ToString()))
+				return Forms.CompareCondition.Unknown;
+
 			switch (type)
 			{
 				case DataType.Number:

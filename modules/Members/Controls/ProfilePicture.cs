@@ -5,6 +5,7 @@ using System.Web.UI;
 using lw.CTE;
 using lw.ImageControls;
 using lw.WebTools;
+using lw.Utils;
 
 namespace lw.Members.Controls
 {
@@ -18,6 +19,7 @@ namespace lw.Members.Controls
 		Color fillColor = Color.Transparent;
 		ImageType imageType = ImageType.Resize;
 		string noPicture = "", noMPicture = "", noFPicture = "";
+		bool _useGUID = false;
 
 		DataRow memberRow;
 
@@ -117,8 +119,12 @@ namespace lw.Members.Controls
 
 			if (picture != "")
 			{
-				image = string.Format("{0}/{2}/{1}",
-					MembersSettings.MemberPicturesFolder, picture, memberRow["UserName"]);
+				if (useGUID)
+					image = string.Format("{0}/{2}/{1}",
+						MembersSettings.MemberPicturesFolder, picture, StringUtils.ToURL(memberRow["Geuid"]));
+				else
+					image = string.Format("{0}/{2}/{1}",
+					MembersSettings.MemberPicturesFolder, picture, StringUtils.ToURL(memberRow["UserName"]));
 			}
 			else
 			{
@@ -264,6 +270,18 @@ namespace lw.Members.Controls
 			set
 			{
 				noFPicture = value;
+			}
+		}
+
+		public bool useGUID
+		{
+			get
+			{
+				return _useGUID;
+			}
+			set
+			{
+				_useGUID = value;
 			}
 		}
 	}

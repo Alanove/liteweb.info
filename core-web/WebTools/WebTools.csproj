@@ -141,9 +141,6 @@
     <Compile Include="Javascript.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ManagerTools.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="WebContext.cs">
       <SubType>Code</SubType>
     </Compile>

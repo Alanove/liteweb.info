@@ -25,10 +25,10 @@ namespace lw.Members
 			cond = cond != "" ? " where " + cond : "";
 			return DBUtils.GetDataSet("select * from MemberView" + cond, cte.lib).Tables[0];
 		}
-        public DataTable GetMemberByID(int id)
-        {
-            return DBUtils.GetDataSet("select * from Members where memberid=" + id.ToString(), cte.lib).Tables[0];
-        }
+		public DataTable GetMemberByID(int id)
+		{
+			return DBUtils.GetDataSet("select * from Members where memberid=" + id.ToString(), cte.lib).Tables[0];
+		}
 
 		public DataRow GetMemberProfile(int MemberId)
 		{
@@ -246,7 +246,7 @@ namespace lw.Members
 			int MemberId = (int)member["MemberId"];
 			string imagesPath = Path.Combine(WebContext.Server.MapPath("~"), lw.CTE.MembersSettings.MemberPicturesFolder);
 
-		
+
 
 			if (picture != null)
 			{
@@ -254,7 +254,7 @@ namespace lw.Members
 
 				string path = Path.Combine(_path, picture);
 
-				
+
 
 				if (File.Exists(path))
 				{
@@ -351,6 +351,12 @@ namespace lw.Members
 
 		public void UpdateMemberPicture(MembersDs.MembersRow member, System.Web.HttpPostedFile picture, bool DeleteOldPicture)
 		{
+			UpdateMemberPicture(member, picture, DeleteOldPicture, false);
+		}
+
+
+		public void UpdateMemberPicture(MembersDs.MembersRow member, System.Web.HttpPostedFile picture, bool DeleteOldPicture, bool useGUID)
+		{
 			try
 			{
 				string newPicture = "";
@@ -368,8 +374,12 @@ namespace lw.Members
 						System.Guid.NewGuid().ToString().Substring(16)
 					);
 
+					string path = "";
 
-					string path = Path.Combine(imagesPath, member.UserName);
+					if (useGUID)
+						path = Path.Combine(imagesPath, StringUtils.ToURL(member.Geuid));
+					else
+						path = Path.Combine(imagesPath, StringUtils.ToURL(member.UserName));
 
 					if (!Directory.Exists(path))
 					{
@@ -494,10 +504,17 @@ namespace lw.Members
 			return null;
 		}
 
+
 		public void UpdateMemberPicture(int MemberId, System.Web.HttpPostedFile picture, bool DeleteOldPicture)
 		{
+			UpdateMemberPicture(MemberId, picture, DeleteOldPicture, false);
+		}
+
+
+		public void UpdateMemberPicture(int MemberId, System.Web.HttpPostedFile picture, bool DeleteOldPicture, bool useGUID)
+		{
 			MembersDs.MembersRow member = GetMember(MemberId);
-			UpdateMemberPicture(member, picture, DeleteOldPicture);
+			UpdateMemberPicture(member, picture, DeleteOldPicture, useGUID);
 		}
 
 		public void UpdatePrivacySettings(MembersDs.MembersRow member, int Privacy)
@@ -560,12 +577,12 @@ namespace lw.Members
 			DBUtils.ExecuteQuery(sql, cte.lib);
 		}
 
-        public static void UpdateRoles(int MemberId, Roles roles)
-        {
-            string sql = string.Format("Update Members Set Roles={0} where MemberId={1}",
-                (int)roles, MemberId);
-            DBUtils.ExecuteQuery(sql, cte.lib);
-        }
+		public static void UpdateRoles(int MemberId, Roles roles)
+		{
+			string sql = string.Format("Update Members Set Roles={0} where MemberId={1}",
+				(int)roles, MemberId);
+			DBUtils.ExecuteQuery(sql, cte.lib);
+		}
 
 		public static UserStatus GetUserStatus(DataRow member)
 		{
@@ -575,7 +592,7 @@ namespace lw.Members
 		public static UserStatus GetUserStatus(string _status)
 		{
 			return (UserStatus)Enum.Parse(typeof(UserStatus), _status);
-        }
+		}
 
 		public static UserStatus GetUserStatus(int _status)
 		{
@@ -608,7 +625,7 @@ namespace lw.Members
 				return password;
 		}
 
-		public bool IsCorrectPassword(string password, DataRow member) 
+		public bool IsCorrectPassword(string password, DataRow member)
 		{
 			return EncryptPassword(password) == member["Password"].ToString();
 		}
@@ -634,12 +651,12 @@ namespace lw.Members
 			DBUtils.ExecuteQuery(sql, cte.lib);
 		}
 
-        public void UpdateAlternatePicture(int MemberId, string alternatePicture)
-        {
-            string sql = string.Format("Update Members Set AlternatePicture='{0}' where MemberId={1}",
-                alternatePicture, MemberId);
-            DBUtils.ExecuteQuery(sql, cte.lib); 
-        }
+		public void UpdateAlternatePicture(int MemberId, string alternatePicture)
+		{
+			string sql = string.Format("Update Members Set AlternatePicture='{0}' where MemberId={1}",
+				alternatePicture, MemberId);
+			DBUtils.ExecuteQuery(sql, cte.lib);
+		}
 		public void UpdateEmailAddress(int MemberId, string Email)
 		{
 			string sql = string.Format("Update Members Set Email='{0}' where MemberId={1}",

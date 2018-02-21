@@ -68,16 +68,25 @@ namespace lw.Members
 
 		public void AddSocialToMember(int memberId, UserSocial Type, string Value, int? Privacy)
 		{
+			DataView mem = GetSocialsView(memberId, Type);
 
-			MemberSocial s = new MemberSocial
+			if (mem.Count > 0)
 			{
-				MemberId = memberId,
-				Type = (int)Type,
-				Value = Value,
-				Privacy = Privacy
-			};
-			DataContext.MemberSocials.InsertOnSubmit(s);
-			Save();
+				UpdateSocialOfMember((int)mem[0]["SocialId"], memberId, (UserSocial)Enum.Parse(typeof(UserSocial), mem[0]["Type"].ToString()),
+											Value, null);
+			}
+			else
+			{
+				MemberSocial s = new MemberSocial
+				{
+					MemberId = memberId,
+					Type = (int)Type,
+					Value = Value,
+					Privacy = Privacy
+				};
+				DataContext.MemberSocials.InsertOnSubmit(s);
+				Save();
+			}
 		}
 
 		/// <summary>
@@ -149,6 +158,18 @@ namespace lw.Members
 
 			sql = string.Format("select * from MemberSocial Where MemberId={0}",
 						MemberId);
+
+			return DBUtils.GetDataSet(sql.ToString(), cte.lib).Tables[0].DefaultView;
+		}
+
+		public DataView GetSocialsView(int MemberId, UserSocial Type)
+		{
+			string sql;
+
+			sql = string.Format("select * from MemberSocial Where MemberId={0} and Type={1}",
+						MemberId,
+						(int)Type
+						);
 
 			return DBUtils.GetDataSet(sql.ToString(), cte.lib).Tables[0].DefaultView;
 		}
