@@ -284,6 +284,7 @@ namespace lw.WebTools
 			WebContext.Profile.CurrentUserStatus = (int)UserStatus.None;
 			WebContext.Profile.CurrentUserType = UserType.Guest;
 			WebContext.Profile.CurrentUserStatus = (int)lw.CTE.Enum.UserStatus.Unknown;
+            WebContext.Profile.IsDBSave = true;
             WebContext.Profile.Roles = (int)lw.CTE.Enum.Roles.Visitor;
 		}
 
