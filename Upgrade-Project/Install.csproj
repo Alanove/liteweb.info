@@ -78,6 +78,7 @@
     <Content Include="4.5.2.0\4 - VideosView.sql" />
     <Content Include="4.5.3.0 - Full Script\script-4.5.3.0.sql" />
     <Content Include="4.5.3.1\Cached_Queries.sql" />
+    <Content Include="4.5.3.1\Pages_View.sql" />
     <Content Include="4.5.3.1\Page Likes.sql" />
     <Content Include="Bugs\cms.txt" />
     <Content Include="Framework\ChangeLog.xml">
