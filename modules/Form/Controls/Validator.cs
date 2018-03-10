@@ -173,6 +173,14 @@ namespace lw.Forms.Controls
 									String.Format(Resources.Validation.Range_File, _DisplayName, _Min, _Max);
 							}
 						break;
+					case DataType.URL:
+						if(!Uri.IsWellFormedUriString(_Value, UriKind.RelativeOrAbsolute))
+						{
+							_Message = !String.IsNullOrWhiteSpace(_CustomMessage) ?
+									_CustomMessage :
+									String.Format(Resources.Validation.URL, _DisplayName);
+						}
+						break;
 					default:
 						if ((!String.IsNullOrWhiteSpace(_Min) && _Value.Length < Int32.Parse(_Min))
 								||

@@ -72,6 +72,7 @@ namespace lw.Members.Security
 			WebContext.Profile.FriendsCount = 0;
 			WebContext.Profile.CurrentUserStatus = (int)UserStatus.None;
 			WebContext.Profile.CurrentUserType = UserType.Guest;
+			WebContext.Profile.IsDBSave = true;
 			WebContext.Profile.CurrentUserStatus = (int)lw.CTE.Enum.UserStatus.Unknown;
 		}
 		public static bool LoggedIn

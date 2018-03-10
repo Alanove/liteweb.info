@@ -564,6 +564,42 @@ namespace lw.Pages
             if (page.EditingRoles != null && page.EditingRoles != 0 && ((page.EditingRoles.Value & WebContext.Profile.Roles) == 0))
                 return;
 
+
+			string imagePart = Path.GetFileNameWithoutExtension(page.Image);
+			string imageExtension = Path.GetExtension(page.Image);
+
+			string path = Folders.PagesFolder;
+
+			path = Path.Combine(path, string.Format("Page_{0}", PageId));
+			path = lw.WebTools.WebContext.Server.MapPath("~/" + path);
+
+			string thumbName = Path.Combine(path, string.Format("{0}-t{1}", imagePart, imageExtension));
+			string largeName = Path.Combine(path, string.Format("{0}-l{1}", imagePart, imageExtension));
+			string mediumName = Path.Combine(path, string.Format("{0}-m{1}", imagePart, imageExtension));
+
+
+			if (!String.IsNullOrWhiteSpace(page.Image))
+			{
+				try
+				{
+					if (File.Exists(Path.Combine(path, page.Image)))
+						File.Delete(Path.Combine(path, page.Image));
+
+					if (File.Exists(Path.Combine(path, thumbName)))
+						File.Delete(Path.Combine(path, thumbName));
+
+					if (File.Exists(Path.Combine(path, mediumName)))
+						File.Delete(Path.Combine(path, mediumName));
+
+					if (File.Exists(Path.Combine(path, largeName)))
+						File.Delete(Path.Combine(path, largeName));
+				}
+				catch
+				{
+
+				}
+			}
+
             page.Image = null;
             PagesData.SubmitChanges();
         }

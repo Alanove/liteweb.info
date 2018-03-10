@@ -8,7 +8,7 @@ namespace lw.GraphicUtils
 {
 	public class ImageUtils
 	{
-		public const int JpegQuality = 80;
+		public const int JpegQuality = 100;
 
 		public ImageUtils()
 		{
