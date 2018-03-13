@@ -949,7 +949,7 @@ namespace lw.Pages
             thisPage.ModifiedBy = WebContext.Profile.UserId;
             thisPage.DateModified = DateTime.Now;
 
-            if (!String.IsNullOrWhiteSpace(PageContent))
+			if (PageContent != null)
                 thisPage.PageContent = PageContent;
             if (String.IsNullOrWhiteSpace(URL))
                 URL = StringUtils.ToURL(Title);
