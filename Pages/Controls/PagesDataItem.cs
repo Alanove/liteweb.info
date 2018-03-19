@@ -68,15 +68,15 @@ namespace lw.Pages.Controls
             if (PageDetails == null)
             {
                 //If the article is not found or it's status is set to no display
-				//this.Page.Response.TrySkipIisCustomErrors = true;
+                //this.Page.Response.TrySkipIisCustomErrors = true;
                 this.Page.Response.StatusCode = 404;
                 this.Page.Response.StatusDescription = "404 Not Found";
-				this.Page.Response.End();
-				return;
+                this.Page.Response.End();
+                return;
 
-				//throw new HttpException(404, "Page not found");
+                //throw new HttpException(404, "Page not found");
 
-               // return;
+                // return;
             }
 
             if (Bound)
@@ -88,16 +88,17 @@ namespace lw.Pages.Controls
 
             DataItem = PageDetails;
 
-			if (MyPage.Editable)
-			{
-				MyPage.RegisterLoadScript("PageId", "document.__MyPageId = " + PageDetails.PageId.ToString() + ";");
-				MyPage.RegisterLoadScript("PageRoles", "document.__MyPageEditingRoles = " + (PageDetails.EditingRoles != null ? PageDetails.EditingRoles.ToString() : "0") + ";");
-			}
+            if (MyPage.Editable)
+            {
+                MyPage.RegisterLoadScript("PageId", "document.__MyPageId = " + PageDetails.PageId.ToString() + ";");
+                MyPage.RegisterLoadScript("PageRoles", "document.__MyPageEditingRoles = " + (PageDetails.EditingRoles != null ? PageDetails.EditingRoles.ToString() : "0") + ";");
+            }
 
             base.DataBind();
             if (OverridePageTitle)
             {
                 Config cfg = new Config();
+                string secureDomain = WebTools.Config.GetFromWebConfig(lw.CTE.parameters.SecureDomain);
 
                 if (MyPage != null)
                 {
@@ -111,10 +112,10 @@ namespace lw.Pages.Controls
                             StringUtils.StripOutHtmlTags(PageDetails.SmallDescription));
 
                     if (!String.IsNullOrEmpty(PageDetails.Image))
-                        MyPage.Image = string.Format("{0}://{1}{2}/{3}/Page_{4}/{5}", WebContext.Protocol, WebContext.ServerName, WebContext.Root, lw.CTE.Folders.PagesFolder, PageDetails.PageId, PageDetails.Image.Replace(".", "-l."));
+                        MyPage.Image = string.Format("{0}://{1}{2}/{3}/Page_{4}/{5}", !string.IsNullOrEmpty(secureDomain) ? "https" : "http", WebContext.ServerName, WebContext.Root, lw.CTE.Folders.PagesFolder, PageDetails.PageId, PageDetails.Image.Replace(".", "-l."));
 
                     if (!String.IsNullOrEmpty(PageDetails.FullURL))
-                        MyPage.Url = WebContext.Request.Url.AbsoluteUri;
+                        MyPage.Url = !string.IsNullOrEmpty(secureDomain) ? WebContext.Request.Url.AbsoluteUri.Replace("http://", "https://") : WebContext.Request.Url.AbsoluteUri;
 
                     if (PageDetails.IsSecure != null)
                         MyPage.isSecure = (bool)PageDetails.IsSecure;
@@ -127,7 +128,7 @@ namespace lw.Pages.Controls
         }
 
         protected override void Render(System.Web.UI.HtmlTextWriter writer)
-        {  
+        {
             base.Render(writer);
         }
 
@@ -137,36 +138,36 @@ namespace lw.Pages.Controls
             base.OnUnload(e);
         }
 
-		bool affectPageViews = true;
-		/// <summary>
-		/// Tells the tag if it should affect the page views or not
-		/// This should be used when having to PagesDataItem Tags on the same page
-		/// </summary>
-		public bool AffectPageViews
-		{
-			get { return affectPageViews; }
-			set { affectPageViews = value; }
-		}
+        bool affectPageViews = true;
+        /// <summary>
+        /// Tells the tag if it should affect the page views or not
+        /// This should be used when having to PagesDataItem Tags on the same page
+        /// </summary>
+        public bool AffectPageViews
+        {
+            get { return affectPageViews; }
+            set { affectPageViews = value; }
+        }
 
-		/// <summary>
-		/// Runs when the page unloads
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+        /// <summary>
+        /// Runs when the page unloads
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Page_Unload(object sender, EventArgs e)
         {
-			if (affectPageViews && PageId != null) 
+            if (affectPageViews && PageId != null)
             {
-				try
-				{
-					pagesManager.IncrementPageViews(PageId.Value);
-				}
-				catch
-				{
+                try
+                {
+                    pagesManager.IncrementPageViews(PageId.Value);
+                }
+                catch
+                {
 
-				}
-				PageId = null;
-			}
+                }
+                PageId = null;
+            }
         }
 
         #region Properties
@@ -258,19 +259,19 @@ namespace lw.Pages.Controls
             {
                 if (_pageDetails == null)
                 {
-					if (PageId != null)
-					{
-						_pageDetails = pagesManager.GetPageView(PageId.Value);
-					}
-					else if (!String.IsNullOrWhiteSpace(PageURL))
-					{
-						if (MyPage.PageContext["Page_" + PageURL] != null)
-							_pageDetails = MyPage.PageContext["Page_" + PageURL] as data.Pages_View;
-						else
-							_pageDetails = pagesManager.GetPageView(PageURL);
-					}
-					else if (!String.IsNullOrWhiteSpace(PageTitle))
-						_pageDetails = pagesManager.GetPageView(PageTitle);
+                    if (PageId != null)
+                    {
+                        _pageDetails = pagesManager.GetPageView(PageId.Value);
+                    }
+                    else if (!String.IsNullOrWhiteSpace(PageURL))
+                    {
+                        if (MyPage.PageContext["Page_" + PageURL] != null)
+                            _pageDetails = MyPage.PageContext["Page_" + PageURL] as data.Pages_View;
+                        else
+                            _pageDetails = pagesManager.GetPageView(PageURL);
+                    }
+                    else if (!String.IsNullOrWhiteSpace(PageTitle))
+                        _pageDetails = pagesManager.GetPageView(PageTitle);
 
                     if (_pageDetails != null)
                     {
@@ -286,11 +287,11 @@ namespace lw.Pages.Controls
                         if (_pageDetails == null)
                         {
                             this.Page.Response.StatusCode = 404;
-							this.Page.Response.StatusDescription = "404 Not Found";
-							this.Page.Response.End();
+                            this.Page.Response.StatusDescription = "404 Not Found";
+                            this.Page.Response.End();
                         }
 
-						MyPage.PageContext["Page_" + PageURL] = _pageDetails;
+                        MyPage.PageContext["Page_" + PageURL] = _pageDetails;
 
                     } //Page is linked to NewsType
                 }

@@ -195,7 +195,8 @@ namespace lw.Menus
 					if (!String.IsNullOrWhiteSpace(ContainerTag))
 					{
 						if (ContainerTag.ToLower() == "ol") ClassName = "dd-list";
-						ret.Append("<" + ContainerTag + " start=\"1\" class=\"first" + (!String.IsNullOrEmpty(ClassName) ? " " + ClassName : "") + "\">");
+                        //ret.Append("<" + ContainerTag + " start=\"1\" class=\"first" + (!String.IsNullOrEmpty(ClassName) ? " " + ClassName : "") + "\">");
+                        ret.Append("<" + ContainerTag + " class=\"first" + (!String.IsNullOrEmpty(ClassName) ? " " + ClassName : "") + "\">");
 					}
 					for (int i = 0; i < Children.Count; i++)
 					{
