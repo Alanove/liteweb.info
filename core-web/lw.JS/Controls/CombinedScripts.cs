@@ -85,7 +85,7 @@ namespace lw.js.Controls
 
 							version = "_" + version.Replace(".", "._");
 
-							string resourceKey = "lw.js.script." + tempFile.Replace("-", "_") + "." + version + "." + tempFile + ".js";
+							string resourceKey = "lw.js.script." + tempFile.Replace("-", "_") + "." + version + "." + tempFile + ".min.js";
 
 							string result = "";
 							using (Stream stream = typeof(Engine).Assembly.
@@ -103,7 +103,13 @@ namespace lw.js.Controls
 						}
 						else
 						{
-							using (Stream stream = File.OpenRead(WebContext.Server.MapPath(WebContext.Root + file)))
+							string fileName = WebContext.Server.MapPath(WebContext.Root + file);
+							string minFileName = fileName.Replace(".js", ".min.js");
+							if (File.Exists(minFileName))
+							{
+								fileName = minFileName;
+							}
+							using (Stream stream = File.OpenRead(fileName))
 							{
 								using (StreamReader sr = new StreamReader(stream))
 								{
