@@ -509,8 +509,10 @@ namespace lw.GraphicUtils
 			// Jpeg image codec
 			ImageCodecInfo jpegCodec = GetEncoderInfo("image/jpeg");
 
-			EncoderParameters encodingParameters = new EncoderParameters(1);
-			encodingParameters.Param[0] = new EncoderParameter(Encoder.Quality, quality); 
+			EncoderParameters encodingParameters = new EncoderParameters(3);
+            encodingParameters.Param[0] = new EncoderParameter(Encoder.Quality, quality);
+            encodingParameters.Param[1] = new EncoderParameter(Encoder.ScanMethod, (int)EncoderValue.ScanMethodInterlaced);
+            encodingParameters.Param[2] = new EncoderParameter(Encoder.RenderMethod, (int)EncoderValue.RenderProgressive); 
 
 			img.Save(path, jpegCodec, encodingParameters);
 		}

@@ -1231,7 +1231,7 @@ namespace lw.Pages
             string extension = Path.GetExtension(Image);
 
             string path = Path.Combine(Folders.PagesFolder, "Page_" + PageId.ToString());
-            return Path.Combine(path, imageName + "-m" + extension);
+            return Path.Combine(path, imageName + "-m" + extension).Replace("\\", "/");
         }
 
         public static string GetThumbImage(int PageId, string Image)
@@ -1243,7 +1243,7 @@ namespace lw.Pages
             string extension = Path.GetExtension(Image);
 
             string path = Path.Combine(Folders.PagesFolder, "Page_" + PageId.ToString());
-            return Path.Combine(path, imageName + "-t" + extension);
+            return Path.Combine(path, imageName + "-t" + extension).Replace("\\", "/");
         }
 
         public static string GetLargeImage(int PageId, string Image)
@@ -1255,7 +1255,7 @@ namespace lw.Pages
             string extension = Path.GetExtension(Image);
 
             string path = Path.Combine(Folders.PagesFolder, "Page_" + PageId.ToString());
-            return Path.Combine(path, imageName + "-l" + extension);
+            return Path.Combine(path, imageName + "-l" + extension).Replace("\\", "/");
         }
 
         public static string GetImage(int PageId, string Image)
@@ -1264,7 +1264,7 @@ namespace lw.Pages
                 return "";
 
             string path = Path.Combine(Folders.PagesFolder, "Page_" + PageId.ToString());
-            return Path.Combine(path, Image);
+            return Path.Combine(path, Image).Replace("\\", "/");
         }
 
         /// <summary>
