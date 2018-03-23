@@ -8,6 +8,7 @@ using lw.Utils;
 using lw.Base;
 using lw.WebTools;
 using lw.HashTags;
+using System.Globalization;
 
 namespace lw.Pages.Controls
 {
@@ -17,7 +18,7 @@ namespace lw.Pages.Controls
 	/// </summary>
 	public class PageDataProperty : Literal
 	{
-		string _property, _format = "{0}";
+		string _property, _format = "{0}", _formatType = "";
 		object _dataObj;
 		bool _bound = false;
 		int _maxCharacters = -1;
@@ -92,7 +93,17 @@ namespace lw.Pages.Controls
 
 			string str = "";
 			if (_dataObj != DBNull.Value && _dataObj != null && _dataObj.ToString() != "")
-				str = string.Format(Format, _dataObj);
+			{
+				switch (FormatType)
+				{
+					case "Price":
+						str = string.Format("{0:C0}", Decimal.Parse(_dataObj.ToString()));
+						break;
+					default:
+						str = string.Format(Format, _dataObj);
+						break;
+				}
+			}
 
 			if (MaxCharacters > 0)
 			{
@@ -237,6 +248,22 @@ namespace lw.Pages.Controls
 			set
 			{
 				_format = value;
+			}
+		}
+
+
+		/// <summary>
+		/// Defines the format type of the returning string
+		/// </summary>
+		public string FormatType
+		{
+			get
+			{
+				return _formatType;
+			}
+			set
+			{
+				_formatType = value;
 			}
 		}
 		/// <summary>

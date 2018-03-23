@@ -29,7 +29,7 @@ namespace lw.js.Controls
 				return;
 			_bound = true;
 
-			
+
 
 			base.DataBind();
 		}
@@ -44,87 +44,102 @@ namespace lw.js.Controls
 			CacheKey = lw.Utils.Hash.GetHash(scripts, Utils.Hash.HashType.MD5);
 
 			scriptsArray = Scripts.Split(new Char[] { ',', '|', ';' }, StringSplitOptions.RemoveEmptyEntries);
-
-			string fileLocation = WebContext.Server.MapPath(FileLocation);
-			if (!File.Exists(fileLocation))
+			if (!WebUtils.IsDevelopmentMode &&
+				!WebContext.Profile.UserLogged)// && String.IsNullOrWhiteSpace(WebContext.Profile.OperatorGroupName))
 			{
-				using (FileStream streamCache = File.OpenWrite(fileLocation))
+		
+				string fileLocation = WebContext.Server.MapPath(FileLocation);
+				if (!File.Exists(fileLocation))
 				{
-					StringBuilder output = new StringBuilder();
-					output.AppendLine("/* Script generated at: " + DateTime.Now.ToString() + "*/");
-					foreach (string file in scriptsArray)
+					using (FileStream streamCache = File.OpenWrite(fileLocation))
 					{
-						output.AppendLine("/* File Name: " + file + "*/");
-
-						if (file.EndsWith(".lwjs"))
+						StringBuilder output = new StringBuilder();
+						output.AppendLine("/* Script generated at: " + DateTime.Now.ToString() + "*/");
+						foreach (string file in scriptsArray)
 						{
-							string tempFile = file.Replace(".lwjs", "").Replace("../", "");
-							IEnumerable<JsXml> query = Engine.XmlFile.Descendants("js").Select(p => new JsXml
+							output.AppendLine("/* File Name: " + file + "*/");
+
+							if (file.EndsWith(".lwjs"))
 							{
-								file = p.Element("file").Value,
-								version = decimal.Parse(p.Element("version").Value),
-								dependency = p.Element("dependency").Value,
-								depversion = p.Element("depversion").Value
-							});
-							var jsXmls = query as JsXml[] ?? query.ToArray();
-							var test = from a in jsXmls
-									   where a.file == tempFile
-									   select a;
-
-							if (!test.Any())
-							{
-								throw new Exception("Script not found: " + tempFile);
-							}
-
-
-							query = from a in jsXmls
-									where a.file == tempFile
-									orderby a.version descending
-									select a;
-							string version = query.First().version.ToString();
-
-							version = "_" + version.Replace(".", "._");
-
-							string resourceKey = "lw.js.script." + tempFile.Replace("-", "_") + "." + version + "." + tempFile + ".min.js";
-
-							string result = "";
-							using (Stream stream = typeof(Engine).Assembly.
-								GetManifestResourceStream(resourceKey))
-							{
-								using (var sr = new StreamReader(stream))
+								string tempFile = file.Replace(".lwjs", "").Replace("../", "");
+								IEnumerable<JsXml> query = Engine.XmlFile.Descendants("js").Select(p => new JsXml
 								{
-									result = sr.ReadToEnd();
+									file = p.Element("file").Value,
+									version = decimal.Parse(p.Element("version").Value),
+									dependency = p.Element("dependency").Value,
+									depversion = p.Element("depversion").Value
+								});
+								var jsXmls = query as JsXml[] ?? query.ToArray();
+								var test = from a in jsXmls
+										   where a.file == tempFile
+										   select a;
+
+								if (!test.Any())
+								{
+									throw new Exception("Script not found: " + tempFile);
+								}
+
+
+								query = from a in jsXmls
+										where a.file == tempFile
+										orderby a.version descending
+										select a;
+								string version = query.First().version.ToString();
+
+								version = "_" + version.Replace(".", "._");
+
+								string resourceKey = "lw.js.script." + tempFile.Replace("-", "_") + "." + version + "." + tempFile + ".min.js";
+
+								string result = "";
+								using (Stream stream = typeof(Engine).Assembly.
+									GetManifestResourceStream(resourceKey))
+								{
+									using (var sr = new StreamReader(stream))
+									{
+										result = sr.ReadToEnd();
+									}
+								}
+								output.AppendLine(result);
+							}
+							else if (file.IndexOf("//") == 0 || file.IndexOf("http") == 0)
+							{
+								output.AppendLine(lw.WebTools.WebUtils.GetURLContent(file));
+							}
+							else
+							{
+								string fileName = WebContext.Server.MapPath(WebContext.Root + file);
+								string minFileName = fileName.Replace(".js", ".min.js");
+								if (File.Exists(minFileName))
+								{
+									fileName = minFileName;
+								}
+								using (Stream stream = File.OpenRead(fileName))
+								{
+									using (StreamReader sr = new StreamReader(stream))
+									{
+										output.AppendLine(sr.ReadToEnd());
+									}
 								}
 							}
-							output.AppendLine(result);
 						}
-						else if(file.IndexOf("//") == 0 || file.IndexOf("http") == 0){
-							output.AppendLine(lw.WebTools.WebUtils.GetURLContent(file));
-						}
-						else
-						{
-							string fileName = WebContext.Server.MapPath(WebContext.Root + file);
-							string minFileName = fileName.Replace(".js", ".min.js");
-							if (File.Exists(minFileName))
-							{
-								fileName = minFileName;
-							}
-							using (Stream stream = File.OpenRead(fileName))
-							{
-								using (StreamReader sr = new StreamReader(stream))
-								{
-									output.AppendLine(sr.ReadToEnd());
-								}
-							}
-						}
+						using (StreamWriter s = new StreamWriter(streamCache))
+							s.WriteLine(output.ToString());
 					}
-					using (StreamWriter s = new StreamWriter(streamCache))
-						s.WriteLine(output.ToString());
 				}
+
+				writer.Write("<script src=\"" + FileLocation + "\"></script>");
+				//base.Render(writer);
+			}
+			else
+			{
+				// return the scripts not combined
+				foreach (string file in scriptsArray)
+				{
+					writer.Write("<script src=\"" + file + "\"></script>");
+				}
+
 			}
 
-			writer.Write("<script src=\"" + FileLocation + "\"></script>");
-			//base.Render(writer);
 		}
 
 		/// <summary>
