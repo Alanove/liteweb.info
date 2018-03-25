@@ -1352,6 +1352,20 @@ namespace lw.Pages
 
 
         /// <summary>
+        /// Get a list of the available properties for a specific property
+        /// </summary>
+        /// <param name="DataPropertyName"></param>
+        /// <returns></returns>
+        public DataTable GetAvailablePageDataProperties(string DataPropertyName)
+        {
+            int propertyId = GetPageDataProperty(DataPropertyName);
+
+            string sql = string.Format("select DataPropertyValue, Count(PageId) as Count from PageDataProrpertiesView where DataPropertyID={0} Group By DataPropertyValue", propertyId);
+            return DBUtils.GetDataSet(sql, cte.lib).Tables[0];
+        }
+
+
+        /// <summary>
         /// Add properties to a Page
         /// </summary>
         /// <param name="PageId"></param>
