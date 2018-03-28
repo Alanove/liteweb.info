@@ -103,7 +103,9 @@ namespace lw.Pages.Controls
 						str = string.Format(Format, _dataObj);
 						break;
 				}
-			}
+            }
+            else
+                str = nullValue;
 
 			if (MaxCharacters > 0)
 			{
@@ -349,6 +351,23 @@ namespace lw.Pages.Controls
 			{
 				_sourceId = value;
 			}
-		}
+        }
+
+
+        string nullValue = "";
+        /// <summary>
+        /// Sets the property's value when the DB's actual value is NULL
+        /// </summary>
+        public string NullValue
+        {
+            get
+            {
+                return nullValue;
+            }
+            set
+            {
+                nullValue = value;
+            }
+        }
 	}
 }
