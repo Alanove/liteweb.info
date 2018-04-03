@@ -67,8 +67,8 @@ namespace lw.Forms.Controls
 
 				string scriptString = lw.Utils.StringUtils.JSonSerialize(resources);
 
-				//_CustomPage.RegisterHeaderScript("validation-entries", "lw.validator.resources = " + scriptString + ";", true);
-				_CustomPage.RegisterLoadScript("validation-entries", "lw.validator.resources = " + scriptString + ";", true);
+                //_CustomPage.RegisterHeaderScript("validation-entries", "lw.validator.resources = " + scriptString + ";", true);
+                _CustomPage.RegisterLoadScript("validation-entries", "lw.validator.resources = " + scriptString + ";", true);
 
 				Dictionary<string, object> validationOptions = new Dictionary<string, object>();
 				validationOptions["id"] = this.UniqueID;
@@ -81,9 +81,9 @@ namespace lw.Forms.Controls
 				validationOptions["ValidClass"] = _ValidClass;
 				validationOptions["Bubble"] = _Bubble;
 
-				scriptString = lw.Utils.StringUtils.JSonSerialize(validationOptions);
-				//_CustomPage.RegisterHeaderScript("validation-group-" + UniqueID, "lw.validator.groups['" + this.UniqueID + "'] = " + scriptString + ";", true);
-				_CustomPage.RegisterLoadScript("validation-group-" + UniqueID, "lw.validator.groups['" + this.UniqueID + "'] = " + scriptString + ";", true);
+                scriptString = lw.Utils.StringUtils.JSonSerialize(validationOptions);
+                //_CustomPage.RegisterHeaderScript("validation-group-" + UniqueID, "lw.validator.groups['" + this.UniqueID + "'] = " + scriptString + ";", true);
+                _CustomPage.RegisterLoadScript("validation-group-" + UniqueID, "lw.validator.groups['" + this.UniqueID + "'] = " + scriptString + ";", true);
 
 				_CustomPage.RegisterLoadScript("val-init", "lw.validator.init();", true);
 
