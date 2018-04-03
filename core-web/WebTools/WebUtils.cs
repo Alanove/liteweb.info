@@ -28,6 +28,20 @@ namespace lw.WebTools
 		{
 			throw new Exception(exp.Message);
 		}
+
+		/// <summary>
+		/// Returns true if the page is in development mode
+		/// Can be set from Web.Config app settings DevelopmentMode = "true"
+		/// </summary>
+		public static bool IsDevelopmentMode
+		{
+			get
+			{
+				string DevelopmentMode = Config.GetFromWebConfig(parameters.DevelopmentMode);
+				return !String.IsNullOrWhiteSpace(DevelopmentMode) && DevelopmentMode == "true";
+			}
+		}
+
 		
 
 		public static string ErrorMsg(string msg)

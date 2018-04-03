@@ -33,8 +33,6 @@ namespace lw.Base
 		System.Web.UI.HtmlControls.HtmlHead _head;
 		private System.Web.UI.HtmlControls.HtmlControl _body = null;
 
-		CombinedScripts _headerCombinedScripts, _footerCombinedScripts;
-
 		StringBuilder loggedTime = null;
 
 		/// <summary>
@@ -104,6 +102,9 @@ namespace lw.Base
 
 		//Page Errors
 		protected ArrayList PageErrors = new ArrayList();
+
+
+		CombinedScripts _headerCombinedScripts, _footerCombinedScripts;
 
 		/// <summary>
 		/// Returns the body tag of the page
@@ -211,7 +212,7 @@ namespace lw.Base
 
 		public CustomPage()
 		{
-			int i = 0;
+			//int i = 0;
 		}
 
 		#endregion
@@ -237,10 +238,10 @@ namespace lw.Base
 		}
 		void RenderScripts()
 		{
-			bool cacheJsFiles = true;
+			//bool cacheJsFiles = true;
 
-			if (!String.IsNullOrWhiteSpace(lw.WebTools.WebUtils.GetFromWebConfig(cte.CacheJsFiles)))
-				cacheJsFiles = bool.Parse(lw.WebTools.WebUtils.GetFromWebConfig(cte.CacheJsFiles));
+			//if (!String.IsNullOrWhiteSpace(lw.WebTools.WebUtils.GetFromWebConfig(cte.CacheJsFiles)))
+			//	cacheJsFiles = bool.Parse(lw.WebTools.WebUtils.GetFromWebConfig(cte.CacheJsFiles));
 
 			System.Web.UI.WebControls.Literal l;
 			var sb = new StringBuilder();
@@ -250,51 +251,51 @@ namespace lw.Base
 				{
 					foreach (string key in HeaderScriptFiles.Keys)
 					{
-						if (!cacheJsFiles)
-						{
-							sb.Append(string.Format("<script type=\"text/javascript\" id=\"{0}\" src=\"{1}\"></script>{2}",
-								key, HeaderScriptFiles[key], System.Environment.NewLine));
-						}
-						else
-						{
+						//if (!cacheJsFiles)
+						//{
+						//	sb.Append(string.Format("<script type=\"text/javascript\" id=\"{0}\" src=\"{1}\"></script>{2}",
+						//		key, HeaderScriptFiles[key], System.Environment.NewLine));
+						//}
+						//else
+						//{
 							sb.Append(",");
 							sb.Append(HeaderScriptFiles[key]);
-						}
+						//}
 					}
-					if (cacheJsFiles)
+					//if (cacheJsFiles)
 						HeaderCombinedScripts.Scripts += sb.ToString();
-					else
-					{
-						l = new System.Web.UI.WebControls.Literal { Text = sb.ToString() };
+					//else
+					//{
+					//	l = new System.Web.UI.WebControls.Literal { Text = sb.ToString() };
 
-						Head.Controls.AddAt(_scriptsRendered++, l);
-					}
+					//	Head.Controls.AddAt(_scriptsRendered++, l);
+					//}
 					sb = new StringBuilder();
 
 					foreach (string key in ScriptFiles.Keys)
 					{
-						if (!cacheJsFiles)
-						{
-							sb.Append(string.Format("<script type=\"text/javascript\" id=\"{0}\" src=\"{1}\"></script>{2}",
-								key, ScriptFiles[key], System.Environment.NewLine));
-						}
-						else
-						{
+						//if (!cacheJsFiles)
+						//{
+						//	sb.Append(string.Format("<script type=\"text/javascript\" id=\"{0}\" src=\"{1}\"></script>{2}",
+						//		key, ScriptFiles[key], System.Environment.NewLine));
+						//}
+						//else
+						//{
 							sb.Append(",");
 							sb.Append(ScriptFiles[key]);
-						}
+						//}
 					}
-					if (cacheJsFiles)
+					//if (cacheJsFiles)
 						FooterCombinedScripts.Scripts += sb.ToString();
-					else
-					{
-						l = new System.Web.UI.WebControls.Literal { Text = sb.ToString() };
+					//else
+					//{
+					//	l = new System.Web.UI.WebControls.Literal { Text = sb.ToString() };
 
-						if (BodyControl != null)
-							BodyControl.Controls.Add(l);
-						else
-							Head.Controls.AddAt(_scriptsRendered++, l);
-					}
+					//	if (BodyControl != null)
+					//		BodyControl.Controls.Add(l);
+					//	else
+					//		Head.Controls.AddAt(_scriptsRendered++, l);
+					//}
 				}
 				else
 				{
@@ -317,7 +318,7 @@ namespace lw.Base
 			{
 				l = new System.Web.UI.WebControls.Literal
 				{
-					Text = string.Format("<script type=\"text/javascript\">{0}</script>", temp)
+					Text = string.Format("<script type=\"text/javascript\">{0}</script>", WebCompress.JsCompress(temp))
 				};
 
 				if (BodyControl != null)
@@ -350,7 +351,7 @@ jQuery(document).ready(function(){{lw.init('{1}', jQuery, '{2}', {3});}});
 			{
 				l.Text = string.Format(@"<script type=""text/javascript"">
 lw.SideLoad(function () {{{0}}});
-</script>", temp);
+</script>", WebCompress.JsCompress(temp));
 				this.Controls.AddAt(0, l);
 			}
 
@@ -363,7 +364,7 @@ lw.SideLoad(function () {{{0}}});
 //<![CDATA[
 window.onunload = function lw_UnLoad(){{{0}}}</script>
 //]]>
-", temp)
+", WebCompress.JsCompress(temp))
 				};
 
 				if (BodyControl != null)
@@ -845,6 +846,19 @@ window.onunload = function lw_UnLoad(){{{0}}}</script>
 			//}
 		}
 
+
+		bool _hasPostBack = false;
+		public bool HasPostBack
+		{
+			set
+			{
+				_hasPostBack = value;
+			}
+			get
+			{
+				return _hasPostBack;
+			}
+		}
 
 		/// <summary>
 		/// The Page_PreInit method is called at the beginning of the page initialization stage.

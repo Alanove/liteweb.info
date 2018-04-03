@@ -139,5 +139,11 @@ namespace lw.CTE
 		/// Home page uniquename/url
 		/// </summary>
 		//public const string HomePageUniqueName = "home";
+
+
+		/// <summary>
+		/// DevelopmentMode takes true/false
+		/// </summary>
+		public const string DevelopmentMode = "DevelopmentMode";
 	}
 }

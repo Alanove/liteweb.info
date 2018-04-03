@@ -59,6 +59,8 @@ namespace lw.DataControls
 			string str = "";
 			if (_dataObj != DBNull.Value && _dataObj != null && _dataObj.ToString() != "")
 				str = string.Format(Format, _dataObj);
+			else
+				str = nullValue;
 
 			if (MaxCharacters > 0)
 			{
