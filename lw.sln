@@ -4,6 +4,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{8B7E4066-28A1-4356-BDA4-C44DA580A230}"
+	ProjectSection(SolutionItems) = preProject
+		Pages\bin\Debug\Pages.dll = Pages\bin\Debug\Pages.dll
+		Pages\bin\Debug\Pages.dll.config = Pages\bin\Debug\Pages.dll.config
+		Pages\bin\Debug\Pages.pdb = Pages\bin\Debug\Pages.pdb
+		Pages\bin\Debug\Pages.xml = Pages\bin\Debug\Pages.xml
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ads", "modules\Ads\Ads.csproj", "{FD2C3234-3311-4FFC-BC3C-CC53DBDC873D}"
 EndProject

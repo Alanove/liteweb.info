@@ -1360,7 +1360,7 @@ namespace lw.Pages
         {
             int propertyId = GetPageDataProperty(DataPropertyName);
 
-            string sql = string.Format("select DataPropertyValue, Count(PageId) as Count from PageDataProrpertiesView where DataPropertyID={0} Group By DataPropertyValue", propertyId);
+            string sql = string.Format("select DataPropertyValue, Count(PageId) as Count from PageDataPropertiesView where DataPropertyID={0} Group By DataPropertyValue", propertyId);
             return DBUtils.GetDataSet(sql, cte.lib).Tables[0];
         }
 
