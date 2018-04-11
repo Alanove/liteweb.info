@@ -229,7 +229,7 @@ namespace lw.Pages.Controls
 
 			if (_getPageProperties)
 			{
-				string tempSql = "select * from PageDataProrpertiesView where PageId in (select PageId from (" + this.SelectCommand + ") P)";
+				string tempSql = "select * from PageDataPropertiesView where PageId in (select PageId from (" + this.SelectCommand + ") P)";
 				DataTable properties = DBUtils.GetDataSet(tempSql, cte.lib).Tables[0];
 
 				MyPage.AddContext(cte.PageProperties + "-" + this.ID, properties, true);
