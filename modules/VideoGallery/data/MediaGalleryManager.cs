@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 //using Microsoft.WindowsAPICodePack.Shell;
-
+using System.Net;
 
 using lw.CTE;
 using lw.CTE.Enum;
@@ -56,6 +56,54 @@ namespace lw.VideoGallery
 			return null;
 		}
 
+		public int AddVideo(string Title, VideoStatus Status, string Object, string Description, int? CategoryId,
+		   int? CreatorId, string Image, bool? AutoResize, Languages? lan)
+		{
+			int videoID = AddVideo(Title, Status, Object, Description, CategoryId,
+				CreatorId, null, AutoResize, lan, null);
+
+
+			WebClient webClient = new WebClient();
+			string ImageName = Path.GetFileNameWithoutExtension(Image);
+			ImageName = string.Format("{0}_{1}{2}", ImageName, videoID, Path.GetExtension(Image));
+
+
+			string path = WebContext.Server.MapPath("~/" + Folders.VideoThumbsFolder);
+
+			if (!Directory.Exists(path))
+			{
+				Directory.CreateDirectory(path);
+			}
+
+			path = Path.Combine(path, ImageName);
+
+			webClient.DownloadFile(Image, path);
+
+			if (AutoResize != null && AutoResize.Value == true)
+			{
+				VideoCategory cat = GetVideoCategory(CategoryId.Value);
+				if (cat.ThumbWidth > 0 && cat.ThumbHeight > 0)
+				{
+					//ImageUtils.Resize(path, path, (int)cat.ThumbWidth, (int)cat.ThumbHeight);
+					ImageUtils.CropImage(path, path, (int)cat.ThumbWidth, (int)cat.ThumbHeight, ImageUtils.AnchorPosition.Default);
+				}
+				else
+				{
+					Config cfg = new Config();
+					Dimension dim = new Dimension(cfg.GetKey(lw.CTE.parameters.VideoThumbSize));
+
+					if (dim.Width > 0 && dim.Height > 0)
+					{
+						ImageUtils.CropImage(path, path, (int)dim.Width, (int)dim.Height, ImageUtils.AnchorPosition.Default);
+					}
+				}
+			}
+			Video thisVideo = this.GetVideo(videoID);
+			thisVideo.ThumbImage = ImageName;
+
+			MediaData.SubmitChanges();
+			return videoID;
+		}
 
 		public int AddVideo(string Title, VideoStatus Status, string Object, string Description, int? CategoryId,
 			int? CreatorId, HttpPostedFile Image, bool? AutoResize, Languages? lan)
