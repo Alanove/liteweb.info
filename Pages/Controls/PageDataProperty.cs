@@ -96,8 +96,8 @@ namespace lw.Pages.Controls
 			{
 				switch (FormatType)
 				{
-					case "Price":
-						str = string.Format("{0:C0}", Decimal.Parse(_dataObj.ToString()));
+					case "Decimal":
+                        str = string.Format(Format, Decimal.Parse(_dataObj.ToString()));
 						break;
 					default:
 						str = string.Format(Format, _dataObj);
