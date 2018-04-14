@@ -92,6 +92,10 @@
       <Project>{4805E87E-9CD7-4F8B-A401-62B4CD7864CF}</Project>
       <Name>Utils</Name>
     </ProjectReference>
+    <Reference Include="EcmaScript.NET, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EcmaScript.Net.1.0.1.0\lib\net20\EcmaScript.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -113,6 +117,14 @@
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Yahoo.Yui.Compressor, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\YUICompressor.NET.2.7.0.0\lib\NET20\Yahoo.Yui.Compressor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ZetaProducerHtmlCompressor, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZetaProducerHtmlCompressor.1.0.2.0\lib\net40-full\ZetaProducerHtmlCompressor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AjaxResponse.cs" />
@@ -141,6 +153,7 @@
     <Compile Include="Javascript.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="WebCompress.cs" />
     <Compile Include="WebContext.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -154,6 +167,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="_notes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

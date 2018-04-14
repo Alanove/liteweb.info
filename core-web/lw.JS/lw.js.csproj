@@ -116,6 +116,14 @@
       <DependentUpon>cms-inside.js</DependentUpon>
       <CustomToolNamespace>lw.js</CustomToolNamespace>
     </EmbeddedResource>
+    <Content Include="jquery\1.91\jquery.js" />
+    <Content Include="jquery\1.91\jquery.min.js" />
+    <Content Include="jquery\2.11\jquery.js" />
+    <Content Include="jquery\2.11\jquery.min.js" />
+    <Content Include="jquery\2.13\jquery.js" />
+    <Content Include="jquery\2.13\jquery.min.js" />
+    <Content Include="jquery\2.1\jquery.js" />
+    <Content Include="jquery\2.1\jquery.min.js" />
     <Content Include="script\jquery-plugins\1.0\jquery-plugins.min.js">
       <DependentUpon>jquery-plugins.js</DependentUpon>
     </Content>
@@ -197,8 +205,6 @@
       <DependentUpon>lw-forms.js</DependentUpon>
       <CustomToolNamespace>lw.js</CustomToolNamespace>
     </EmbeddedResource>
-    <Content Include="script\jquery\2.13\jquery.js" />
-    <Content Include="script\jquery\2.13\jquery.min.js" />
     <EmbeddedResource Include="script\lw-forms\1.008\lw-forms.js">
       <CustomToolNamespace>lw.js</CustomToolNamespace>
     </EmbeddedResource>
@@ -220,6 +226,8 @@
       <DependentUpon>lw-forms.js</DependentUpon>
       <CustomToolNamespace>lw.js</CustomToolNamespace>
     </EmbeddedResource>
+    <Content Include="script\jquery\2.13\jquery.js" />
+    <Content Include="script\jquery\2.13\jquery.min.js" />
     <Content Include="script\lw-forms\_notes.txt" />
     <EmbeddedResource Include="script\lw-jquery-plugins\2.02\lw-jquery-plugins.js">
       <CustomToolNamespace>lw.js</CustomToolNamespace>
@@ -323,6 +331,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="jquery\1.91\jquery.min.js.map" />
+    <None Include="jquery\2.11\jquery.min.js.map" />
+    <None Include="jquery\2.13\jquery.min.js.map" />
+    <None Include="jquery\2.1\jquery.min.js.map" />
     <None Include="script\cms-inside\1.1\cms-inside.min.js.map">
       <DependentUpon>cms-inside.min.js</DependentUpon>
     </None>

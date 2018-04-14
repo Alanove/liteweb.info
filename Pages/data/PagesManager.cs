@@ -564,6 +564,42 @@ namespace lw.Pages
             if (page.EditingRoles != null && page.EditingRoles != 0 && ((page.EditingRoles.Value & WebContext.Profile.Roles) == 0))
                 return;
 
+
+			string imagePart = Path.GetFileNameWithoutExtension(page.Image);
+			string imageExtension = Path.GetExtension(page.Image);
+
+			string path = Folders.PagesFolder;
+
+			path = Path.Combine(path, string.Format("Page_{0}", PageId));
+			path = lw.WebTools.WebContext.Server.MapPath("~/" + path);
+
+			string thumbName = Path.Combine(path, string.Format("{0}-t{1}", imagePart, imageExtension));
+			string largeName = Path.Combine(path, string.Format("{0}-l{1}", imagePart, imageExtension));
+			string mediumName = Path.Combine(path, string.Format("{0}-m{1}", imagePart, imageExtension));
+
+
+			if (!String.IsNullOrWhiteSpace(page.Image))
+			{
+				try
+				{
+					if (File.Exists(Path.Combine(path, page.Image)))
+						File.Delete(Path.Combine(path, page.Image));
+
+					if (File.Exists(Path.Combine(path, thumbName)))
+						File.Delete(Path.Combine(path, thumbName));
+
+					if (File.Exists(Path.Combine(path, mediumName)))
+						File.Delete(Path.Combine(path, mediumName));
+
+					if (File.Exists(Path.Combine(path, largeName)))
+						File.Delete(Path.Combine(path, largeName));
+				}
+				catch
+				{
+
+				}
+			}
+
             page.Image = null;
             PagesData.SubmitChanges();
         }
@@ -913,7 +949,7 @@ namespace lw.Pages
             thisPage.ModifiedBy = WebContext.Profile.UserId;
             thisPage.DateModified = DateTime.Now;
 
-            if (!String.IsNullOrWhiteSpace(PageContent))
+			if (PageContent != null)
                 thisPage.PageContent = PageContent;
             if (String.IsNullOrWhiteSpace(URL))
                 URL = StringUtils.ToURL(Title);
@@ -1195,7 +1231,7 @@ namespace lw.Pages
             string extension = Path.GetExtension(Image);
 
             string path = Path.Combine(Folders.PagesFolder, "Page_" + PageId.ToString());
-            return Path.Combine(path, imageName + "-m" + extension);
+            return Path.Combine(path, imageName + "-m" + extension).Replace("\\", "/");
         }
 
         public static string GetThumbImage(int PageId, string Image)
@@ -1207,7 +1243,7 @@ namespace lw.Pages
             string extension = Path.GetExtension(Image);
 
             string path = Path.Combine(Folders.PagesFolder, "Page_" + PageId.ToString());
-            return Path.Combine(path, imageName + "-t" + extension);
+            return Path.Combine(path, imageName + "-t" + extension).Replace("\\", "/");
         }
 
         public static string GetLargeImage(int PageId, string Image)
@@ -1219,7 +1255,7 @@ namespace lw.Pages
             string extension = Path.GetExtension(Image);
 
             string path = Path.Combine(Folders.PagesFolder, "Page_" + PageId.ToString());
-            return Path.Combine(path, imageName + "-l" + extension);
+            return Path.Combine(path, imageName + "-l" + extension).Replace("\\", "/");
         }
 
         public static string GetImage(int PageId, string Image)
@@ -1228,7 +1264,7 @@ namespace lw.Pages
                 return "";
 
             string path = Path.Combine(Folders.PagesFolder, "Page_" + PageId.ToString());
-            return Path.Combine(path, Image);
+            return Path.Combine(path, Image).Replace("\\", "/");
         }
 
         /// <summary>
@@ -1312,6 +1348,20 @@ namespace lw.Pages
                 PagesData.PageDataPropertyValues.InsertOnSubmit(property);
                 PagesData.SubmitChanges();
             }
+        }
+
+
+        /// <summary>
+        /// Get a list of the available properties for a specific property
+        /// </summary>
+        /// <param name="DataPropertyName"></param>
+        /// <returns></returns>
+        public DataTable GetAvailablePageDataProperties(string DataPropertyName)
+        {
+            int propertyId = GetPageDataProperty(DataPropertyName);
+
+            string sql = string.Format("select DataPropertyValue, Count(PageId) as Count from PageDataPropertiesView where DataPropertyID={0} Group By DataPropertyValue", propertyId);
+            return DBUtils.GetDataSet(sql, cte.lib).Tables[0];
         }
 
 

@@ -271,7 +271,7 @@ namespace lw.Pages.Controls
 			{
 				if (_pageProperties == null)
 				{
-					string sql = "select * from PageDataProrpertiesView where PageId=" + PageId.ToString();
+					string sql = "select * from PageDataPropertiesView where PageId=" + PageId.ToString();
 					_pageProperties = DBUtils.GetDataSet(sql, cte.lib).Tables[0];
 				}
 				return _pageProperties;
