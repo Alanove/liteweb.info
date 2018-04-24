@@ -250,9 +250,17 @@ namespace lw.Pages
                 Url = temp;
             }
             int p = 1;
-            if (PageType.ToLower() != "default" && PageType != "1")
-                p = Int32.Parse(PageType);
+			if (PageType.ToLower() != "default" && PageType != "1")
+			{
+				try
+				{
+					p = Int32.Parse(PageType);
+				}
+				catch (Exception ex)
+				{
 
+				}
+			}
             if (SmallDescription == null || String.IsNullOrWhiteSpace(SmallDescription))
                 SmallDescription = TrancateDescription(PageContent, 512);
 
