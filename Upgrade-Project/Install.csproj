@@ -81,6 +81,7 @@
     <Content Include="4.5.3.1\HasgTagsUpdate.sql" />
     <Content Include="4.5.3.1\Pages_View.sql" />
     <Content Include="4.5.3.1\Page Likes.sql" />
+    <Content Include="4.6 - Full Script\database april 2018.sql" />
     <Content Include="Bugs\cms.txt" />
     <Content Include="Framework\ChangeLog.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
