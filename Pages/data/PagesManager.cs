@@ -1604,7 +1604,7 @@ namespace lw.Pages
 
 
 			string path = WebContext.Server.MapPath("~/" + lw.CTE.Folders.PagesFolder);
-			path = System.IO.Path.Combine(path, string.Format("Page{0}", PageId));
+			path = System.IO.Path.Combine(path, string.Format("Page_{0}", PageId));
 			string largePath = Path.Combine(path, "Large");
 			string thumbPath = Path.Combine(path, "Thumb");
 			string originalPath = Path.Combine(path, "Original");
@@ -1624,7 +1624,7 @@ namespace lw.Pages
 			string ext = StringUtils.GetFileExtension(image);
 			string fileName = StringUtils.GetFriendlyFileName(image);
 
-			string _ImageName = string.Format("{0}_{1}.{2}", fileName, pageImage.ImageId, ext);
+			string _ImageName = string.Format("{0}_{1}.{2}", StringUtils.ToURL(fileName), pageImage.ImageId, ext);
 
 			string ImageName = string.Format("{0}\\{1}", originalPath, _ImageName);
 			string largeImageName = string.Format("{0}\\{1}", largePath, _ImageName);
@@ -1657,10 +1657,17 @@ namespace lw.Pages
 				ErrorContext.Add("resize-image", "Unable to resize album image.<br><span class=hid>" + ex.Message + "</span>");
 			}
 
-			var dimensions = lw.GraphicUtils.Dimensions.GetDimensions(ImageName);
+			try
+			{
+				var dimensions = lw.GraphicUtils.Dimensions.GetDimensions(ImageName);
 
-			pageImage.Width = dimensions.Width;
-			pageImage.Height = dimensions.Height;
+				pageImage.Width = dimensions.Width;
+				pageImage.Height = dimensions.Height;
+			}
+			catch (Exception)
+			{
+
+			}
 			pageImage.FileName = _ImageName;
 			PagesData.SubmitChanges();
 			
@@ -1670,7 +1677,7 @@ namespace lw.Pages
 		public static string GetImagesPath(int PageId)
 		{
 			string path = WebContext.Root + "/" + CTE.Folders.PagesFolder;
-			path = string.Format("{0}/Page{1}", path, PageId);
+			path = string.Format("{0}/Page_{1}", path, PageId);
 			return path;
 		}
 
