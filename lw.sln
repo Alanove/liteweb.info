@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
@@ -137,6 +136,26 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTags", "modules\HashTags\HashTags.csproj", "{52B8F88E-2D1D-473E-9468-5A59FAD54080}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slider", "Slider\Slider.csproj", "{10288827-4496-470A-A3EF-340816CB4244}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "shammas.me(1)", "..\Shammas\shammas.me\", "{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_14510"
+		Debug.AspNetCompiler.PhysicalPath = "..\Shammas\shammas.me\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_14510\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_14510"
+		Release.AspNetCompiler.PhysicalPath = "..\Shammas\shammas.me\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_14510\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "14510"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1870,6 +1889,42 @@ Global
 		{10288827-4496-470A-A3EF-340816CB4244}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{10288827-4496-470A-A3EF-340816CB4244}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{10288827-4496-470A-A3EF-340816CB4244}.Release|x86.ActiveCfg = Release|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.Debug|x86.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.MSTEST_DEBUG|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.MSTEST_DEBUG|Any CPU.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.MSTEST_DEBUG|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.MSTEST_DEBUG|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.MSTEST_DEBUG|x86.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.MSTEST_DEBUG|x86.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.MSTEST_RELEASE|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.MSTEST_RELEASE|Any CPU.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.MSTEST_RELEASE|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.MSTEST_RELEASE|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.MSTEST_RELEASE|x86.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.MSTEST_RELEASE|x86.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.NUNIT_DEBUG|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.NUNIT_DEBUG|Any CPU.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.NUNIT_DEBUG|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.NUNIT_DEBUG|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.NUNIT_DEBUG|x86.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.NUNIT_DEBUG|x86.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.NUNIT_RELEASE|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.NUNIT_RELEASE|Any CPU.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.NUNIT_RELEASE|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.NUNIT_RELEASE|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.NUNIT_RELEASE|x86.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.NUNIT_RELEASE|x86.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.Release|x86.ActiveCfg = Debug|Any CPU
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1934,6 +1989,7 @@ Global
 		{706B0B52-E1A7-4E97-8A52-7B4A606CE385} = {087A94BF-3267-4DEE-B4BB-F09974CCB203}
 		{52B8F88E-2D1D-473E-9468-5A59FAD54080} = {087A94BF-3267-4DEE-B4BB-F09974CCB203}
 		{10288827-4496-470A-A3EF-340816CB4244} = {8B7E4066-28A1-4356-BDA4-C44DA580A230}
+		{5E76698F-57C3-4FE5-8E6B-CD72BD4208D3} = {1488A647-7FC9-4473-8B9E-3210FCB5895E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25C510FC-BF0D-4191-9F49-36471C9F4D10}
