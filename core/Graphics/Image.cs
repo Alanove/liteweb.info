@@ -8,7 +8,7 @@ namespace lw.GraphicUtils
 {
     public class ImageUtils
     {
-        public const int JpegQuality = 80;
+        public const int JpegQuality = 60;
 
         public ImageUtils()
         {
@@ -141,6 +141,14 @@ namespace lw.GraphicUtils
                 File.Delete(pathRead);
         }
 
+        public static void CropImage(string pathFrom, string destinationPath, int Width, int Height, AnchorPosition anchor, CropOptions cropOptions)
+        {
+            if (cropOptions != null)
+                CropImage(pathFrom, destinationPath, Width, Height, anchor, ImageFormat.Jpeg, cropOptions);
+            else
+                CropImage(pathFrom, destinationPath, Width, Height, AnchorPosition.Custom, ImageFormat.Jpeg);
+        }
+
         public static void CropImage(string pathFrom, string destinationPath, int Width, int Height, AnchorPosition anchor)
         {
             CropImage(pathFrom, destinationPath, Width, Height, anchor, ImageFormat.Jpeg);
@@ -152,7 +160,7 @@ namespace lw.GraphicUtils
         public static void CropImage(string pathFrom, string destinationPath, int Width, int Height,
             AnchorPosition anchor, ImageFormat format, int? Top, int? Left)
         {
-            RotateImageByExifOrientationData(pathFrom, true);
+            
 
             string pathRead = pathFrom;
 
@@ -177,8 +185,39 @@ namespace lw.GraphicUtils
             if (pathRead != pathFrom)
                 File.Delete(pathRead);
 
+            RotateImageByExifOrientationData(destinationPath, true);
         }
 
+        public static void CropImage(string pathFrom, string destinationPath, int Width, int Height,
+           AnchorPosition anchor, ImageFormat format, CropOptions cropOptions)
+        {
+
+
+            string pathRead = pathFrom;
+
+            if (pathFrom == destinationPath)
+            {
+                FileInfo fi = new FileInfo(pathFrom);
+                pathRead = Path.Combine(fi.Directory.FullName, System.Guid.NewGuid().ToString() + Path.GetExtension(pathFrom));
+                fi.MoveTo(pathRead);
+            }
+
+            System.Drawing.Image im = System.Drawing.Image.FromFile(pathRead);
+            System.Drawing.Image dest = Crop(im, Width, Height, cropOptions);
+
+            if (format == ImageFormat.Jpeg)
+                SaveJpeg(destinationPath, dest, JpegQuality);
+            else
+                dest.Save(destinationPath, format);
+
+            im.Dispose();
+            dest.Dispose();
+
+            if (pathRead != pathFrom)
+                File.Delete(pathRead);
+
+            RotateImageByExifOrientationData(destinationPath, true);
+        }
         public static System.Drawing.Image ScaleByPercent(System.Drawing.Image imgPhoto, int Percent)
         {
             float nPercent = ((float)Percent / 100);
@@ -433,7 +472,8 @@ namespace lw.GraphicUtils
 
                 //Drawing the new Image with the specified dimentions and at the specified position
                 _grPhoto.DrawImage(imgPhoto,
-                    new Rectangle(0, 0, destWidth, destHeight), destX, destY, destWidth, destHeight,
+                    new Rectangle(0, 0, destWidth, destHeight), 
+                    destX, destY, destWidth, destHeight,
                     GraphicsUnit.Pixel);
 
                 //Disposing the image
@@ -456,6 +496,9 @@ namespace lw.GraphicUtils
                         case AnchorPosition.Bottom:
                             destY = (int)(Height - (sourceHeight * nPercent));
                             break;
+                        case AnchorPosition.Custom:
+                            destY = Top.Value;
+                            break;
                         default:
                             destY = (int)((Height - (sourceHeight * nPercent)) / 2) - 1;
                             break;
@@ -471,6 +514,9 @@ namespace lw.GraphicUtils
                             break;
                         case AnchorPosition.Right:
                             destX = (int)(Width - (sourceWidth * nPercent));
+                            break;
+                        case AnchorPosition.Custom:
+                            destX = Left.Value;
                             break;
                         default:
                             destX = (int)((Width - Math.Round(sourceWidth * nPercent)) / 2);
@@ -496,6 +542,29 @@ namespace lw.GraphicUtils
             }
             return bmPhoto;
         }
+
+
+        public static System.Drawing.Image Crop(System.Drawing.Image imgPhoto, int Width,
+          int Height, CropOptions cropOptions)
+        {
+            Rectangle cropRect = new Rectangle(
+                cropOptions.x,
+                cropOptions.y,
+                cropOptions.width,
+                cropOptions.height);
+
+            Bitmap target = new Bitmap(Width, Height);
+
+            using (Graphics g = Graphics.FromImage(target))
+            {
+                g.DrawImage(imgPhoto, 
+                    new Rectangle(0, 0, target.Width, target.Height),
+                    cropRect,
+                    GraphicsUnit.Pixel);
+            }
+            return target;
+        }
+
 
         /// <summary> 
         /// Saves an image as a jpeg image, with the given quality 
@@ -571,25 +640,9 @@ namespace lw.GraphicUtils
 
         public static void SmartCrop(string SourceFile, string DestinationFile, int Width, int Height)
         {
-            //Composition composition = new Composition();
-            //ImageLayer imageLayer = new ImageLayer {SourceFileName = SourceFile };
-            ////ContentAwareResizeFilter resizeFilter = new ContentAwareResizeFilter
-            ////{
-            ////	Width =  new Unit(Width),
-            ////	Height = new Unit(Height),
-            ////	Enabled = true,
-            ////	ConvolutionType = ContentAwareResizeFilterConvolutionType.VSquare
-            ////};
-            //ResizeFilter resizeFilter = new ResizeFilter
-            //{
-            //	Width = new Unit(Width),
-            //	Height = new Unit(Height),
-            //	Mode = ResizeMode.UniformFill
-            //};
-            //imageLayer.Filters.Add(resizeFilter);
-            //imageLayer.Process();
-            //imageLayer.Bitmap.Save(DestinationFile);
-        }
+			lw.GraphicUtils.SmartCrop.SmartCrop sc = new lw.GraphicUtils.SmartCrop.SmartCrop();
+			sc.Crop(SourceFile, DestinationFile, Width, Height);
+		}
 
 
         /// <summary>

@@ -22,7 +22,7 @@ namespace lw.Pages.data
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="peerpack")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="shm")]
 	public partial class PagesDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -42,16 +42,22 @@ namespace lw.Pages.data
     partial void InsertPageDataProperty(PageDataProperty instance);
     partial void UpdatePageDataProperty(PageDataProperty instance);
     partial void DeletePageDataProperty(PageDataProperty instance);
-    partial void InsertPage(Page instance);
-    partial void UpdatePage(Page instance);
-    partial void DeletePage(Page instance);
     partial void InsertPage_Like(Page_Like instance);
     partial void UpdatePage_Like(Page_Like instance);
     partial void DeletePage_Like(Page_Like instance);
+    partial void InsertPage(Page instance);
+    partial void UpdatePage(Page instance);
+    partial void DeletePage(Page instance);
+    partial void InsertPageImage(PageImage instance);
+    partial void UpdatePageImage(PageImage instance);
+    partial void DeletePageImage(PageImage instance);
+    partial void InsertPageImageView(PageImageView instance);
+    partial void UpdatePageImageView(PageImageView instance);
+    partial void DeletePageImageView(PageImageView instance);
     #endregion
 		
 		public PagesDataContext() : 
-				base(global::lw.Pages.Properties.Settings.Default.peerpackConnectionString, mappingSource)
+				base(global::lw.Pages.Properties.Settings.Default.shmConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -120,14 +126,6 @@ namespace lw.Pages.data
 			}
 		}
 		
-		public System.Data.Linq.Table<Page> Pages
-		{
-			get
-			{
-				return this.GetTable<Page>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Page_Like> Page_Likes
 		{
 			get
@@ -144,11 +142,35 @@ namespace lw.Pages.data
 			}
 		}
 		
+		public System.Data.Linq.Table<Page> Pages
+		{
+			get
+			{
+				return this.GetTable<Page>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Pages_View> Pages_Views
 		{
 			get
 			{
 				return this.GetTable<Pages_View>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PageImage> PageImages
+		{
+			get
+			{
+				return this.GetTable<PageImage>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PageImageView> PageImageViews
+		{
+			get
+			{
+				return this.GetTable<PageImageView>();
 			}
 		}
 		
@@ -1250,6 +1272,215 @@ namespace lw.Pages.data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Page_Likes")]
+	public partial class Page_Like : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PageId;
+		
+		private int _MemberId;
+		
+		private System.Nullable<int> _Feeling;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPageIdChanging(int value);
+    partial void OnPageIdChanged();
+    partial void OnMemberIdChanging(int value);
+    partial void OnMemberIdChanged();
+    partial void OnFeelingChanging(System.Nullable<int> value);
+    partial void OnFeelingChanged();
+    #endregion
+		
+		public Page_Like()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int PageId
+		{
+			get
+			{
+				return this._PageId;
+			}
+			set
+			{
+				if ((this._PageId != value))
+				{
+					this.OnPageIdChanging(value);
+					this.SendPropertyChanging();
+					this._PageId = value;
+					this.SendPropertyChanged("PageId");
+					this.OnPageIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MemberId
+		{
+			get
+			{
+				return this._MemberId;
+			}
+			set
+			{
+				if ((this._MemberId != value))
+				{
+					this.OnMemberIdChanging(value);
+					this.SendPropertyChanging();
+					this._MemberId = value;
+					this.SendPropertyChanged("MemberId");
+					this.OnMemberIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Feeling", DbType="Int")]
+		public System.Nullable<int> Feeling
+		{
+			get
+			{
+				return this._Feeling;
+			}
+			set
+			{
+				if ((this._Feeling != value))
+				{
+					this.OnFeelingChanging(value);
+					this.SendPropertyChanging();
+					this._Feeling = value;
+					this.SendPropertyChanged("Feeling");
+					this.OnFeelingChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class PageAncestors
+	{
+		
+		private int _PageId;
+		
+		private string _URL;
+		
+		private string _Title;
+		
+		private int _ParentId;
+		
+		private int _Level;
+		
+		public PageAncestors()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId")]
+		public int PageId
+		{
+			get
+			{
+				return this._PageId;
+			}
+			set
+			{
+				if ((this._PageId != value))
+				{
+					this._PageId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", CanBeNull=false)]
+		public string URL
+		{
+			get
+			{
+				return this._URL;
+			}
+			set
+			{
+				if ((this._URL != value))
+				{
+					this._URL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this._Title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentId")]
+		public int ParentId
+		{
+			get
+			{
+				return this._ParentId;
+			}
+			set
+			{
+				if ((this._ParentId != value))
+				{
+					this._ParentId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Level")]
+		public int Level
+		{
+			get
+			{
+				return this._Level;
+			}
+			set
+			{
+				if ((this._Level != value))
+				{
+					this._Level = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Pages")]
 	public partial class Page : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1310,6 +1541,10 @@ namespace lw.Pages.data
 		
 		private string _Keywords;
 		
+		private System.Nullable<int> _ImageWidth;
+		
+		private System.Nullable<int> _ImageHeight;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1368,6 +1603,10 @@ namespace lw.Pages.data
     partial void OnEditingRolesChanged();
     partial void OnKeywordsChanging(string value);
     partial void OnKeywordsChanged();
+    partial void OnImageWidthChanging(System.Nullable<int> value);
+    partial void OnImageWidthChanged();
+    partial void OnImageHeightChanging(System.Nullable<int> value);
+    partial void OnImageHeightChanged();
     #endregion
 		
 		public Page()
@@ -1915,112 +2154,42 @@ namespace lw.Pages.data
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Page_Likes")]
-	public partial class Page_Like : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PageId;
-		
-		private int _MemberId;
-		
-		private System.Nullable<int> _Feeling;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPageIdChanging(int value);
-    partial void OnPageIdChanged();
-    partial void OnMemberIdChanging(int value);
-    partial void OnMemberIdChanged();
-    partial void OnFeelingChanging(System.Nullable<int> value);
-    partial void OnFeelingChanged();
-    #endregion
-		
-		public Page_Like()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int PageId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageWidth", DbType="Int")]
+		public System.Nullable<int> ImageWidth
 		{
 			get
 			{
-				return this._PageId;
+				return this._ImageWidth;
 			}
 			set
 			{
-				if ((this._PageId != value))
+				if ((this._ImageWidth != value))
 				{
-					this.OnPageIdChanging(value);
+					this.OnImageWidthChanging(value);
 					this.SendPropertyChanging();
-					this._PageId = value;
-					this.SendPropertyChanged("PageId");
-					this.OnPageIdChanged();
+					this._ImageWidth = value;
+					this.SendPropertyChanged("ImageWidth");
+					this.OnImageWidthChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MemberId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageHeight", DbType="Int")]
+		public System.Nullable<int> ImageHeight
 		{
 			get
 			{
-				return this._MemberId;
+				return this._ImageHeight;
 			}
 			set
 			{
-				if ((this._MemberId != value))
+				if ((this._ImageHeight != value))
 				{
-					this.OnMemberIdChanging(value);
+					this.OnImageHeightChanging(value);
 					this.SendPropertyChanging();
-					this._MemberId = value;
-					this.SendPropertyChanged("MemberId");
-					this.OnMemberIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Feeling", DbType="Int")]
-		public System.Nullable<int> Feeling
-		{
-			get
-			{
-				return this._Feeling;
-			}
-			set
-			{
-				if ((this._Feeling != value))
-				{
-					this.OnFeelingChanging(value);
-					this.SendPropertyChanging();
-					this._Feeling = value;
-					this.SendPropertyChanged("Feeling");
-					this.OnFeelingChanged();
+					this._ImageHeight = value;
+					this.SendPropertyChanged("ImageHeight");
+					this.OnImageHeightChanged();
 				}
 			}
 		}
@@ -2042,105 +2211,6 @@ namespace lw.Pages.data
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
-	public partial class PageAncestors
-	{
-		
-		private int _PageId;
-		
-		private string _URL;
-		
-		private string _Title;
-		
-		private int _ParentId;
-		
-		private int _Level;
-		
-		public PageAncestors()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId")]
-		public int PageId
-		{
-			get
-			{
-				return this._PageId;
-			}
-			set
-			{
-				if ((this._PageId != value))
-				{
-					this._PageId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", CanBeNull=false)]
-		public string URL
-		{
-			get
-			{
-				return this._URL;
-			}
-			set
-			{
-				if ((this._URL != value))
-				{
-					this._URL = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", CanBeNull=false)]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this._Title = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentId")]
-		public int ParentId
-		{
-			get
-			{
-				return this._ParentId;
-			}
-			set
-			{
-				if ((this._ParentId != value))
-				{
-					this._ParentId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Level")]
-		public int Level
-		{
-			get
-			{
-				return this._Level;
-			}
-			set
-			{
-				if ((this._Level != value))
-				{
-					this._Level = value;
-				}
 			}
 		}
 	}
@@ -2221,9 +2291,11 @@ namespace lw.Pages.data
 		
 		private string _Keywords;
 		
-		private System.Nullable<System.Guid> _Geuid;
+		private System.Nullable<int> _ImageWidth;
 		
-		private string _Picture;
+		private System.Nullable<int> _ImageHeight;
+		
+		private string _MemberPicture;
 		
 		public Pages_View()
 		{
@@ -2805,35 +2877,631 @@ namespace lw.Pages.data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Geuid", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> Geuid
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageWidth", DbType="Int")]
+		public System.Nullable<int> ImageWidth
 		{
 			get
 			{
-				return this._Geuid;
+				return this._ImageWidth;
 			}
 			set
 			{
-				if ((this._Geuid != value))
+				if ((this._ImageWidth != value))
 				{
-					this._Geuid = value;
+					this._ImageWidth = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Picture", DbType="VarChar(150)")]
-		public string Picture
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageHeight", DbType="Int")]
+		public System.Nullable<int> ImageHeight
 		{
 			get
 			{
-				return this._Picture;
+				return this._ImageHeight;
 			}
 			set
 			{
-				if ((this._Picture != value))
+				if ((this._ImageHeight != value))
 				{
-					this._Picture = value;
+					this._ImageHeight = value;
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPicture", DbType="VarChar(150)")]
+		public string MemberPicture
+		{
+			get
+			{
+				return this._MemberPicture;
+			}
+			set
+			{
+				if ((this._MemberPicture != value))
+				{
+					this._MemberPicture = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PageImages")]
+	public partial class PageImage : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ImageId;
+		
+		private System.Nullable<int> _PageId;
+		
+		private System.Nullable<int> _Sort;
+		
+		private string _Caption;
+		
+		private string _FileName;
+		
+		private System.Nullable<System.DateTime> _DateAdded;
+		
+		private System.Nullable<System.DateTime> _DateModified;
+		
+		private System.Nullable<int> _Width;
+		
+		private System.Nullable<int> _Height;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnImageIdChanging(int value);
+    partial void OnImageIdChanged();
+    partial void OnPageIdChanging(System.Nullable<int> value);
+    partial void OnPageIdChanged();
+    partial void OnSortChanging(System.Nullable<int> value);
+    partial void OnSortChanged();
+    partial void OnCaptionChanging(string value);
+    partial void OnCaptionChanged();
+    partial void OnFileNameChanging(string value);
+    partial void OnFileNameChanged();
+    partial void OnDateAddedChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateAddedChanged();
+    partial void OnDateModifiedChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateModifiedChanged();
+    partial void OnWidthChanging(System.Nullable<int> value);
+    partial void OnWidthChanged();
+    partial void OnHeightChanging(System.Nullable<int> value);
+    partial void OnHeightChanged();
+    #endregion
+		
+		public PageImage()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ImageId
+		{
+			get
+			{
+				return this._ImageId;
+			}
+			set
+			{
+				if ((this._ImageId != value))
+				{
+					this.OnImageIdChanging(value);
+					this.SendPropertyChanging();
+					this._ImageId = value;
+					this.SendPropertyChanged("ImageId");
+					this.OnImageIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId", DbType="Int")]
+		public System.Nullable<int> PageId
+		{
+			get
+			{
+				return this._PageId;
+			}
+			set
+			{
+				if ((this._PageId != value))
+				{
+					this.OnPageIdChanging(value);
+					this.SendPropertyChanging();
+					this._PageId = value;
+					this.SendPropertyChanged("PageId");
+					this.OnPageIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sort", DbType="Int")]
+		public System.Nullable<int> Sort
+		{
+			get
+			{
+				return this._Sort;
+			}
+			set
+			{
+				if ((this._Sort != value))
+				{
+					this.OnSortChanging(value);
+					this.SendPropertyChanging();
+					this._Sort = value;
+					this.SendPropertyChanged("Sort");
+					this.OnSortChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Caption", DbType="NVarChar(250)")]
+		public string Caption
+		{
+			get
+			{
+				return this._Caption;
+			}
+			set
+			{
+				if ((this._Caption != value))
+				{
+					this.OnCaptionChanging(value);
+					this.SendPropertyChanging();
+					this._Caption = value;
+					this.SendPropertyChanged("Caption");
+					this.OnCaptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileName", DbType="VarChar(150)")]
+		public string FileName
+		{
+			get
+			{
+				return this._FileName;
+			}
+			set
+			{
+				if ((this._FileName != value))
+				{
+					this.OnFileNameChanging(value);
+					this.SendPropertyChanging();
+					this._FileName = value;
+					this.SendPropertyChanged("FileName");
+					this.OnFileNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateAdded", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateAdded
+		{
+			get
+			{
+				return this._DateAdded;
+			}
+			set
+			{
+				if ((this._DateAdded != value))
+				{
+					this.OnDateAddedChanging(value);
+					this.SendPropertyChanging();
+					this._DateAdded = value;
+					this.SendPropertyChanged("DateAdded");
+					this.OnDateAddedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateModified", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateModified
+		{
+			get
+			{
+				return this._DateModified;
+			}
+			set
+			{
+				if ((this._DateModified != value))
+				{
+					this.OnDateModifiedChanging(value);
+					this.SendPropertyChanging();
+					this._DateModified = value;
+					this.SendPropertyChanged("DateModified");
+					this.OnDateModifiedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Width", DbType="Int")]
+		public System.Nullable<int> Width
+		{
+			get
+			{
+				return this._Width;
+			}
+			set
+			{
+				if ((this._Width != value))
+				{
+					this.OnWidthChanging(value);
+					this.SendPropertyChanging();
+					this._Width = value;
+					this.SendPropertyChanged("Width");
+					this.OnWidthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Height", DbType="Int")]
+		public System.Nullable<int> Height
+		{
+			get
+			{
+				return this._Height;
+			}
+			set
+			{
+				if ((this._Height != value))
+				{
+					this.OnHeightChanging(value);
+					this.SendPropertyChanging();
+					this._Height = value;
+					this.SendPropertyChanged("Height");
+					this.OnHeightChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PageImages")]
+	public partial class PageImageView : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ImageId;
+		
+		private System.Nullable<int> _PageId;
+		
+		private System.Nullable<int> _Sort;
+		
+		private string _Caption;
+		
+		private string _FileName;
+		
+		private System.Nullable<System.DateTime> _DateAdded;
+		
+		private System.Nullable<System.DateTime> _DateModified;
+		
+		private System.Nullable<int> _Width;
+		
+		private System.Nullable<int> _Height;
+		
+		private string _Thumb;
+		
+		private string _Large;
+		
+		private string _Original;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnImageIdChanging(int value);
+    partial void OnImageIdChanged();
+    partial void OnPageIdChanging(System.Nullable<int> value);
+    partial void OnPageIdChanged();
+    partial void OnSortChanging(System.Nullable<int> value);
+    partial void OnSortChanged();
+    partial void OnCaptionChanging(string value);
+    partial void OnCaptionChanged();
+    partial void OnFileNameChanging(string value);
+    partial void OnFileNameChanged();
+    partial void OnDateAddedChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateAddedChanged();
+    partial void OnDateModifiedChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateModifiedChanged();
+    partial void OnWidthChanging(System.Nullable<int> value);
+    partial void OnWidthChanged();
+    partial void OnHeightChanging(System.Nullable<int> value);
+    partial void OnHeightChanged();
+    partial void OnThumbChanging(string value);
+    partial void OnThumbChanged();
+    partial void OnLargeChanging(string value);
+    partial void OnLargeChanged();
+    partial void OnOriginalChanging(string value);
+    partial void OnOriginalChanged();
+    #endregion
+		
+		public PageImageView()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ImageId
+		{
+			get
+			{
+				return this._ImageId;
+			}
+			set
+			{
+				if ((this._ImageId != value))
+				{
+					this.OnImageIdChanging(value);
+					this.SendPropertyChanging();
+					this._ImageId = value;
+					this.SendPropertyChanged("ImageId");
+					this.OnImageIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageId", DbType="Int")]
+		public System.Nullable<int> PageId
+		{
+			get
+			{
+				return this._PageId;
+			}
+			set
+			{
+				if ((this._PageId != value))
+				{
+					this.OnPageIdChanging(value);
+					this.SendPropertyChanging();
+					this._PageId = value;
+					this.SendPropertyChanged("PageId");
+					this.OnPageIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sort", DbType="Int")]
+		public System.Nullable<int> Sort
+		{
+			get
+			{
+				return this._Sort;
+			}
+			set
+			{
+				if ((this._Sort != value))
+				{
+					this.OnSortChanging(value);
+					this.SendPropertyChanging();
+					this._Sort = value;
+					this.SendPropertyChanged("Sort");
+					this.OnSortChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Caption", DbType="NVarChar(250)")]
+		public string Caption
+		{
+			get
+			{
+				return this._Caption;
+			}
+			set
+			{
+				if ((this._Caption != value))
+				{
+					this.OnCaptionChanging(value);
+					this.SendPropertyChanging();
+					this._Caption = value;
+					this.SendPropertyChanged("Caption");
+					this.OnCaptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileName", DbType="VarChar(150)")]
+		public string FileName
+		{
+			get
+			{
+				return this._FileName;
+			}
+			set
+			{
+				if ((this._FileName != value))
+				{
+					this.OnFileNameChanging(value);
+					this.SendPropertyChanging();
+					this._FileName = value;
+					this.SendPropertyChanged("FileName");
+					this.OnFileNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateAdded", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateAdded
+		{
+			get
+			{
+				return this._DateAdded;
+			}
+			set
+			{
+				if ((this._DateAdded != value))
+				{
+					this.OnDateAddedChanging(value);
+					this.SendPropertyChanging();
+					this._DateAdded = value;
+					this.SendPropertyChanged("DateAdded");
+					this.OnDateAddedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateModified", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateModified
+		{
+			get
+			{
+				return this._DateModified;
+			}
+			set
+			{
+				if ((this._DateModified != value))
+				{
+					this.OnDateModifiedChanging(value);
+					this.SendPropertyChanging();
+					this._DateModified = value;
+					this.SendPropertyChanged("DateModified");
+					this.OnDateModifiedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Width", DbType="Int")]
+		public System.Nullable<int> Width
+		{
+			get
+			{
+				return this._Width;
+			}
+			set
+			{
+				if ((this._Width != value))
+				{
+					this.OnWidthChanging(value);
+					this.SendPropertyChanging();
+					this._Width = value;
+					this.SendPropertyChanged("Width");
+					this.OnWidthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Height", DbType="Int")]
+		public System.Nullable<int> Height
+		{
+			get
+			{
+				return this._Height;
+			}
+			set
+			{
+				if ((this._Height != value))
+				{
+					this.OnHeightChanging(value);
+					this.SendPropertyChanging();
+					this._Height = value;
+					this.SendPropertyChanged("Height");
+					this.OnHeightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Thumb", CanBeNull=false)]
+		public string Thumb
+		{
+			get
+			{
+				return this._Thumb;
+			}
+			set
+			{
+				if ((this._Thumb != value))
+				{
+					this.OnThumbChanging(value);
+					this.SendPropertyChanging();
+					this._Thumb = value;
+					this.SendPropertyChanged("Thumb");
+					this.OnThumbChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Large", CanBeNull=false)]
+		public string Large
+		{
+			get
+			{
+				return this._Large;
+			}
+			set
+			{
+				if ((this._Large != value))
+				{
+					this.OnLargeChanging(value);
+					this.SendPropertyChanging();
+					this._Large = value;
+					this.SendPropertyChanged("Large");
+					this.OnLargeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Original", CanBeNull=false)]
+		public string Original
+		{
+			get
+			{
+				return this._Original;
+			}
+			set
+			{
+				if ((this._Original != value))
+				{
+					this.OnOriginalChanging(value);
+					this.SendPropertyChanging();
+					this._Original = value;
+					this.SendPropertyChanged("Original");
+					this.OnOriginalChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
