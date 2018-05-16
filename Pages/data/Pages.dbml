@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="peerpack" Class="PagesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=Nazirovich;Initial Catalog=peerpack;Integrated Security=True" SettingsObjectName="lw.Pages.Properties.Settings" SettingsPropertyName="peerpackConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="shm" Class="PagesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DSGn08;Initial Catalog=shm;Persist Security Info=True;User ID=sa" SettingsObjectName="lw.Pages.Properties.Settings" SettingsPropertyName="shmConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.PageTemplates" Member="PageTemplates">
     <Type Name="PageTemplate">
       <Column Name="TemplateId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -67,6 +67,22 @@
       <Column Name="Keywords" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Page_Likes" Member="Page_Likes">
+    <Type Name="Page_Like">
+      <Column Name="PageId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MemberId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Feeling" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="PageAncestors">
+    <Type Name="PageAncestors" Id="ID1">
+      <Column Name="PageId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="URL" Type="System.String" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="Level" Type="System.Int32" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Pages" Member="Pages">
     <Type Name="Page">
       <Column Name="PageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -96,22 +112,8 @@
       <Column Name="AccessRoles" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="EditingRoles" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Keywords" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Page_Likes" Member="Page_Likes">
-    <Type Name="Page_Like">
-      <Column Name="PageId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MemberId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Feeling" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="" Member="PageAncestors">
-    <Type Name="PageAncestors" Id="ID1">
-      <Column Name="PageId" Type="System.Int32" CanBeNull="false" />
-      <Column Name="URL" Type="System.String" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" CanBeNull="false" />
-      <Column Name="ParentId" Type="System.Int32" CanBeNull="false" />
-      <Column Name="Level" Type="System.Int32" CanBeNull="false" />
+      <Column Name="ImageWidth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageHeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Pages_View" Member="Pages_Views">
@@ -152,8 +154,38 @@
       <Column Name="UserRating" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ParentURL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Keywords" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
-      <Column Name="Geuid" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="Picture" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ImageWidth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageHeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MemberPicture" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PageImages" Member="PageImages">
+    <Type Name="PageImage">
+      <Column Name="ImageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PageId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sort" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="FileName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Width" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PageImages" Member="PageImageViews">
+    <Type Name="PageImageView">
+      <Column Name="ImageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PageId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sort" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Caption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="FileName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Width" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Member="Thumb" Type="System.String" CanBeNull="false" />
+      <Column Member="Large" Type="System.String" CanBeNull="false" />
+      <Column Member="Original" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.Pages_GetDescendants" Method="Pages_GetDescendants" IsComposable="true">

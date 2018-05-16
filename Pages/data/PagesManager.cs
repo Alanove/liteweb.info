@@ -6,7 +6,6 @@ using System.Xml.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-
 using lw.Data;
 using lw.Utils;
 using lw.WebTools;
@@ -17,6 +16,7 @@ using System.Data;
 using lw.Pages.data;
 using lw.HashTags;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace lw.Pages
 {
@@ -250,9 +250,17 @@ namespace lw.Pages
                 Url = temp;
             }
             int p = 1;
-            if (PageType.ToLower() != "default" && PageType != "1")
-                p = Int32.Parse(PageType);
+			if (PageType.ToLower() != "default" && PageType != "1")
+			{
+				try
+				{
+					p = Int32.Parse(PageType);
+				}
+				catch (Exception ex)
+				{
 
+				}
+			}
             if (SmallDescription == null || String.IsNullOrWhiteSpace(SmallDescription))
                 SmallDescription = TrancateDescription(PageContent, 512);
 
@@ -291,14 +299,8 @@ namespace lw.Pages
             return page;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="PageId"></param>
-        /// <param name="NewImage"></param>
-        /// <param name="AutoResize"></param>
-        /// <param name="DeleteOld"></param>
         public void UpdateDefaultImage(int PageId, HttpPostedFile NewImage,
-            bool AutoResize, bool DeleteOld)
+           bool AutoResize, bool DeleteOld, string CropOptionsJson)
         {
             string path = Folders.PagesFolder;
             path = Path.Combine(path, string.Format("Page_{0}", PageId));
@@ -323,7 +325,25 @@ namespace lw.Pages
 
             DeleteOld = NewImage.ContentLength > 0 || DeleteOld;
 
-            UpdateDefaultImage(PageId, path, AutoResize, DeleteOld);
+            if (!String.IsNullOrWhiteSpace(CropOptionsJson))
+            {
+                CropOptions cropOption = System.Web.Helpers.Json.Decode<CropOptions>(CropOptionsJson);
+                UpdateDefaultImage(PageId, path, AutoResize, DeleteOld, cropOption);
+            }
+            else
+                UpdateDefaultImage(PageId, path, AutoResize, DeleteOld);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="PageId"></param>
+        /// <param name="NewImage"></param>
+        /// <param name="AutoResize"></param>
+        /// <param name="DeleteOld"></param>
+        public void UpdateDefaultImage(int PageId, HttpPostedFile NewImage,
+            bool AutoResize, bool DeleteOld)
+        {
+            UpdateDefaultImage(PageId, NewImage, AutoResize, DeleteOld, null);
         }
 
         /// <summary>
@@ -417,11 +437,17 @@ namespace lw.Pages
             PagesData.SubmitChanges();
         }
 
+        public void UpdateDefaultImage(int PageId, string OriginalImage,
+            bool AutoResize, bool DeleteOld)
+        {
+            UpdateDefaultImage(PageId, OriginalImage, AutoResize, DeleteOld, null);
+        }
+
         /// <summary>
         /// Updates the default image for the page.
         /// </summary>
         public void UpdateDefaultImage(int PageId, string OriginalImage,
-            bool AutoResize, bool DeleteOld)
+            bool AutoResize, bool DeleteOld, CropOptions cropOptions)
         {
             data.Page page = GetPage(PageId);
             data.PageType type = page.PageType != null ? GetPageType(page.PageType.Value) : null;
@@ -493,7 +519,11 @@ namespace lw.Pages
                         largeSize = new Dimension(type.LargeSize);
                 }
 
-                GraphicUtils.ImageUtils.CropImage(OriginalImage, thumbName, thumbSize.IntWidth, thumbSize.IntHeight, ImageUtils.AnchorPosition.Default);
+                if(cropOptions == null)
+                    GraphicUtils.ImageUtils.CropImage(OriginalImage, thumbName, thumbSize.IntWidth, thumbSize.IntHeight, ImageUtils.AnchorPosition.Default);
+                else
+                    GraphicUtils.ImageUtils.CropImage(OriginalImage, thumbName, thumbSize.IntWidth, thumbSize.IntHeight, ImageUtils.AnchorPosition.Custom, cropOptions);
+
                 GraphicUtils.ImageUtils.Resize(OriginalImage, mediumName, mediumSize.IntWidth, mediumSize.IntHeight);
                 GraphicUtils.ImageUtils.Resize(OriginalImage, largeName, largeSize.IntWidth, largeSize.IntHeight);
 
@@ -1177,7 +1207,7 @@ namespace lw.Pages
             int increment = 50;
 
             string sql = "Update Pages set Ranking={0}, ParentId={1} where PageId={2};";
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
             foreach (string page in pages)
             {
@@ -1509,12 +1539,261 @@ namespace lw.Pages
         }
 
 
-        #endregion
+		#endregion
 
 
-        #region Variables
 
-        public data.PagesDataContext PagesData
+		#region Page Images and Media
+		public PageImage AddPageImage(int PageId, string Caption, string fileName, Stream BytesStream)
+		{
+			if (BytesStream.Length == 0)
+			{
+				return null;
+			}
+
+			if (!Directory.Exists(WebContext.Server.MapPath("~/temp")))
+			{
+				Directory.CreateDirectory(WebContext.Server.MapPath("~/temp"));
+			}
+			string path = WebContext.Server.MapPath("~/temp");
+			path = Path.Combine(path, fileName);
+
+
+			lw.Utils.IO.SaveStream(BytesStream, path);
+
+			var row = AddPageImage(PageId, Caption, path);
+			File.Delete(path);
+			return row;
+		}
+
+		public PageImage AddPageImage(int PageId, string Caption, HttpPostedFile Image)
+		{
+			if (Image == null || Image.ContentLength <= 0)
+				return null;
+
+			if (!Directory.Exists(WebContext.Server.MapPath("~/temp")))
+			{
+				Directory.CreateDirectory(WebContext.Server.MapPath("~/temp"));
+			}
+			string path = WebContext.Server.MapPath("~/temp");
+			path = Path.Combine(path, Image.FileName);
+
+
+			Image.SaveAs(path);
+
+			var row = AddPageImage(PageId, Caption, path);
+			File.Delete(path);
+			return row;
+		}
+
+		
+		public PageImage AddPageImage(int PageId, string Caption, string image)
+		{
+			var pageImage = new PageImage
+			{
+				PageId = PageId,
+				Caption = Caption,
+				Sort = 100,
+				DateAdded = DateTime.Now,
+				DateModified = DateTime.Now
+			};
+
+
+			PagesData.PageImages.InsertOnSubmit(pageImage);
+			PagesData.SubmitChanges();
+
+
+			string path = WebContext.Server.MapPath("~/" + lw.CTE.Folders.PagesFolder);
+			path = System.IO.Path.Combine(path, string.Format("Page_{0}", PageId));
+			string largePath = Path.Combine(path, "Large");
+			string thumbPath = Path.Combine(path, "Thumb");
+			string originalPath = Path.Combine(path, "Original");
+
+
+			if (!Directory.Exists(largePath))
+				Directory.CreateDirectory(largePath);
+
+			if (!Directory.Exists(thumbPath))
+				Directory.CreateDirectory(thumbPath);
+
+			if (!Directory.Exists(originalPath))
+				Directory.CreateDirectory(originalPath);
+
+			Config cfg = new Config();
+
+			string ext = StringUtils.GetFileExtension(image);
+			string fileName = StringUtils.GetFriendlyFileName(image);
+
+			string _ImageName = string.Format("{0}_{1}.{2}", StringUtils.ToURL(fileName), pageImage.ImageId, ext);
+
+			string ImageName = string.Format("{0}\\{1}", originalPath, _ImageName);
+			string largeImageName = string.Format("{0}\\{1}", largePath, _ImageName);
+			string thumbImageName = string.Format("{0}\\{1}", thumbPath, _ImageName);
+
+			if (!Directory.Exists(originalPath))
+				Directory.CreateDirectory(originalPath);
+
+			System.IO.File.Copy(image, ImageName);
+
+			try
+			{
+				Dimension largeImageSize = new Dimension(lw.PhotoAlbums.cte.ImageDefaultSize);
+				Dimension thumbImageSize = new Dimension(lw.PhotoAlbums.cte.ImageDefaultThumbSize);
+
+				if (!string.IsNullOrWhiteSpace(cfg.GetKey(lw.PhotoAlbums.cte.ImageSize)))
+					largeImageSize = new Dimension(cfg.GetKey(lw.PhotoAlbums.cte.ImageSize));
+				if (!string.IsNullOrWhiteSpace(cfg.GetKey(lw.PhotoAlbums.cte.ImageThumbSize)))
+					thumbImageSize = new Dimension(cfg.GetKey(lw.PhotoAlbums.cte.ImageThumbSize));
+
+				lw.GraphicUtils.ImageUtils.Resize(ImageName, largeImageName, largeImageSize.IntWidth, largeImageSize.IntHeight);
+
+				if (!string.IsNullOrWhiteSpace(cfg.GetKey(lw.PhotoAlbums.cte.ImageThumbOption)) && cfg.GetKey(lw.PhotoAlbums.cte.ImageThumbOption) == "Crop")
+					lw.GraphicUtils.ImageUtils.SmartCrop(ImageName, thumbImageName, thumbImageSize.IntWidth, thumbImageSize.IntHeight);
+				else
+					lw.GraphicUtils.ImageUtils.Resize(ImageName, thumbImageName, thumbImageSize.IntWidth, thumbImageSize.IntHeight);
+			}
+			catch (Exception ex)
+			{
+				ErrorContext.Add("resize-image", "Unable to resize album image.<br><span class=hid>" + ex.Message + "</span>");
+			}
+
+			try
+			{
+				var dimensions = lw.GraphicUtils.Dimensions.GetDimensions(ImageName);
+
+				pageImage.Width = dimensions.Width;
+				pageImage.Height = dimensions.Height;
+			}
+			catch (Exception)
+			{
+
+			}
+			pageImage.FileName = _ImageName;
+			PagesData.SubmitChanges();
+			
+			return pageImage;
+		}
+
+		public static string GetImagesPath(int PageId)
+		{
+			string path = WebContext.Root + "/" + CTE.Folders.PagesFolder;
+			path = string.Format("{0}/Page_{1}", path, PageId);
+			return path;
+		}
+
+		public List<PageImageView> GetPageImages(int PageId)
+		{
+			var images = from image in PagesData.PageImages
+						 where image.PageId == PageId
+						 select image;
+
+
+			string path = GetImagesPath(PageId);
+
+			var list = new List<PageImageView>();
+
+			foreach (PageImage image in images)
+			{
+				list.Add(new PageImageView
+				{
+					Thumb = string.Format("{0}/Thumb/{1}", path, image.FileName),
+					Large = string.Format("{0}/Large/{1}", path, image.FileName),
+					Original = string.Format("{0}/Original/{1}", path, image.FileName),
+					ImageId = image.ImageId,
+					PageId = image.PageId,
+					Sort = image.Sort,
+					Caption = image.Caption,
+					FileName = image.FileName,
+					Width = image.Width,
+					Height = image.Height
+				});
+			}
+
+			return list;
+		}
+
+		public PageImageView GetPageImage(int ImageId)
+		{
+			var images = from im in PagesData.PageImages
+						 where im.ImageId == ImageId
+						 select im;
+
+			PageImageView ret = null;
+
+
+			if (images.Count() > 0)
+			{
+				var image = images.First();
+				string path = GetImagesPath(image.PageId.Value);
+				ret = new PageImageView
+				{
+					Thumb = string.Format("{0}/Thumb/{1}", path, image.FileName),
+					Large = string.Format("{0}/Large/{1}", path, image.FileName),
+					Original = string.Format("{0}/Original/{1}", path, image.FileName),
+					ImageId = image.ImageId,
+					PageId = image.PageId,
+					Sort = image.Sort,
+					Caption = image.Caption,
+					FileName = image.FileName,
+					Width = image.Width,
+					Height = image.Height
+				};
+			}
+			return ret;
+		}
+
+		public bool DeletePageImage(int ImageId)
+		{
+			PageImageView image = GetPageImage(ImageId);
+
+			if (image == null)
+				return false;
+
+			string sql = "Delete From PageImages where ImageId = " + ImageId.ToString();
+			DBUtils.ExecuteQuery(sql, cte.lib);
+
+			var path = WebContext.Server.MapPath(image.Thumb);
+			if (File.Exists(path))
+				File.Delete(path);
+
+			path = WebContext.Server.MapPath(image.Large);
+			if (File.Exists(path))
+				File.Delete(path);
+
+			path = WebContext.Server.MapPath(image.Original);
+			if (File.Exists(path))
+				File.Delete(path);
+
+			return true;
+		}
+		
+		public void SaveImagesOrder(string ids)
+		{
+			string[] _ids = ids.Split('|');
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < _ids.Length; i++)
+			{
+				try
+				{
+					int id = Int32.Parse(_ids[i]);
+					sb.Append(string.Format(
+						"Update PageImages set Sort={0} where ImageId={1};",
+						i + 1,
+						id));
+				}
+				catch
+				{
+				}
+			}
+
+			DBUtils.ExecuteQuery(sb.ToString(), cte.lib);
+		}
+
+		#endregion
+
+		#region Variables
+
+		public data.PagesDataContext PagesData
         {
             get
             {
