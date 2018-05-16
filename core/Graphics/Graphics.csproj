@@ -88,16 +88,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SoundInTheory.DynamicImage, Version=3.1.1.0, Culture=neutral, PublicKeyToken=fa44558110383067, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DynamicImage.3.1.1\lib\net40\SoundInTheory.DynamicImage.dll</HintPath>
-    </Reference>
-    <Reference Include="SoundInTheory.DynamicImage.Extensions.ContentAwareResizing, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DynamicImage.Extensions.ContentAwareResizing.3.1.1\lib\net40\SoundInTheory.DynamicImage.Extensions.ContentAwareResizing.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -117,26 +107,16 @@
       <Project>{4805E87E-9CD7-4F8B-A401-62B4CD7864CF}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\WebActivatorEx.2.0.2\lib\net40\WebActivatorEx.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\DynamicImage.cs" />
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CropOptions.cs" />
     <Compile Include="DataImage.cs" />
     <Compile Include="Dimensions.cs" />
     <Compile Include="Filters\BasicFilter.cs" />
     <Compile Include="Filters\BlackAndWhite.cs" />
     <Compile Include="Filters\BoxFilter.cs" />
-    <Compile Include="SmartCrop\Crop.cs" />
-    <Compile Include="SmartCrop\CropResult.cs" />
-    <Compile Include="SmartCrop\Options.cs" />
-    <Compile Include="SmartCrop\Score.cs" />
-    <Compile Include="SmartCrop\SmartCrop.cs" />
     <Content Include="Filters\WaveEffect.txt" />
     <Compile Include="Filters\DropShadow.cs" />
     <Compile Include="Filters\FloorReflectionFilter.cs" />
@@ -149,20 +129,11 @@
     <Compile Include="Filters\Template.cs" />
     <Compile Include="Filters\TextWatermark.cs" />
     <Compile Include="Filters\Watermark.cs" />
-    <Content Include="Image - Copy.css" />
     <Compile Include="Image.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Filters\skew.cs" />
-    <Content Include="SmartCrop\smartcrop\Crop.java" />
-    <Content Include="SmartCrop\smartcrop\CropResult.java" />
-    <Content Include="SmartCrop\smartcrop\Options.java" />
-    <Content Include="SmartCrop\smartcrop\Score.java" />
-    <Content Include="SmartCrop\smartcrop\SmartCrop.java" />
     <Content Include="_notes.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

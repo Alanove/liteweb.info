@@ -99,9 +99,6 @@ namespace lw.Menus
 		bool _includeParentLink = true;
 		bool? _canRender;
         public bool IsSecure = false;
-		public string Image = "";
-		public string Description = "";
-		public string Render = "";
 
 		public List<lwMenu> Children = new List<lwMenu>();
 		public List<lwMenu> Parents = new List<lwMenu>();
@@ -160,7 +157,6 @@ namespace lw.Menus
 		/// <returns>HTML String</returns>
 		public string ToString(string tag, bool includeParentLink, bool renderChildren, string childrenContainerTag, string childrenTag)
 		{
-
 			//TODO: fix caching by creating a unique key
 			//Testing unique key from url
 			//TODO: destroy cach when any related item is changed
@@ -209,12 +205,6 @@ namespace lw.Menus
 							continue;
 
 						hasOneItem = true;
-
-						if (!String.IsNullOrWhiteSpace(m.Render))
-						{
-							ret.Append(m.Render);
-							continue;
-						}
 
 
 						//TODO: check first and last depending on visible items and not only on count.

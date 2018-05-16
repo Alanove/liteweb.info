@@ -8,7 +8,7 @@ namespace lw.Pages
 		public const string lib = "Pages";
 
 
-		public const string DefaultThumbSize = "512x512";
+		public const string DefaultThumbSize = "128x128";
 		public const string DetaultMediumSize = "800x640";
 		public const string DetaultLargeSize = "1920x1080";
 

@@ -98,13 +98,5 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=Nazirovich;Initial Catalog=peerpack;Integrated Security=True</Value>
     </Setting>
-    <Setting Name="shmConnectionString" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=DSGn08;Initial Catalog=shm;Persist Security Info=True;User ID=sa;Password=P@55w0rd&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=DSGn08;Initial Catalog=shm;Persist Security Info=True;User ID=sa;Password=P@55w0rd</Value>
-    </Setting>
   </Settings>
 </SettingsFile>
