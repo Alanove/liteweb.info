@@ -1,4 +1,4 @@
-﻿Create View PageDataProrpertiesView
+﻿Create View PageDataPropertiesView
 as
 select pv.PageID, p.DataPropertyName, pv.DataPropertyValue
 from PageDataPropertyValue pv 

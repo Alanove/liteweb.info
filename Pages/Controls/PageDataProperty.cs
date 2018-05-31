@@ -95,8 +95,11 @@ namespace lw.Pages.Controls
 			if (_dataObj != DBNull.Value && _dataObj != null && _dataObj.ToString() != "")
 			{
 				switch (FormatType)
-				{
-					case "Decimal":
+                {
+                    case "Date":
+                        str = string.Format(Format, DateTime.Parse(_dataObj.ToString()));
+                        break;
+                    case "Decimal":
                         str = string.Format(Format, Decimal.Parse(_dataObj.ToString()));
 						break;
 					default:
