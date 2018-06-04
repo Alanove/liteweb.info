@@ -107,13 +107,16 @@ namespace lw.Searcher.Controls
                                     case "PhotoAlbums":
 										photoAlbums.RowFilter = "Id = " + dr["Id"].ToString();
 
-                                        dr["Path"] = string.Format("<a href='{0}/{3}/{1}'>{2}</a>",
-                                            WebContext.Root,
-											photoAlbums[0]["Name"].ToString(),
-											StringUtils.AddSup(StringUtils.StripOutHtmlTags(photoAlbums[0]["DisplayName"].ToString())),
-											parentPage.FullURL);
-										if (photoAlbums[0]["CategoryId"].ToString() == lw.PhotoAlbums.cte.PagesPhotoAlbumsCategoryId.ToString())
-                                            toDelete.Add(dr);
+										if (photoAlbums.Count > 0)
+										{
+											dr["Path"] = string.Format("<a href='{0}/{3}/{1}'>{2}</a>",
+												WebContext.Root,
+												photoAlbums[0]["Name"].ToString(),
+												StringUtils.AddSup(StringUtils.StripOutHtmlTags(photoAlbums[0]["DisplayName"].ToString())),
+												"photo-gallery");
+											if (photoAlbums[0]["CategoryId"].ToString() == lw.PhotoAlbums.cte.PagesPhotoAlbumsCategoryId.ToString())
+												toDelete.Add(dr);
+										}
                                         break;
                                     case "News":
                                     case "Pages":

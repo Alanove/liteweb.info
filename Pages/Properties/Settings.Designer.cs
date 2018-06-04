@@ -161,5 +161,15 @@ namespace lw.Pages.Properties {
                 return ((string)(this["shmConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=No-PC\\SQL2012;Initial Catalog=promos-2;User ID=sa;Password=P@55w0rd")]
+        public string promos_2ConnectionString {
+            get {
+                return ((string)(this["promos_2ConnectionString"]));
+            }
+        }
     }
 }
