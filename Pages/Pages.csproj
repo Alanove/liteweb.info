@@ -94,6 +94,9 @@
       <LastGenOutput>Pages1.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="data\Pages.dbml.layout">
+      <DependentUpon>Pages.dbml</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -150,11 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="_notes.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\Pages.dbml.layout">
-      <DependentUpon>Pages.dbml</DependentUpon>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
