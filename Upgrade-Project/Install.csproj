@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="4.7\Full DB - 29 May 2018.sql" />
     <Compile Include="InstallDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

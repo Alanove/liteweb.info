@@ -133,7 +133,7 @@ namespace lw.GraphicUtils.SmartCrop
 				{
 					using (var res1 = ImageUtils.FixedSize(res, Width, Height))
 					{
-						ImageUtils.SaveJpeg(PathTo, res1, 40);
+						ImageUtils.SaveJpeg(PathTo, res1, 80);
 					}
 				}
 			}
