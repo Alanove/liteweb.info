@@ -1243,7 +1243,12 @@ namespace lw.Pages
             //DBUtils.GetDataSet(newsSql, cte.lib);
         }
 
-
+        /// <summary>
+        /// returns the medium image of a page
+        /// </summary>
+        /// <param name="PageId"></param>
+        /// <param name="Image"></param>
+        /// <returns></returns>
         public static string GetMediumImage(int PageId, string Image)
         {
             if (String.IsNullOrEmpty(Image))
@@ -1256,6 +1261,12 @@ namespace lw.Pages
             return Path.Combine(path, imageName + "-m" + extension).Replace("\\", "/");
         }
 
+        /// <summary>
+        /// returns the thumb image of a page
+        /// </summary>
+        /// <param name="PageId"></param>
+        /// <param name="Image"></param>
+        /// <returns></returns>
         public static string GetThumbImage(int PageId, string Image)
         {
             if (String.IsNullOrEmpty(Image))
@@ -1268,6 +1279,12 @@ namespace lw.Pages
             return Path.Combine(path, imageName + "-t" + extension).Replace("\\", "/");
         }
 
+        /// <summary>
+        /// Returns the large image of a page
+        /// </summary>
+        /// <param name="PageId"></param>
+        /// <param name="Image"></param>
+        /// <returns></returns>
         public static string GetLargeImage(int PageId, string Image)
         {
             if (String.IsNullOrEmpty(Image))
@@ -1781,11 +1798,105 @@ namespace lw.Pages
 			DBUtils.ExecuteQuery(sb.ToString(), cte.lib);
 		}
 
-		#endregion
+        #endregion
 
-		#region Variables
 
-		public data.PagesDataContext PagesData
+
+        #region PagesExtendedProperties
+
+
+
+        /// <summary>
+        /// Gets the page extended properties by pageId
+        /// </summary>
+        /// <param name="PageId"></param>
+        /// <returns>PageDataProperties table contains all the configuration elements / PageDataPropertyValues contains the values of the these element combined with pageId if any</returns>
+        public Dictionary<string, string> GetPageExtendedProperties(int PageId)
+        {
+            var x = from p in PagesData.PageExtendedDataProperties
+                    join v in PagesData.PageExtendedDataPropertyValues on p.DataPropertyID equals v.DataPropertyID
+                    where v.PageID == PageId
+                    select new { Key = p.DataPropertyName, Value = v.DataPropertyValue };
+
+            return x.ToDictionary(mc => mc.Key.ToString(),
+                                 mc => mc.Value.ToString(),
+                                 StringComparer.OrdinalIgnoreCase);
+        }
+
+        /// <summary>
+        /// Gets the property Id for a specific property
+        /// </summary>
+        /// <param name="DataPropertyName"></param>
+        /// <returns></returns>
+        public int GetPageExntendedDataProperty(string DataPropertyName)
+        {
+            var query = from p in PagesData.PageExtendedDataProperties
+                        where p.DataPropertyName == DataPropertyName
+                        select p;
+
+            if (query.Count() > 0)
+                return query.First().DataPropertyID;
+
+            var property = new PageExtendedDataProperty
+            {
+                DataPropertyName = DataPropertyName
+            };
+
+
+            PagesData.PageExtendedDataProperties.InsertOnSubmit(property);
+            PagesData.SubmitChanges();
+
+            return property.DataPropertyID;
+        }
+
+
+        /// <summary>
+        /// Update properties of a Page
+        /// </summary>
+        /// <param name="PageId"></param>
+        /// <returns></returns>
+        public void UpdatePageExtendedProperties(int PageId, Dictionary<string, string> properties)
+        {
+            foreach (KeyValuePair<string, string> property in properties)
+            {
+                PageExtendedDataPropertyValue item = new PageExtendedDataPropertyValue();
+
+                var propID = (from p in PagesData.PageExtendedDataProperties
+                              where p.DataPropertyName == property.Key
+                              select p).FirstOrDefault();
+                if (propID != null)
+                {
+                    var propVal = (from p in PagesData.PageExtendedDataPropertyValues
+                                   where p.DataPropertyID == propID.DataPropertyID
+                                   && p.PageID == PageId
+                                   select p).FirstOrDefault();
+
+                    if (propVal != null)
+                    {
+                        if (propVal.DataPropertyValue != property.Value)
+                        {
+                            propVal.DataPropertyValue = property.Value;
+
+                            PagesData.SubmitChanges();
+                        }
+                    }
+                    else
+                    {
+                        item.PageID = PageId;
+                        item.DataPropertyID = propID.DataPropertyID;
+                        item.DataPropertyValue = property.Value;
+                        PagesData.PageExtendedDataPropertyValues.InsertOnSubmit(item);
+                        PagesData.SubmitChanges();
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+        #region Variables
+
+        public data.PagesDataContext PagesData
         {
             get
             {
