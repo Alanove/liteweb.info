@@ -22,7 +22,7 @@ namespace lw.Pages.data
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="shm")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="promos-2")]
 	public partial class PagesDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -54,10 +54,16 @@ namespace lw.Pages.data
     partial void InsertPageImageView(PageImageView instance);
     partial void UpdatePageImageView(PageImageView instance);
     partial void DeletePageImageView(PageImageView instance);
+    partial void InsertPageExtendedDataProperty(PageExtendedDataProperty instance);
+    partial void UpdatePageExtendedDataProperty(PageExtendedDataProperty instance);
+    partial void DeletePageExtendedDataProperty(PageExtendedDataProperty instance);
+    partial void InsertPageExtendedDataPropertyValue(PageExtendedDataPropertyValue instance);
+    partial void UpdatePageExtendedDataPropertyValue(PageExtendedDataPropertyValue instance);
+    partial void DeletePageExtendedDataPropertyValue(PageExtendedDataPropertyValue instance);
     #endregion
 		
 		public PagesDataContext() : 
-				base(global::lw.Pages.Properties.Settings.Default.shmConnectionString, mappingSource)
+				base(global::lw.Pages.Properties.Settings.Default.promos_2ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -171,6 +177,22 @@ namespace lw.Pages.data
 			get
 			{
 				return this.GetTable<PageImageView>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PageExtendedDataProperty> PageExtendedDataProperties
+		{
+			get
+			{
+				return this.GetTable<PageExtendedDataProperty>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PageExtendedDataPropertyValue> PageExtendedDataPropertyValues
+		{
+			get
+			{
+				return this.GetTable<PageExtendedDataPropertyValue>();
 			}
 		}
 		
@@ -3481,6 +3503,202 @@ namespace lw.Pages.data
 					this._Original = value;
 					this.SendPropertyChanged("Original");
 					this.OnOriginalChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PageExtendedDataProperty")]
+	public partial class PageExtendedDataProperty : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _DataPropertyID;
+		
+		private string _DataPropertyName;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDataPropertyIDChanging(int value);
+    partial void OnDataPropertyIDChanged();
+    partial void OnDataPropertyNameChanging(string value);
+    partial void OnDataPropertyNameChanged();
+    #endregion
+		
+		public PageExtendedDataProperty()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataPropertyID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int DataPropertyID
+		{
+			get
+			{
+				return this._DataPropertyID;
+			}
+			set
+			{
+				if ((this._DataPropertyID != value))
+				{
+					this.OnDataPropertyIDChanging(value);
+					this.SendPropertyChanging();
+					this._DataPropertyID = value;
+					this.SendPropertyChanged("DataPropertyID");
+					this.OnDataPropertyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataPropertyName", DbType="NVarChar(50)")]
+		public string DataPropertyName
+		{
+			get
+			{
+				return this._DataPropertyName;
+			}
+			set
+			{
+				if ((this._DataPropertyName != value))
+				{
+					this.OnDataPropertyNameChanging(value);
+					this.SendPropertyChanging();
+					this._DataPropertyName = value;
+					this.SendPropertyChanged("DataPropertyName");
+					this.OnDataPropertyNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PageExtendedDataPropertyValue")]
+	public partial class PageExtendedDataPropertyValue : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PageID;
+		
+		private int _DataPropertyID;
+		
+		private string _DataPropertyValue;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPageIDChanging(int value);
+    partial void OnPageIDChanged();
+    partial void OnDataPropertyIDChanging(int value);
+    partial void OnDataPropertyIDChanged();
+    partial void OnDataPropertyValueChanging(string value);
+    partial void OnDataPropertyValueChanged();
+    #endregion
+		
+		public PageExtendedDataPropertyValue()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PageID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int PageID
+		{
+			get
+			{
+				return this._PageID;
+			}
+			set
+			{
+				if ((this._PageID != value))
+				{
+					this.OnPageIDChanging(value);
+					this.SendPropertyChanging();
+					this._PageID = value;
+					this.SendPropertyChanged("PageID");
+					this.OnPageIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataPropertyID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int DataPropertyID
+		{
+			get
+			{
+				return this._DataPropertyID;
+			}
+			set
+			{
+				if ((this._DataPropertyID != value))
+				{
+					this.OnDataPropertyIDChanging(value);
+					this.SendPropertyChanging();
+					this._DataPropertyID = value;
+					this.SendPropertyChanged("DataPropertyID");
+					this.OnDataPropertyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataPropertyValue", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string DataPropertyValue
+		{
+			get
+			{
+				return this._DataPropertyValue;
+			}
+			set
+			{
+				if ((this._DataPropertyValue != value))
+				{
+					this.OnDataPropertyValueChanging(value);
+					this.SendPropertyChanging();
+					this._DataPropertyValue = value;
+					this.SendPropertyChanged("DataPropertyValue");
+					this.OnDataPropertyValueChanged();
 				}
 			}
 		}
