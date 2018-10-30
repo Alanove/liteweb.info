@@ -103,6 +103,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polls", "Polls\Polls.csproj", "{A2013716-A389-4EA9-A21D-5EE05F62B1B4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "yweb", "yweb", "{1488A647-7FC9-4473-8B9E-3210FCB5895E}"
+	ProjectSection(SolutionItems) = preProject
+		_notes.txt = _notes.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searcher", "core-web\Searcher\Searcher.csproj", "{D487CF32-6E28-4C31-9E1F-5928F26522DC}"
 EndProject
