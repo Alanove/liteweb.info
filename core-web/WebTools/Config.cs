@@ -176,21 +176,24 @@ namespace lw.WebTools
 				{
 				}
 			}
+			string connectionString = "";
 
-			string connectionString = System.Web.Configuration.WebConfigurationManager.ConnectionStrings[connectionStrType].ConnectionString;
-
-			if (String.IsNullOrEmpty(connectionString))
+			if (System.Web.Configuration.WebConfigurationManager.ConnectionStrings[connectionStrType] != null)
 			{
-				Exception ex = new Exception("Connection string not found: " + connectionStrType);
-				throw (ex);
+				connectionString = System.Web.Configuration.WebConfigurationManager.ConnectionStrings[connectionStrType].ConnectionString;
+
+				if (String.IsNullOrEmpty(connectionString))
+				{
+					Exception ex = new Exception("Connection string not found: " + connectionStrType);
+					throw (ex);
+				}
+
+				if (encryptConnections)
+					connectionString = Cryptography.Decrypt(connectionString, AppConfig.__);
+
+				WebContext.Cache.Insert(key, connectionString);
+
 			}
-
-			if(encryptConnections)
-				connectionString = Cryptography.Decrypt(connectionString, AppConfig.__);
-
-			WebContext.Cache.Insert(key, connectionString);
-
-
 			return connectionString;
 		}
 
