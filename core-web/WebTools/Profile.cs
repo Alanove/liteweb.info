@@ -313,8 +313,12 @@ namespace lw.WebTools
 		/// </summary>
 		public override void Save()
 		{
-			if (_isDbSave || UserLogged)
-				base.Save();
+			try
+			{
+				if (_isDbSave || UserLogged)
+					base.Save();
+			}
+			catch { }
 		}
 		#endregion
 	

@@ -76,7 +76,7 @@ namespace lw.DataControls
 			if (!String.IsNullOrWhiteSpace(str) || Editable)
 			{
 				Visible = true;
-			}
+			} 
 			else
 			{
 				Visible = false;

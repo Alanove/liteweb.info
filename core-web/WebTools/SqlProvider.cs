@@ -12,22 +12,29 @@ namespace lw.WebTools
 		}
 		public override void Initialize(string name, System.Collections.Specialized.NameValueCollection config)
 		{
-			base.Initialize(name, config);
-
-			Config cfg = new Config();
-
-			string _isGodaddy = cfg.GetKey(lw.CTE.parameters.IsGodaddyHosting);
-
-			if (String.IsNullOrEmpty(_isGodaddy))
-				_isGodaddy = "false";
-
-			if (!bool.Parse(_isGodaddy))
+			try
 			{
-				var connectionStringField = GetType().BaseType.GetField("_sqlConnectionString", BindingFlags.Instance | BindingFlags.NonPublic);
+				base.Initialize(name, config);
 
-				string conn = Config.GetConnectionString(Config.GetFromWebConfig(AppConfig.ProfileConnection));
+				Config cfg = new Config();
 
-				connectionStringField.SetValue(this, conn);
+				string _isGodaddy = cfg.GetKey(lw.CTE.parameters.IsGodaddyHosting);
+
+				if (String.IsNullOrEmpty(_isGodaddy))
+					_isGodaddy = "false";
+
+				if (!bool.Parse(_isGodaddy))
+				{
+					var connectionStringField = GetType().BaseType.GetField("_sqlConnectionString", BindingFlags.Instance | BindingFlags.NonPublic);
+
+					string conn = Config.GetConnectionString(Config.GetFromWebConfig(AppConfig.ProfileConnection));
+
+					connectionStringField.SetValue(this, conn);
+				}
+			}
+			catch
+			{
+
 			}
 		}
 	}
