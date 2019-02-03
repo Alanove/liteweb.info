@@ -10,6 +10,7 @@ namespace lw.Data
 		string connectionString = "";
 		string dataLibrary = "";
 		int rowsCount = 0;
+		string orderBy;
 		bool _conninit = false;
 		SqlConnection connection;
 
@@ -17,9 +18,10 @@ namespace lw.Data
 		public DataSource()
 		{
 		}
-		public DataSource(string sql, string library)
+		public DataSource(string sql, string orderBy, string library)
 		{
 			this.selectCommand = sql;
+			this.orderBy = orderBy;
 			this.dataLibrary = library;
 		}
 
