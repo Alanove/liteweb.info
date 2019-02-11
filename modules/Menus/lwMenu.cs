@@ -336,7 +336,7 @@ namespace lw.Menus
 		{
 			Regex re = new Regex("&reg;|®", RegexOptions.IgnoreCase);
             string test = WebContext.Request.RawUrl;
-			string url = string.Format("<a " + (StringUtils.IsNullOrWhiteSpace(this.DisplayName) ? "" : "class=\"dd-handle\"") + " href=\"{0}\" title=\"{1}\"{3}>{2}</a>",
+			string url = string.Format("<a " + (StringUtils.IsNullOrWhiteSpace(this.DisplayName) ? "" : "class=\"nav-link\"") + " href=\"{0}\" title=\"{1}\"{3}>{2}</a>",
 						this.GetUrl(),
 						this.DisplayName,
 						re.Replace(this.DisplayName, "<sup>&reg;</sup>"),

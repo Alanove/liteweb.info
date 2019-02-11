@@ -850,7 +850,8 @@ namespace lw.PhotoAlbums
 				lw.GraphicUtils.ImageUtils.Resize(ImageName, largeImageName, largeImageSize.IntWidth, largeImageSize.IntHeight);
 
 				if (!string.IsNullOrWhiteSpace(cfg.GetKey(cte.ImageThumbOption)) && cfg.GetKey(cte.ImageThumbOption) == "Crop")
-					lw.GraphicUtils.ImageUtils.CropImage(ImageName, thumbImageName, thumbImageSize.IntWidth, thumbImageSize.IntHeight, ImageUtils.AnchorPosition.Default);
+					lw.GraphicUtils.ImageUtils.SmartCrop(ImageName, thumbImageName, thumbImageSize.IntWidth, thumbImageSize.IntHeight);
+				//lw.GraphicUtils.ImageUtils.CropImage(ImageName, thumbImageName, thumbImageSize.IntWidth, thumbImageSize.IntHeight, ImageUtils.AnchorPosition.Default);
 				else
 					lw.GraphicUtils.ImageUtils.Resize(ImageName, thumbImageName, thumbImageSize.IntWidth, thumbImageSize.IntHeight);
 			}

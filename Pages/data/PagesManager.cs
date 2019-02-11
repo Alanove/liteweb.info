@@ -1694,6 +1694,7 @@ namespace lw.Pages
 		{
 			var images = from image in PagesData.PageImages
 						 where image.PageId == PageId
+						 orderby image.Sort
 						 select image;
 
 

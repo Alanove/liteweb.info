@@ -49,7 +49,7 @@ namespace lw.DataControls
 								((PagingDataSource)dataSrc).PageSize = PageSize;
 							}
 							else
-								dataSrc = new DataSource(selectCommand, DataLibrary);
+								dataSrc = new DataSource(selectCommand, OrderBy, DataLibrary);
 							try
 							{
 								data = dataSrc.GetData();
