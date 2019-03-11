@@ -278,7 +278,10 @@ namespace lw.Pages.Controls
                         _pageId = _pageDetails.PageId;
                         _pageURL = _pageDetails.URL;
 
-                        if (_pageDetails.Status == (byte)PageStatus.Hidden && !MyPage.Editable && WebContext.Request["preview"] != "true")
+                        if (_pageDetails.Status == (byte)PageStatus.Hidden && 
+							!MyPage.Editable && WebContext.Request["preview"] != "true" &&
+							!lw.Operators.Security.Manager.IsOpLoggedIn
+							)
                             _pageDetails = null;
 
                         //if (_pageDetails.Status == (byte)PageStatus.Deleted)

@@ -146,6 +146,10 @@
       <Project>{1fe43609-9a18-441d-9d84-d4056f00339b}</Project>
       <Name>ImageControls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\modules\Operators\Operators.csproj">
+      <Project>{18a352ce-edb6-49f7-aca0-0b5c767c4c1e}</Project>
+      <Name>Operators</Name>
+    </ProjectReference>
     <ProjectReference Include="..\modules\PhotoAlbums\PhotoAlbums.csproj">
       <Project>{813956b6-c82a-439c-8e1f-838ec8ad002c}</Project>
       <Name>PhotoAlbums</Name>

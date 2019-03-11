@@ -176,5 +176,20 @@ namespace lw.Operators.Security
 			WebContext.Profile.OperatorGroupXmlFile = "";
 			WebContext.Profile.CurrentUserType = UserType.Guest;
 		}
+
+		/// <summary>
+		/// Flag to check if an operator is currently logged in
+		/// </summary>
+		public static bool IsOpLoggedIn
+		{
+			get
+			{
+				return WebContext.Profile.UserLogged
+					&&
+					WebContext.Profile.OperatorGroupName != ""
+					&&
+					WebContext.Profile.OperatorGroupXmlFile != "";
+			}
+		}
 	}
 }
