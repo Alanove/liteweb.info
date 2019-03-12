@@ -681,7 +681,7 @@ namespace lw.PhotoAlbums
 			return row;
 		}
 
-		public DataRow AddImage(int AlbumId, string Caption, HttpPostedFile Image)
+		public DataRow AddImage(int AlbumId, string Caption, HttpPostedFile Image, int Sort = 100000)
 		{
 			if (Image == null || Image.ContentLength <= 0)
 				return null;
@@ -696,7 +696,7 @@ namespace lw.PhotoAlbums
 
 			Image.SaveAs(path);
 
-			DataRow row = AddImage(AlbumId, Caption, path);
+			DataRow row = AddImage(AlbumId, Caption, path, Sort);
 			File.Delete(path);
 			return row;
 
@@ -789,7 +789,7 @@ namespace lw.PhotoAlbums
 		</Parameters>
 		*/
 
-		public DataRow AddImage(int AlbumId, string Caption, string image)
+		public DataRow AddImage(int AlbumId, string Caption, string image, int Sort = 100000)
 		{
 			AlbumsDS _ds = new AlbumsDS();
 
@@ -798,7 +798,7 @@ namespace lw.PhotoAlbums
 
 			row.AlbumId = AlbumId;
 			row.Caption = Caption;
-			row.Sort = 100;
+			row.Sort = Sort;
 			row.DateAdded = DateTime.Now;
 			row.DateModified = DateTime.Now;
 

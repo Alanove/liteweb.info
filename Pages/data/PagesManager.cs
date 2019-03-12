@@ -1590,7 +1590,7 @@ namespace lw.Pages
 			return row;
 		}
 
-		public PageImage AddPageImage(int PageId, string Caption, HttpPostedFile Image)
+		public PageImage AddPageImage(int PageId, string Caption, HttpPostedFile Image, int Sort = 100000)
 		{
 			if (Image == null || Image.ContentLength <= 0)
 				return null;
@@ -1605,19 +1605,19 @@ namespace lw.Pages
 
 			Image.SaveAs(path);
 
-			var row = AddPageImage(PageId, Caption, path);
+			var row = AddPageImage(PageId, Caption, path, Sort);
 			File.Delete(path);
 			return row;
 		}
 
 
-		public PageImage AddPageImage(int PageId, string Caption, string image)
+		public PageImage AddPageImage(int PageId, string Caption, string image, int Sort = 100000)
 		{
 			var pageImage = new PageImage
 			{
 				PageId = PageId,
 				Caption = Caption,
-				Sort = 100,
+				Sort = Sort,
 				DateAdded = DateTime.Now,
 				DateModified = DateTime.Now
 			};
