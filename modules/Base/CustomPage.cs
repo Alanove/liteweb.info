@@ -238,10 +238,10 @@ namespace lw.Base
 		}
 		void RenderScripts()
 		{
-			//bool cacheJsFiles = true;
+			bool cacheJsFiles = true;
 
-			//if (!String.IsNullOrWhiteSpace(lw.WebTools.WebUtils.GetFromWebConfig(cte.CacheJsFiles)))
-			//	cacheJsFiles = bool.Parse(lw.WebTools.WebUtils.GetFromWebConfig(cte.CacheJsFiles));
+			if (!String.IsNullOrWhiteSpace(lw.WebTools.WebUtils.GetFromWebConfig(cte.CacheJsFiles)))
+				cacheJsFiles = bool.Parse(lw.WebTools.WebUtils.GetFromWebConfig(cte.CacheJsFiles));
 
 			System.Web.UI.WebControls.Literal l;
 			var sb = new StringBuilder();
@@ -251,51 +251,51 @@ namespace lw.Base
 				{
 					foreach (string key in HeaderScriptFiles.Keys)
 					{
-						//if (!cacheJsFiles)
-						//{
-						//	sb.Append(string.Format("<script type=\"text/javascript\" id=\"{0}\" src=\"{1}\"></script>{2}",
-						//		key, HeaderScriptFiles[key], System.Environment.NewLine));
-						//}
-						//else
-						//{
+						if (!cacheJsFiles)
+						{
+							sb.Append(string.Format("<script type=\"text/javascript\" id=\"{0}\" src=\"{1}\"></script>{2}",
+								key, HeaderScriptFiles[key], System.Environment.NewLine));
+						}
+						else
+						{
 							sb.Append(",");
 							sb.Append(HeaderScriptFiles[key]);
-						//}
+						}
 					}
-					//if (cacheJsFiles)
+					if (cacheJsFiles)
 						HeaderCombinedScripts.Scripts += sb.ToString();
-					//else
-					//{
-					//	l = new System.Web.UI.WebControls.Literal { Text = sb.ToString() };
+					else
+					{
+						l = new System.Web.UI.WebControls.Literal { Text = sb.ToString() };
 
-					//	Head.Controls.AddAt(_scriptsRendered++, l);
-					//}
+						Head.Controls.AddAt(_scriptsRendered++, l);
+					}
 					sb = new StringBuilder();
 
 					foreach (string key in ScriptFiles.Keys)
 					{
-						//if (!cacheJsFiles)
-						//{
-						//	sb.Append(string.Format("<script type=\"text/javascript\" id=\"{0}\" src=\"{1}\"></script>{2}",
-						//		key, ScriptFiles[key], System.Environment.NewLine));
-						//}
-						//else
-						//{
+						if (!cacheJsFiles)
+						{
+							sb.Append(string.Format("<script type=\"text/javascript\" id=\"{0}\" src=\"{1}\"></script>{2}",
+								key, ScriptFiles[key], System.Environment.NewLine));
+						}
+						else
+						{
 							sb.Append(",");
 							sb.Append(ScriptFiles[key]);
-						//}
+						}
 					}
-					//if (cacheJsFiles)
+					if (cacheJsFiles)
 						FooterCombinedScripts.Scripts += sb.ToString();
-					//else
-					//{
-					//	l = new System.Web.UI.WebControls.Literal { Text = sb.ToString() };
+					else
+					{
+						l = new System.Web.UI.WebControls.Literal { Text = sb.ToString() };
 
-					//	if (BodyControl != null)
-					//		BodyControl.Controls.Add(l);
-					//	else
-					//		Head.Controls.AddAt(_scriptsRendered++, l);
-					//}
+						if (BodyControl != null)
+							BodyControl.Controls.Add(l);
+						else
+							Head.Controls.AddAt(_scriptsRendered++, l);
+					}
 				}
 				else
 				{
