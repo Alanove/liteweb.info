@@ -179,8 +179,8 @@ mail now takes credentials from web.config automatic configuration
 
 			msg.Body = bodyHtml;
 			msg.IsBodyHtml = true;
-			msg.BodyEncoding = new UTF8Encoding();
-			
+			msg.BodyEncoding = System.Text.Encoding.UTF8;
+
 			try
 			{
 				bool noBcc = false;
